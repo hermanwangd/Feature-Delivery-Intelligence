@@ -1,6 +1,6 @@
 # FDI Workflow Semantics v0.1
 
-**Status:** Approved design baseline · **Date:** 2026-08-29
+**Status:** Approved semantic baseline · **Date:** 2026-08-29
 
 ## Purpose
 
@@ -16,6 +16,16 @@ delivered result both conforms to the plan and works for its intended use.
 
 In this document, **must** identifies a semantic obligation. It does not imply a
 particular schema, file, tool, approval gate, or automation mechanism.
+
+An adopted team profile may specialize these semantics with concrete storage,
+schemas, selectors, Skills, and gates. The companion
+[FDI Context Taxonomy and Markdown Contract v0.1](./2026-08-29-fdi-context-taxonomy-design.md)
+is one such optional profile. Its concrete layout is binding only for a
+repository that adopts that profile; it does not add a canonical artifact,
+change the four-artifact flow, or make this semantic baseline storage-specific.
+Profile-local paths, Markdown schemas, status vocabularies, authorization
+roles, anchors, and gates are not additional conformance requirements of FDI
+Workflow Semantics v0.1.
 
 ## Core model
 
@@ -267,21 +277,31 @@ product candidate and producer-side evidence below.
 - any generated or operational artifacts necessary to evaluate that candidate;
 - every known deviation, unfinished item, or newly discovered constraint, with
   its reason and expected effect on the Delivery Spec, intended use,
-  verification and validation, or risk.
+  verification and validation, or risk; and
+- for every deviation, a stable deviation ID linked to one proposed
+  disposition: a corrected Change Set, an authorized Delivery Spec revision,
+  an authorized waiver/risk acceptance, or a corrective action with owner and
+  status. The Change Set also records a proposed blocking state for independent
+  assessment.
 
 An undeclared deviation is a defect in the Change Set's traceability. A declared
-deviation is not automatically acceptable; it must be reconciled by revising
-the Delivery Spec or correcting the Change Set before a `PASS` verdict.
+deviation is not automatically acceptable. Before independent verification and
+validation begins, every known deviation must be declared and linked to its
+proposed disposition. An unresolved deviation may be assessed and reported;
+the V&V Report determines its blocking classification and final disposition.
+An unresolved blocking deviation prevents a `PASS` verdict but does not prevent
+a complete `FAIL` or `INCONCLUSIVE` report.
 
 #### Completion condition
 
 Change Set is complete when:
 
-- required implementation work is complete, or each exception is explicitly
-  declared;
+- required implementation work is complete, or every exception is declared as
+  a deviation and linked to a proposed disposition;
 - the candidate is buildable and reviewable in the intended environment;
 - required producer-side checks have been run and their results captured;
-- there are no silent deviations from the Delivery Spec; and
+- there are no silent or proposed-disposition-free deviations from the
+  Delivery Spec; and
 - the Change Set is ready for independent verification and validation.
 
 Completion here means ready for correctness assessment, not already proven
@@ -331,8 +351,9 @@ disposition below.
   criteria, including environment, evidence, and result;
 - evidence sources and the execution conditions needed to interpret them;
 - known deviations, anomalies, untested conditions, missing evidence, and other
-  gaps;
-- the impact and recommended disposition of each material gap; and
+  gaps, including each deviation's confirmed disposition and blocking
+  classification;
+- the impact and final or required disposition of each material gap; and
 - one overall verdict: `PASS`, `FAIL`, or `INCONCLUSIVE`, with a rationale and
   the required next step when the verdict is not `PASS`.
 
@@ -340,7 +361,9 @@ Teams may record finer-grained results, but the canonical report still carries
 one overall verdict:
 
 - `PASS`: sufficient evidence shows both Delivery Spec conformance and
-  satisfaction of the Intention, with no unresolved material gap.
+  satisfaction of the Intention, with no unresolved material gap or blocking
+  deviation; every remaining non-blocking deviation has an explicit final
+  disposition.
 - `FAIL`: sufficient evidence shows that at least one required conformance or
   Intention criterion is not met.
 - `INCONCLUSIVE`: available evidence is insufficient, unavailable, invalid, or
@@ -354,7 +377,9 @@ stated; verification and validation results are recorded separately; evidence
 is sufficient to support the verdict and is not based solely on the
 implementation agent's claims; limitations and gaps are disclosed; and the
 verdict and required next step follow from that record. `PASS` is permitted only
-when no material failure or unresolved gap remains within the evaluated scope.
+when no material failure, unresolved gap, or blocking deviation remains within
+the evaluated scope. A complete report may still return `FAIL`
+or `INCONCLUSIVE` while such a blocker remains.
 
 Report completion does not mean delivery success: a complete report may
 correctly conclude `FAIL` or `INCONCLUSIVE`.
@@ -398,7 +423,8 @@ v0.1 preserves these invariants:
 5. Delivery Spec remains one logical artifact containing requirements, design,
    tasks, and the verification and validation plan.
 6. Change Set is an assessable product candidate, records producer-side checks,
-   and declares deviations.
+   and links every declared deviation to a proposed disposition and proposed
+   blocking state before V&V.
 7. Verification is assessed against Delivery Spec; validation is assessed
    against Intention and intended use.
 8. The final report uses independently generated or reproduced evidence and
@@ -434,9 +460,11 @@ workflow.
 
 ## Explicit deferrals
 
-Version 0.1 intentionally does **not** define:
+The storage-neutral semantic baseline in version 0.1 intentionally does **not**
+universally require or define:
 
-- a Context manifest, taxonomy, assembly protocol, or freshness algorithm;
+- a universal Context manifest, taxonomy, assembly protocol, or freshness
+  algorithm;
 - artifact, evidence, decision, lineage, or execution ledgers;
 - a workflow engine, control plane, state machine, event model, or scheduler;
 - universal artifact schemas, identifiers, file names, directory layouts, or
@@ -444,14 +472,15 @@ Version 0.1 intentionally does **not** define:
 - a standard traceability database or graph;
 - required agents, prompts, models, tools, permissions, approval roles, or gate
   implementations;
-- a cross-repository coordination protocol;
+- a universal cross-repository coordination protocol;
 - standardized policy enforcement, deployment, rollback, or observability
   machinery; or
 - any other platform mechanism whose necessity has not been demonstrated by a
   validated team use case.
 
-Teams may implement local versions of these mechanisms when useful. FDI will
-standardize one only after concrete use cases show that a shared contract is
+Teams may adopt optional profiles or implement local versions of these
+mechanisms when useful. FDI Workflow Semantics will make one universally
+normative only after concrete use cases show that a shared baseline contract is
 necessary and that the contract can preserve team-specific workflows without
 premature complexity.
 
@@ -460,4 +489,5 @@ premature complexity.
 This design defines what the workflow artifacts and transitions mean. It is
 complete at that semantic boundary. Future work may test the semantics with a
 real team workflow and propose machinery in response to observed needs; such
-machinery is not implicitly part of v0.1.
+machinery, including machinery already defined by an optional profile, is not
+implicitly part of storage-neutral v0.1 conformance.
