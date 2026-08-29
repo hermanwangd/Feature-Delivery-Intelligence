@@ -9,7 +9,7 @@
 - Producer: implementation agent
 - Candidate base: 11306cacad93f3b2eb341cfd5e8eb1e78ff1638e
 - Candidate head: bf4e12d44be77063cdfa334815a1be8146b7561c
-- Coordination-record commit: externally resolved after this file is committed
+- First coordination_record_sha: 4b7a45311d63c851891cc45e82512c8b1c2e59c0
 - Execution-verified: NOT_CLAIMED
 
 <a id="inputs"></a>
@@ -71,9 +71,9 @@
 
 | Repository ID | Target/base | Candidate base | Candidate head | PR | PR head observed at creation | Coordination record head |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| feature-delivery-intelligence | main@54db6e2879abd5ac8e7319efe8ef06a5b7ae5482 | 11306cacad93f3b2eb341cfd5e8eb1e78ff1638e | bf4e12d44be77063cdfa334815a1be8146b7561c | #3 https://github.com/hermanwangd/Feature-Delivery-Intelligence/pull/3 | bf4e12d44be77063cdfa334815a1be8146b7561c | PENDING external resolution after commit |
+| feature-delivery-intelligence | main@54db6e2879abd5ac8e7319efe8ef06a5b7ae5482 | 11306cacad93f3b2eb341cfd5e8eb1e78ff1638e | bf4e12d44be77063cdfa334815a1be8146b7561c | #3 https://github.com/hermanwangd/Feature-Delivery-Intelligence/pull/3 | bf4e12d44be77063cdfa334815a1be8146b7561c | 4b7a45311d63c851891cc45e82512c8b1c2e59c0 (provider-observed PR head after first coordination commit) |
 
-The candidate head and later coordination/PR heads are distinct. A file cannot embed its own containing commit SHA; final PR head/merge-base/inventory will be recorded externally after the final push.
+The candidate head, first coordination_record_sha, and later V&V/final PR heads are distinct. This revision records the first coordination commit only after Git and GitHub resolved it. A file cannot embed its own containing commit SHA; final PR head/merge-base/inventory will be recorded externally after the final push.
 
 <a id="changed-paths"></a>
 ## Changed paths

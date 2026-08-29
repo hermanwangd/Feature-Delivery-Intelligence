@@ -5,9 +5,10 @@
 
 - Evidence ID: source-diff
 - Feature: HERM-209
-- Evidence revision: source-diff-v1
+- Evidence revision: source-diff-v2
 - Candidate base/head: 11306cacad93f3b2eb341cfd5e8eb1e78ff1638e/bf4e12d44be77063cdfa334815a1be8146b7561c
 - PR: #3 https://github.com/hermanwangd/Feature-Delivery-Intelligence/pull/3
+- First coordination_record_sha / provider-observed PR head: 4b7a45311d63c851891cc45e82512c8b1c2e59c0
 
 <a id="claim"></a>
 ## Claim
@@ -42,6 +43,7 @@ Resolve exact commits; inspect parent and merge-base; run git diff --check; run 
 - README at candidate base: absent
 - README at candidate head: present
 - PR #3 creation snapshot: OPEN, target main@54db6e2879abd5ac8e7319efe8ef06a5b7ae5482, head bf4e12d44be77063cdfa334815a1be8146b7561c, 43 changed files, mergeable/CLEAN, no provider checks
+- PR #3 post-coordination snapshot: OPEN, target main@54db6e2879abd5ac8e7319efe8ef06a5b7ae5482, head 4b7a45311d63c851891cc45e82512c8b1c2e59c0, 45 changed files, no provider checks; mergeability was transiently UNKNOWN immediately after push and is not used as a correctness claim
 
 <a id="result"></a>
 ## Result
@@ -53,7 +55,7 @@ PASS as producer evidence for candidate adjacency, exact README-only source diff
 
 - README SHA-256: f935717da40a3c071be468ec9ca53997b6ff022848122664cdfddfe8bfa95c83
 - candidate patch SHA-256: bc38821fb59667ce6469f43c2f3bfc40c936e4558f99a78e331c2a85106db45f
-- Git object IDs are immutable.
+- Git object IDs, including first coordination_record_sha 4b7a45311d63c851891cc45e82512c8b1c2e59c0, are immutable.
 - Provider observation used authenticated gh CLI.
 - Raw credentials/provider tokens and user-local paths are excluded.
 
@@ -65,7 +67,7 @@ Producer: implementation agent. Source/branch/PR owner: Repository owner. Eviden
 <a id="limitations"></a>
 ## Limitations
 
-Provider state can change after observation; the final PR head is a later coordination/V&V commit and must be recorded externally. No CI check existed at PR creation. No release/runtime/B1/B2/B3 claim.
+Provider state can change after observation; the final PR head is a later V&V commit and must be recorded externally. No provider check existed at either recorded snapshot. Transient mergeability is not evidence. No release/runtime/B1/B2/B3 claim.
 
 <a id="validity-expiry-and-supersession"></a>
 ## Validity, expiry, and supersession
