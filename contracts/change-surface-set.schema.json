@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fdi.local/contracts/change-surface-set.schema.json",
+  "title": "ChangeSurfaceSet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract_name", "contract_version", "record_id", "feature_id", "revision", "created_at", "producer_id", "owner_id", "lifecycle", "intent_spec_ref", "candidate_repo_set_ref", "selector_refs", "surfaces", "dependency_edges", "unknowns"],
+  "properties": {
+    "contract_name": {"const": "ChangeSurfaceSet"}, "contract_version": {"type": "string", "pattern": "^1\\.[0-9]+\\.[0-9]+$"},
+    "record_id": {"$ref": "#/$defs/id"}, "feature_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"}, "revision": {"type": "integer", "minimum": 1}, "created_at": {"type": "string", "format": "date-time"},
+    "producer_id": {"$ref": "#/$defs/id"}, "owner_id": {"$ref": "#/$defs/id"}, "lifecycle": {"$ref": "#/$defs/lifecycle"},
+    "intent_spec_ref": {"$ref": "#/$defs/recordRef"}, "candidate_repo_set_ref": {"$ref": "#/$defs/recordRef"},
+    "selector_refs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/selectorRef"}},
+    "surfaces": {"type": "array", "items": {"$ref": "#/$defs/surface"}},
+    "dependency_edges": {"type": "array", "items": {"$ref": "#/$defs/edge"}},
+    "unknowns": {"type": "array", "items": {"$ref": "#/$defs/unknown"}}
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"}, "digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "sha": {"type": "string", "pattern": "^[a-f0-9]{40,64}$"},
+    "path": {"type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*\\\\)[^\\u0000]+$"},
+    "lifecycle": {"type": "string", "enum": ["ACTIVE", "STALE", "SUPERSEDED", "RETIRED"]},
+    "recordRef": {"type": "object", "additionalProperties": false, "required": ["contract_name", "contract_version", "record_id", "revision", "digest"], "properties": {"contract_name": {"type": "string", "minLength": 1}, "contract_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"}, "record_id": {"$ref": "#/$defs/id"}, "revision": {"type": "integer", "minimum": 1}, "digest": {"$ref": "#/$defs/digest"}}},
+    "selectorRef": {"type": "object", "additionalProperties": false, "required": ["selector_id", "revision", "repository_id", "repository_revision", "concrete_matches", "pass_evidence_ref"], "properties": {"selector_id": {"$ref": "#/$defs/id"}, "revision": {"type": "integer", "minimum": 1}, "repository_id": {"$ref": "#/$defs/id"}, "repository_revision": {"$ref": "#/$defs/sha"}, "concrete_matches": {"type": "array", "items": {"$ref": "#/$defs/path"}, "uniqueItems": true}, "pass_evidence_ref": {"$ref": "#/$defs/id"}}},
+    "surface": {
+      "type": "object", "additionalProperties": false,
+      "required": ["surface_id", "repository_id", "repository_revision", "path", "symbol_or_anchor", "anchor_absence_reason", "surface_type", "criterion_ids", "obligation_ids", "disposition", "evidence_refs", "current_evidence", "owner_id", "dependency_refs", "limitations", "materiality"],
+      "properties": {"surface_id": {"$ref": "#/$defs/id"}, "repository_id": {"$ref": "#/$defs/id"}, "repository_revision": {"$ref": "#/$defs/sha"}, "path": {"$ref": "#/$defs/path"}, "symbol_or_anchor": {"type": ["string", "null"], "minLength": 1}, "anchor_absence_reason": {"type": ["string", "null"], "minLength": 1}, "surface_type": {"type": "string", "enum": ["SOURCE", "API", "EVENT", "SCHEMA", "DATA", "CONFIG", "TEST", "DEPLOYMENT", "DOCUMENTATION", "OTHER"]}, "criterion_ids": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/id"}, "uniqueItems": true}, "obligation_ids": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/id"}, "uniqueItems": true}, "disposition": {"type": "string", "enum": ["CANDIDATE", "CONFIRMED", "EXCLUDED", "UNRESOLVED"]}, "evidence_refs": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true}, "current_evidence": {"type": "boolean"}, "owner_id": {"anyOf": [{"$ref": "#/$defs/id"}, {"type": "null"}]}, "dependency_refs": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true}, "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}}, "materiality": {"type": "string", "enum": ["MATERIAL", "NON_MATERIAL", "UNKNOWN"]}},
+      "allOf": [
+        {"if": {"properties": {"symbol_or_anchor": {"type": "null"}}}, "then": {"properties": {"anchor_absence_reason": {"type": "string", "minLength": 1}}}},
+        {"if": {"properties": {"disposition": {"enum": ["CONFIRMED", "EXCLUDED"]}}}, "then": {"properties": {"current_evidence": {"const": true}, "evidence_refs": {"minItems": 1}}}},
+        {"if": {"properties": {"materiality": {"const": "MATERIAL"}}}, "then": {"properties": {"owner_id": {"$ref": "#/$defs/id"}}}}
+      ]
+    },
+    "edge": {"type": "object", "additionalProperties": false, "required": ["edge_id", "from_id", "to_id", "relation_type", "disposition", "materiality", "evidence_refs", "owner_id", "limitations"], "properties": {"edge_id": {"$ref": "#/$defs/id"}, "from_id": {"$ref": "#/$defs/id"}, "to_id": {"$ref": "#/$defs/id"}, "relation_type": {"type": "string", "enum": ["UPSTREAM", "DOWNSTREAM", "CALLS", "CONSUMES", "PRODUCES", "IMPLEMENTS", "VALIDATES", "DEPLOYS_WITH", "CO_CHANGE_HINT"]}, "disposition": {"type": "string", "enum": ["CANDIDATE", "CONFIRMED", "EXCLUDED", "UNRESOLVED"]}, "materiality": {"type": "string", "enum": ["MATERIAL", "NON_MATERIAL", "UNKNOWN"]}, "evidence_refs": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true}, "owner_id": {"anyOf": [{"$ref": "#/$defs/id"}, {"type": "null"}]}, "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}}}},
+    "unknown": {"type": "object", "additionalProperties": false, "required": ["unknown_id", "affected_ids", "reason", "materiality", "owner_id", "resolution_condition", "earliest_reentry"], "properties": {"unknown_id": {"$ref": "#/$defs/id"}, "affected_ids": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/id"}}, "reason": {"type": "string", "minLength": 1}, "materiality": {"type": "string", "enum": ["MATERIAL", "NON_MATERIAL", "UNKNOWN"]}, "owner_id": {"$ref": "#/$defs/id"}, "resolution_condition": {"type": "string", "minLength": 1}, "earliest_reentry": {"enum": ["CANDIDATE_GENERATION", "SELECTOR_PREFLIGHT", "SOURCE_INVESTIGATION", "DEPENDENCY_EXPANSION"]}}}
+  }
+}

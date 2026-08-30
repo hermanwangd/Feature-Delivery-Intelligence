@@ -1,0 +1,7 @@
+{
+  "feature-intent-analysis": {"positive": "multi-criterion", "negative": "guessed-ambiguity", "trigger_boundary": "repository-hint-only", "must_include": ["HINT_ONLY", "INTENT_CLARIFICATION", "no repository was confirmed"]},
+  "repo-discovery": {"positive": "registered-and-unresolved", "negative": "score-as-authority", "trigger_boundary": "unregistered-repository", "must_include": ["UNRESOLVED", "scores were not used as authority", "no repository content was read"]},
+  "changesurface-investigation": {"positive": "staged-surface", "negative": "mutable-or-out-of-scope", "trigger_boundary": "zero-and-excess", "must_include": ["before content reads", "excess always blocks", "Stop before any new repo/path read"]},
+  "dependency-closure": {"positive": "bounded-recursive", "negative": "self-authorizing-closure", "trigger_boundary": "cap-and-new-repo", "must_include": ["PARTIAL", "CLOSED_WITHIN_DECLARED_SCOPE", "never rewritten"]},
+  "closure-review": {"positive": "independent-pass", "negative": "same-identity-or-unsupported-pass", "trigger_boundary": "missing-or-insufficient", "must_include": ["INCONCLUSIVE", "distinct from the investigator", "cannot rewrite"]}
+}

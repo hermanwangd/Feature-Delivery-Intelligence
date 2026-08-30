@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fdi.local/contracts/intent-spec.schema.json",
+  "title": "IntentSpec",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract_name", "contract_version", "record_id", "feature_id", "revision", "created_at", "producer_id", "owner_id", "lifecycle", "feature_identity", "outcome", "expected_behaviors", "criterion_ids", "acceptance_criteria", "authorized_source_refs", "scope", "constraints", "non_goals", "assumptions", "repository_seeds", "unknowns", "source_backlinks", "supersedes"],
+  "properties": {
+    "contract_name": {"const": "IntentSpec"},
+    "contract_version": {"type": "string", "pattern": "^1\\.[0-9]+\\.[0-9]+$"},
+    "record_id": {"$ref": "#/$defs/id"},
+    "feature_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"},
+    "revision": {"type": "integer", "minimum": 1},
+    "created_at": {"type": "string", "format": "date-time"},
+    "producer_id": {"$ref": "#/$defs/id"},
+    "owner_id": {"$ref": "#/$defs/id"},
+    "lifecycle": {"$ref": "#/$defs/lifecycle"},
+    "feature_identity": {
+      "type": "object", "additionalProperties": false,
+      "required": ["feature_id", "title", "human_signal_id", "product_ids", "system_ids"],
+      "properties": {
+        "feature_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"},
+        "title": {"type": "string", "minLength": 1},
+        "human_signal_id": {"$ref": "#/$defs/id"},
+        "product_ids": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+        "system_ids": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true}
+      }
+    },
+    "outcome": {"type": "string", "minLength": 1},
+    "expected_behaviors": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/behavior"}},
+    "criterion_ids": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+    "acceptance_criteria": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/criterion"}},
+    "authorized_source_refs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/sourceRef"}},
+    "scope": {
+      "type": "object", "additionalProperties": false,
+      "required": ["product_ids", "system_ids", "user_boundaries"],
+      "properties": {
+        "product_ids": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+        "system_ids": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+        "user_boundaries": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
+      }
+    },
+    "constraints": {"type": "array", "items": {"$ref": "#/$defs/constraint"}},
+    "non_goals": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "assumptions": {"type": "array", "items": {"$ref": "#/$defs/assumption"}},
+    "repository_seeds": {"type": "array", "items": {"$ref": "#/$defs/repositorySeed"}},
+    "unknowns": {"type": "array", "items": {"$ref": "#/$defs/unknown"}},
+    "source_backlinks": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/backlink"}},
+    "supersedes": {"anyOf": [{"type": "null"}, {"$ref": "#/$defs/revisionRef"}]}
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "lifecycle": {"type": "string", "enum": ["ACTIVE", "STALE", "SUPERSEDED", "RETIRED"]},
+    "behavior": {
+      "type": "object", "additionalProperties": false,
+      "required": ["behavior_id", "actor", "trigger", "preconditions", "observable_result", "priority", "blocking_class", "criterion_ids"],
+      "properties": {
+        "behavior_id": {"$ref": "#/$defs/id"}, "actor": {"type": "string", "minLength": 1}, "trigger": {"type": "string", "minLength": 1},
+        "preconditions": {"type": "array", "items": {"type": "string", "minLength": 1}}, "observable_result": {"type": "string", "minLength": 1},
+        "priority": {"type": "string", "enum": ["MUST", "SHOULD", "MAY"]}, "blocking_class": {"type": "string", "enum": ["BLOCKING", "NON_BLOCKING"]},
+        "criterion_ids": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/id"}, "uniqueItems": true}
+      }
+    },
+    "criterion": {
+      "type": "object", "additionalProperties": false,
+      "required": ["criterion_id", "observable_signal", "expected_evidence", "blocking_class"],
+      "properties": {"criterion_id": {"$ref": "#/$defs/id"}, "observable_signal": {"type": "string", "minLength": 1}, "expected_evidence": {"type": "string", "minLength": 1}, "blocking_class": {"type": "string", "enum": ["BLOCKING", "NON_BLOCKING"]}}
+    },
+    "sourceRef": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source_id", "origin", "owner_id", "revision", "authority_dimension", "limitations"],
+      "properties": {"source_id": {"$ref": "#/$defs/id"}, "origin": {"type": "string", "minLength": 1}, "owner_id": {"$ref": "#/$defs/id"}, "revision": {"type": "string", "minLength": 1}, "authority_dimension": {"type": "string", "enum": ["DESIRED_BEHAVIOR", "DURABLE_CONSTRAINT", "RATIONALE_SUPPORT"]}, "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}}}
+    },
+    "constraint": {
+      "type": "object", "additionalProperties": false, "required": ["constraint_id", "kind", "statement", "authority_ref"],
+      "properties": {"constraint_id": {"$ref": "#/$defs/id"}, "kind": {"type": "string", "enum": ["PRODUCT", "ARCHITECTURE", "DOMAIN", "REGULATORY", "TIME", "COMPATIBILITY", "POLICY"]}, "statement": {"type": "string", "minLength": 1}, "authority_ref": {"$ref": "#/$defs/id"}}
+    },
+    "assumption": {
+      "type": "object", "additionalProperties": false, "required": ["assumption_id", "statement", "owner_id", "authority_ref", "evidence_refs", "invalidation_condition"],
+      "properties": {"assumption_id": {"$ref": "#/$defs/id"}, "statement": {"type": "string", "minLength": 1}, "owner_id": {"$ref": "#/$defs/id"}, "authority_ref": {"$ref": "#/$defs/id"}, "evidence_refs": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true}, "invalidation_condition": {"type": "string", "minLength": 1}}
+    },
+    "repositorySeed": {
+      "type": "object", "additionalProperties": false, "required": ["repository_id", "classification", "source_ref", "reason"],
+      "properties": {"repository_id": {"$ref": "#/$defs/id"}, "classification": {"const": "HINT_ONLY"}, "source_ref": {"$ref": "#/$defs/id"}, "reason": {"type": "string", "minLength": 1}}
+    },
+    "unknown": {
+      "type": "object", "additionalProperties": false, "required": ["unknown_id", "affected_ids", "reason", "materiality", "owner_id", "resolution_condition", "earliest_reentry"],
+      "properties": {"unknown_id": {"$ref": "#/$defs/id"}, "affected_ids": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/id"}, "uniqueItems": true}, "reason": {"type": "string", "minLength": 1}, "materiality": {"type": "string", "enum": ["MATERIAL", "NON_MATERIAL", "UNKNOWN"]}, "owner_id": {"$ref": "#/$defs/id"}, "resolution_condition": {"type": "string", "minLength": 1}, "earliest_reentry": {"type": "string", "enum": ["INTENT_CLARIFICATION", "CANDIDATE_GENERATION", "SELECTOR_PREFLIGHT", "SOURCE_INVESTIGATION", "DEPENDENCY_EXPANSION", "CLOSURE_ASSEMBLY", "SPEC_AUTHORING"]}}
+    },
+    "backlink": {
+      "type": "object", "additionalProperties": false, "required": ["source_fragment", "target_ids"],
+      "properties": {"source_fragment": {"type": "string", "minLength": 1}, "target_ids": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/id"}, "uniqueItems": true}}
+    },
+    "revisionRef": {
+      "type": "object", "additionalProperties": false, "required": ["record_id", "revision", "digest", "reason"],
+      "properties": {"record_id": {"$ref": "#/$defs/id"}, "revision": {"type": "integer", "minimum": 1}, "digest": {"$ref": "#/$defs/digest"}, "reason": {"type": "string", "minLength": 1}}
+    }
+  }
+}

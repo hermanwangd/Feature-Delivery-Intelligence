@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fdi.local/validation/replay-result.schema.json",
+  "title": "ReplayResult",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["format_name", "format_version", "feature_id", "fixture_digest", "evaluated_package_digest", "investigator_id", "reviewer_id", "contexts_isolated", "predicted_repositories", "predicted_surfaces", "predicted_interface_ids", "predicted_validation_ids", "required_claims", "closure_status", "review_verdict", "explicit_material_unknowns", "observations"],
+  "properties": {
+    "format_name": {"const": "ReplayResult"}, "format_version": {"const": "1.0.0"}, "feature_id": {"type": "string", "pattern": "^(calibration|holdout)-0[1-4]$"},
+    "fixture_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "evaluated_package_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "investigator_id": {"type": "string", "minLength": 1}, "reviewer_id": {"type": "string", "minLength": 1}, "contexts_isolated": {"const": true},
+    "predicted_repositories": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "predicted_surfaces": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["surface_id", "repository_id", "path", "symbol_or_anchor"], "properties": {"surface_id": {"type": "string", "minLength": 1}, "repository_id": {"type": "string", "minLength": 1}, "path": {"type": "string", "minLength": 1}, "symbol_or_anchor": {"type": ["string", "null"]}}}},
+    "predicted_interface_ids": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}, "predicted_validation_ids": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "required_claims": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["claim_id", "classification", "evidence_refs", "current_authority", "backlinks_complete"], "properties": {"claim_id": {"type": "string", "minLength": 1}, "classification": {"enum": ["REQUIRED", "OPTIONAL"]}, "evidence_refs": {"type": "array", "items": {"type": "string", "minLength": 1}}, "current_authority": {"type": "boolean"}, "backlinks_complete": {"type": "boolean"}}}},
+    "closure_status": {"enum": ["OPEN", "PARTIAL", "CLOSED_WITHIN_DECLARED_SCOPE"]}, "review_verdict": {"enum": ["PASS", "FAIL", "INCONCLUSIVE"]}, "explicit_material_unknowns": {"type": "array", "items": {"type": "string"}}, "observations": {"type": "object"}
+  }
+}

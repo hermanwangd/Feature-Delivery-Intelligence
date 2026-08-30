@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fdi.local/contracts/closure-review.schema.json",
+  "title": "ClosureReview",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract_name", "contract_version", "record_id", "feature_id", "revision", "created_at", "producer_id", "owner_id", "lifecycle", "reviewed_closure_package_ref", "reviewed_spec_draft_ref", "reviewed_spec_absence_reason", "investigator_identity", "reviewer_identity", "independence", "missing_candidate_ids", "unsupported_claim_ids", "unresolved_material_edge_ids", "selector_failures", "provenance_failures", "evidence_refs", "limitations", "verdict", "required_reentry_point", "required_actions"],
+  "properties": {
+    "contract_name": {"const": "ClosureReview"}, "contract_version": {"type": "string", "pattern": "^1\\.[0-9]+\\.[0-9]+$"}, "record_id": {"$ref": "#/$defs/id"},
+    "feature_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"}, "revision": {"type": "integer", "minimum": 1}, "created_at": {"type": "string", "format": "date-time"}, "producer_id": {"$ref": "#/$defs/id"}, "owner_id": {"$ref": "#/$defs/id"}, "lifecycle": {"type": "string", "enum": ["ACTIVE", "STALE", "SUPERSEDED", "RETIRED"]},
+    "reviewed_closure_package_ref": {"$ref": "#/$defs/recordRef"}, "reviewed_spec_draft_ref": {"anyOf": [{"type": "null"}, {"$ref": "#/$defs/artifactRef"}]}, "reviewed_spec_absence_reason": {"type": ["string", "null"], "minLength": 1},
+    "investigator_identity": {"$ref": "#/$defs/identity"}, "reviewer_identity": {"$ref": "#/$defs/identity"},
+    "independence": {"type": "object", "additionalProperties": false, "required": ["separate_identity", "separate_context", "conflict_check", "capability_boundary", "declaration"], "properties": {"separate_identity": {"const": true}, "separate_context": {"const": true}, "conflict_check": {"type": "string", "minLength": 1}, "capability_boundary": {"type": "string", "minLength": 1}, "declaration": {"type": "string", "minLength": 1}}},
+    "missing_candidate_ids": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true}, "unsupported_claim_ids": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true}, "unresolved_material_edge_ids": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+    "selector_failures": {"type": "array", "items": {"$ref": "#/$defs/failure"}}, "provenance_failures": {"type": "array", "items": {"$ref": "#/$defs/failure"}}, "evidence_refs": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true}, "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "verdict": {"type": "string", "enum": ["PASS", "FAIL", "INCONCLUSIVE"]},
+    "required_reentry_point": {"type": ["string", "null"], "enum": ["INTENT_CLARIFICATION", "CANDIDATE_GENERATION", "SELECTOR_PREFLIGHT", "SOURCE_INVESTIGATION", "DEPENDENCY_EXPANSION", "CLOSURE_ASSEMBLY", "SPEC_AUTHORING", null]},
+    "required_actions": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["action_id", "owner_id", "affected_ids", "materiality", "evidence_needed", "completion_test"], "properties": {"action_id": {"$ref": "#/$defs/id"}, "owner_id": {"$ref": "#/$defs/id"}, "affected_ids": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/id"}}, "materiality": {"enum": ["MATERIAL", "NON_MATERIAL", "UNKNOWN"]}, "evidence_needed": {"type": "string", "minLength": 1}, "completion_test": {"type": "string", "minLength": 1}}}}
+  },
+  "allOf": [
+    {"if": {"properties": {"reviewed_spec_draft_ref": {"type": "null"}}}, "then": {"properties": {"reviewed_spec_absence_reason": {"type": "string", "minLength": 1}}}},
+    {"if": {"properties": {"verdict": {"const": "PASS"}}}, "then": {"properties": {"required_reentry_point": {"type": "null"}, "required_actions": {"maxItems": 0}, "missing_candidate_ids": {"maxItems": 0}, "unsupported_claim_ids": {"maxItems": 0}, "unresolved_material_edge_ids": {"maxItems": 0}, "selector_failures": {"maxItems": 0}, "provenance_failures": {"maxItems": 0}}}},
+    {"if": {"properties": {"verdict": {"enum": ["FAIL", "INCONCLUSIVE"]}}}, "then": {"properties": {"required_reentry_point": {"type": "string"}, "required_actions": {"minItems": 1}}}}
+  ],
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"}, "digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "recordRef": {"type": "object", "additionalProperties": false, "required": ["contract_name", "contract_version", "record_id", "revision", "digest"], "properties": {"contract_name": {"const": "ClosurePackage"}, "contract_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"}, "record_id": {"$ref": "#/$defs/id"}, "revision": {"type": "integer", "minimum": 1}, "digest": {"$ref": "#/$defs/digest"}}},
+    "artifactRef": {"type": "object", "additionalProperties": false, "required": ["path", "revision", "digest", "gate_state"], "properties": {"path": {"const": "spec.md"}, "revision": {"type": "integer", "minimum": 1}, "digest": {"$ref": "#/$defs/digest"}, "gate_state": {"const": "NOT_GATED"}}},
+    "identity": {"type": "object", "additionalProperties": false, "required": ["identity_id", "role", "context_id"], "properties": {"identity_id": {"$ref": "#/$defs/id"}, "role": {"enum": ["INVESTIGATOR", "REVIEWER"]}, "context_id": {"$ref": "#/$defs/id"}}},
+    "failure": {"type": "object", "additionalProperties": false, "required": ["failure_id", "subject_id", "reason", "evidence_refs"], "properties": {"failure_id": {"$ref": "#/$defs/id"}, "subject_id": {"$ref": "#/$defs/id"}, "reason": {"type": "string", "minLength": 1}, "evidence_refs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/id"}}}}
+  }
+}

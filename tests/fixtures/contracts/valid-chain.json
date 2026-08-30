@@ -1,0 +1,64 @@
+{
+  "IntentSpec": {
+    "contract_name": "IntentSpec", "contract_version": "1.0.0", "record_id": "intent-one", "feature_id": "fixture-01", "revision": 1, "created_at": "2026-08-31T00:00:00Z", "producer_id": "intent-agent", "owner_id": "product-owner", "lifecycle": "ACTIVE",
+    "feature_identity": {"feature_id": "fixture-01", "title": "Cross-repository notification change", "human_signal_id": "signal-one", "product_ids": ["product-one"], "system_ids": ["system-api"]},
+    "outcome": "Users receive a compatible notification after the API change.",
+    "expected_behaviors": [{"behavior_id": "behavior-one", "actor": "user", "trigger": "an eligible update occurs", "preconditions": ["notifications enabled"], "observable_result": "one compatible notification is delivered", "priority": "MUST", "blocking_class": "BLOCKING", "criterion_ids": ["criterion-one"]}],
+    "criterion_ids": ["criterion-one"],
+    "acceptance_criteria": [{"criterion_id": "criterion-one", "observable_signal": "contract and consumer tests pass", "expected_evidence": "pinned test output", "blocking_class": "BLOCKING"}],
+    "authorized_source_refs": [{"source_id": "signal-one", "origin": "multica:HERM-213", "owner_id": "product-owner", "revision": "revision-1", "authority_dimension": "DESIRED_BEHAVIOR", "limitations": []}],
+    "scope": {"product_ids": ["product-one"], "system_ids": ["system-api"], "user_boundaries": ["eligible users"]},
+    "constraints": [{"constraint_id": "constraint-one", "kind": "COMPATIBILITY", "statement": "Preserve the existing consumer contract.", "authority_ref": "signal-one"}],
+    "non_goals": ["Redesign notification delivery"], "assumptions": [],
+    "repository_seeds": [{"repository_id": "api-repo", "classification": "HINT_ONLY", "source_ref": "signal-one", "reason": "Named by the requester only as a hint."}],
+    "unknowns": [], "source_backlinks": [{"source_fragment": "fragment-1", "target_ids": ["behavior-one", "criterion-one"]}], "supersedes": null
+  },
+  "EvidenceRecord": {
+    "contract_name": "EvidenceRecord", "contract_version": "1.0.0", "record_id": "evidence-one", "evidence_id": "evidence-one", "feature_id": "fixture-01", "revision": 1, "created_at": "2026-08-31T00:00:00Z", "producer_id": "investigator", "owner_id": "api-owner", "lifecycle": "ACTIVE",
+    "claim": {"claim_id": "claim-api-current", "text": "The pinned API schema defines the notification field."}, "claim_effect": "SUPPORTS",
+    "method": {"kind": "INSPECTION", "procedure": "Inspect the passed concrete match.", "skill_version": "1.0.0", "capability_id": "pinned-file-read"},
+    "origin": {"locator": "repo:api-repo@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa:schemas/notification.json", "owner_id": "api-owner", "access_conditions": "repository read", "origin_type": "IMMUTABLE_CONTENT"},
+    "observed_at": null, "source_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "environment": "NOT_APPLICABLE",
+    "integrity": {"algorithm": "SHA-256", "digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "coverage": "exact file bytes", "verified": true, "verifier_id": "investigator"},
+    "authority_dimension": "CURRENT_BEHAVIOR", "limitations": [], "review_state": "CURRENT", "expires_at": null, "expiry_reason": "Bound to immutable source revision.", "superseded_by": null,
+    "backlinks": [{"contract_name": "ChangeSurfaceSet", "record_id": "surface-set-one", "revision": 1, "field": "surfaces[0].evidence_refs", "claim_or_criterion_id": "criterion-one"}]
+  },
+  "CandidateRepoSet": {
+    "contract_name": "CandidateRepoSet", "contract_version": "1.0.0", "record_id": "candidate-set-one", "feature_id": "fixture-01", "revision": 1, "created_at": "2026-08-31T00:00:00Z", "producer_id": "discovery-agent", "owner_id": "spec-owner", "lifecycle": "ACTIVE",
+    "intent_spec_ref": {"contract_name": "IntentSpec", "contract_version": "1.0.0", "record_id": "intent-one", "revision": 1, "digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"},
+    "discovery_policy_ref": {"policy_id": "discovery-policy", "revision": "1.0.0", "digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"},
+    "candidates": [{"candidate_id": "candidate-api", "repository_id": "api-repo", "registry_state": "REGISTERED", "introduced_by_refs": ["signal-one"], "rationale": "Owns the API contract.", "ordering_score": 1, "state": "CONFIRMED", "evidence_refs": ["evidence-one"], "current_evidence": true, "limitations": []}],
+    "unknowns": [], "ordering_rule": {"score_rule": "descending score", "tie_break": "repository_id_ascending"}, "caps": {"max_candidate_repositories": 10}
+  },
+  "ChangeSurfaceSet": {
+    "contract_name": "ChangeSurfaceSet", "contract_version": "1.0.0", "record_id": "surface-set-one", "feature_id": "fixture-01", "revision": 1, "created_at": "2026-08-31T00:00:00Z", "producer_id": "investigator", "owner_id": "spec-owner", "lifecycle": "ACTIVE",
+    "intent_spec_ref": {"contract_name": "IntentSpec", "contract_version": "1.0.0", "record_id": "intent-one", "revision": 1, "digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"},
+    "candidate_repo_set_ref": {"contract_name": "CandidateRepoSet", "contract_version": "1.0.0", "record_id": "candidate-set-one", "revision": 1, "digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"},
+    "selector_refs": [{"selector_id": "selector-api", "revision": 1, "repository_id": "api-repo", "repository_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "concrete_matches": ["schemas/notification.json"], "pass_evidence_ref": "evidence-selector"}],
+    "surfaces": [{"surface_id": "surface-api-notification", "repository_id": "api-repo", "repository_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "path": "schemas/notification.json", "symbol_or_anchor": "notification", "anchor_absence_reason": null, "surface_type": "SCHEMA", "criterion_ids": ["criterion-one"], "obligation_ids": ["obligation-one"], "disposition": "CONFIRMED", "evidence_refs": ["evidence-one"], "current_evidence": true, "owner_id": "api-owner", "dependency_refs": [], "limitations": [], "materiality": "MATERIAL"}],
+    "dependency_edges": [], "unknowns": []
+  },
+  "ClosurePackage": {
+    "contract_name": "ClosurePackage", "contract_version": "1.0.0", "record_id": "closure-one", "feature_id": "fixture-01", "revision": 1, "created_at": "2026-08-31T00:00:00Z", "producer_id": "closure-agent", "owner_id": "spec-owner", "lifecycle": "ACTIVE", "proposal_state": "PROPOSED",
+    "intent_spec_ref": {"contract_name": "IntentSpec", "contract_version": "1.0.0", "record_id": "intent-one", "revision": 1, "digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"},
+    "change_surface_set_ref": {"contract_name": "ChangeSurfaceSet", "contract_version": "1.0.0", "record_id": "surface-set-one", "revision": 1, "digest": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"},
+    "repository_pins": [{"repository_id": "api-repo", "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "owner_id": "api-owner"}],
+    "passed_selectors": [{"selector_id": "selector-api", "revision": 1, "repository_id": "api-repo", "repository_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "derivation_refs": ["candidate-api"], "path_templates": ["schemas/*.json"], "root": "schemas", "extensions": [".json"], "exclusions": ["vendor/**"], "concrete_matches": ["schemas/notification.json"], "zero_behavior": "BLOCK", "excess_behavior": "BLOCK", "pass_evidence_ref": "evidence-selector"}],
+    "finite_caps": {"max_matches": 10, "max_total_bytes": 100000, "max_expansion_depth": 3, "max_nodes": 50, "max_edges": 100, "max_evidence_records": 100},
+    "candidate_dispositions": [{"item_id": "candidate-api", "disposition": "CONFIRMED", "materiality": "MATERIAL", "evidence_refs": ["evidence-one"], "owner_id": "api-owner", "limitations": []}],
+    "surface_dispositions": [{"item_id": "surface-api-notification", "disposition": "CONFIRMED", "materiality": "MATERIAL", "evidence_refs": ["evidence-one"], "owner_id": "api-owner", "limitations": []}],
+    "edge_dispositions": [], "interfaces": [],
+    "validation_surfaces": [{"validation_id": "validation-one", "criterion_ids": ["criterion-one"], "obligation_ids": ["obligation-one"], "method": "contract test", "surface_id": "surface-api-notification", "owner_id": "api-owner", "environment": "ci", "planned_evidence_destination": "evidence/contract-test.json"}],
+    "evidence_refs": ["evidence-one"], "exclusions": [], "unknowns": [],
+    "source_versions": [{"source_id": "intent-schema", "kind": "CONTRACT", "version": "1.0.0", "digest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"}],
+    "supersedes": null, "closure_status": "CLOSED_WITHIN_DECLARED_SCOPE"
+  },
+  "ClosureReview": {
+    "contract_name": "ClosureReview", "contract_version": "1.0.0", "record_id": "review-one", "feature_id": "fixture-01", "revision": 1, "created_at": "2026-08-31T00:00:00Z", "producer_id": "review-agent", "owner_id": "review-owner", "lifecycle": "ACTIVE",
+    "reviewed_closure_package_ref": {"contract_name": "ClosurePackage", "contract_version": "1.0.0", "record_id": "closure-one", "revision": 1, "digest": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"},
+    "reviewed_spec_draft_ref": {"path": "spec.md", "revision": 1, "digest": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", "gate_state": "NOT_GATED"}, "reviewed_spec_absence_reason": null,
+    "investigator_identity": {"identity_id": "closure-agent", "role": "INVESTIGATOR", "context_id": "investigator-context"}, "reviewer_identity": {"identity_id": "review-agent", "role": "REVIEWER", "context_id": "reviewer-context"},
+    "independence": {"separate_identity": true, "separate_context": true, "conflict_check": "No shared investigation session or answer-bearing access.", "capability_boundary": "Read-only declared artifacts and passed selectors.", "declaration": "Independent review of the exact immutable proposal."},
+    "missing_candidate_ids": [], "unsupported_claim_ids": [], "unresolved_material_edge_ids": [], "selector_failures": [], "provenance_failures": [], "evidence_refs": ["evidence-one"], "limitations": [], "verdict": "PASS", "required_reentry_point": null, "required_actions": []
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "fixture_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "ground_truth": {
+    "format_name": "GroundTruthChangeSet", "format_version": "1.0.0", "feature_id": "calibration-01",
+    "required_repositories": [{"repository_id": "api-repo", "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, {"repository_id": "consumer-repo", "revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"}],
+    "surfaces": [
+      {"surface_id": "surface-api", "repository_id": "api-repo", "path": "schemas/notification.json", "symbol_or_anchor": "Notification", "critical": true},
+      {"surface_id": "surface-consumer", "repository_id": "consumer-repo", "path": "src\\consumer.ts", "symbol_or_anchor": "decodeNotification", "critical": false}
+    ],
+    "required_interface_ids": ["interface-notification"], "required_validation_ids": ["validation-contract"], "owner_id": "evaluation-owner", "reviewer_id": "ground-truth-reviewer", "approval_state": "FROZEN_APPROVED"
+  },
+  "replay": {
+    "format_name": "ReplayResult", "format_version": "1.0.0", "feature_id": "calibration-01", "fixture_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "evaluated_package_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "investigator_id": "investigator-one", "reviewer_id": "reviewer-one", "contexts_isolated": true,
+    "predicted_repositories": ["CONSUMER-REPO", "api-repo"],
+    "predicted_surfaces": [{"surface_id": "predicted-consumer", "repository_id": "consumer-repo", "path": "src/consumer.ts", "symbol_or_anchor": "decodeNotification"}, {"surface_id": "predicted-api", "repository_id": "API-REPO", "path": "schemas/notification.json", "symbol_or_anchor": "Notification"}],
+    "predicted_interface_ids": ["interface-notification"], "predicted_validation_ids": ["validation-contract"],
+    "required_claims": [{"claim_id": "claim-one", "classification": "REQUIRED", "evidence_refs": ["evidence-one"], "current_authority": true, "backlinks_complete": true}],
+    "closure_status": "CLOSED_WITHIN_DECLARED_SCOPE", "review_verdict": "PASS", "explicit_material_unknowns": [], "observations": {"elapsed_ms": 123, "model": "excluded"}
+  }
+}

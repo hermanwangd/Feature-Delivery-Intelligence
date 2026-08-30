@@ -1,0 +1,8 @@
+[
+  {"name": "intent-repository-authority", "contract": "IntentSpec", "path": ["repository_seeds", 0, "classification"], "value": "CONFIRMED"},
+  {"name": "evidence-mutable-revision", "contract": "EvidenceRecord", "path": ["source_revision"], "value": "main"},
+  {"name": "candidate-score-is-not-current-evidence", "contract": "CandidateRepoSet", "path": ["candidates", 0, "current_evidence"], "value": false},
+  {"name": "surface-material-owner-missing", "contract": "ChangeSurfaceSet", "path": ["surfaces", 0, "owner_id"], "value": null},
+  {"name": "closure-unbounded-cap", "contract": "ClosurePackage", "path": ["finite_caps", "max_edges"], "value": 0},
+  {"name": "review-pass-with-reentry", "contract": "ClosureReview", "path": ["required_reentry_point"], "value": "SOURCE_INVESTIGATION"}
+]

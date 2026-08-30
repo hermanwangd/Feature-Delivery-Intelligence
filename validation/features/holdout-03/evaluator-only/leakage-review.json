@@ -1,0 +1,1 @@
+{"feature_id":"holdout-03","status":"STRUCTURAL_PASS_EVIDENTIARY_NOT_ESTABLISHED","visible_and_evaluator_trees_disjoint":true,"answer_metadata_classified":true,"access_enforcement":"filesystem layout and scorer sequencing only","reviewer_id":"leakage-reviewer-three","limitation":"No independent investigator runtime or access-control principal executed in this run."}

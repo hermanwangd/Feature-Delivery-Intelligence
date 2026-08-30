@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fdi.local/contracts/evidence-record.schema.json",
+  "title": "EvidenceRecord",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract_name", "contract_version", "record_id", "evidence_id", "feature_id", "revision", "created_at", "producer_id", "owner_id", "lifecycle", "claim", "claim_effect", "method", "origin", "observed_at", "source_revision", "environment", "integrity", "authority_dimension", "limitations", "review_state", "expires_at", "expiry_reason", "superseded_by", "backlinks"],
+  "properties": {
+    "contract_name": {"const": "EvidenceRecord"},
+    "contract_version": {"type": "string", "pattern": "^1\\.[0-9]+\\.[0-9]+$"},
+    "record_id": {"$ref": "#/$defs/id"}, "evidence_id": {"$ref": "#/$defs/id"},
+    "feature_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"},
+    "revision": {"type": "integer", "minimum": 1}, "created_at": {"type": "string", "format": "date-time"},
+    "producer_id": {"$ref": "#/$defs/id"}, "owner_id": {"$ref": "#/$defs/id"},
+    "lifecycle": {"type": "string", "enum": ["ACTIVE", "STALE", "SUPERSEDED", "RETIRED"]},
+    "claim": {"type": "object", "additionalProperties": false, "required": ["claim_id", "text"], "properties": {"claim_id": {"$ref": "#/$defs/id"}, "text": {"type": "string", "minLength": 1}}},
+    "claim_effect": {"type": "string", "enum": ["SUPPORTS", "CONTRADICTS", "LIMITS", "OBSERVES"]},
+    "method": {"type": "object", "additionalProperties": false, "required": ["kind", "procedure", "skill_version", "capability_id"], "properties": {"kind": {"type": "string", "enum": ["SEARCH", "INSPECTION", "TEST", "MEASUREMENT", "REVIEW", "OBSERVATION"]}, "procedure": {"type": "string", "minLength": 1}, "skill_version": {"type": "string", "minLength": 1}, "capability_id": {"$ref": "#/$defs/id"}}},
+    "origin": {"type": "object", "additionalProperties": false, "required": ["locator", "owner_id", "access_conditions", "origin_type"], "properties": {"locator": {"type": "string", "minLength": 1, "not": {"pattern": "^(file:|/|~|[A-Za-z]:\\\\)"}}, "owner_id": {"$ref": "#/$defs/id"}, "access_conditions": {"type": "string", "minLength": 1}, "origin_type": {"type": "string", "enum": ["IMMUTABLE_CONTENT", "TIMESTAMPED_RUNTIME"]}}},
+    "observed_at": {"type": ["string", "null"], "format": "date-time"},
+    "source_revision": {"type": "string", "minLength": 1, "not": {"pattern": "^(main|master|HEAD|latest)$"}},
+    "environment": {"type": "string", "minLength": 1},
+    "integrity": {"type": "object", "additionalProperties": false, "required": ["algorithm", "digest", "coverage", "verified", "verifier_id"], "properties": {"algorithm": {"const": "SHA-256"}, "digest": {"$ref": "#/$defs/digest"}, "coverage": {"type": "string", "minLength": 1}, "verified": {"const": true}, "verifier_id": {"$ref": "#/$defs/id"}}},
+    "authority_dimension": {"type": "string", "enum": ["DESIRED_BEHAVIOR", "TECHNICAL_OBLIGATION", "DURABLE_CONSTRAINT", "CURRENT_BEHAVIOR", "PROCEDURE", "RATIONALE_SUPPORT"]},
+    "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "review_state": {"type": "string", "enum": ["CURRENT", "EXPIRED", "INVALIDATED", "SUPERSEDED"]},
+    "expires_at": {"type": ["string", "null"], "format": "date-time"},
+    "expiry_reason": {"type": "string", "minLength": 1},
+    "superseded_by": {"anyOf": [{"type": "null"}, {"$ref": "#/$defs/id"}]},
+    "backlinks": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["contract_name", "record_id", "revision", "field", "claim_or_criterion_id"], "properties": {"contract_name": {"type": "string", "minLength": 1}, "record_id": {"$ref": "#/$defs/id"}, "revision": {"type": "integer", "minimum": 1}, "field": {"type": "string", "minLength": 1}, "claim_or_criterion_id": {"$ref": "#/$defs/id"}}}}
+  },
+  "allOf": [
+    {"if": {"properties": {"origin": {"properties": {"origin_type": {"const": "TIMESTAMPED_RUNTIME"}}}}}, "then": {"properties": {"observed_at": {"type": "string", "format": "date-time"}, "environment": {"not": {"const": "NOT_APPLICABLE"}}}}},
+    {"if": {"properties": {"origin": {"properties": {"origin_type": {"const": "IMMUTABLE_CONTENT"}}}}}, "then": {"properties": {"observed_at": {"type": "null"}}}}
+  ],
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}

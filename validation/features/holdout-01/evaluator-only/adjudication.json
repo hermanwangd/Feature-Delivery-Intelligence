@@ -1,0 +1,1 @@
+{"feature_id":"holdout-01","status":"FROZEN","owner_id":"evaluation-owner","reviewer_id":"ground-truth-reviewer-one","independent_review":"DECLARED_NOT_EXECUTED_IN_THIS_SINGLE_AGENT_RUN","decisions":["The Context evidence contract and implementation evidence schema are required."],"superseded_by":null}

@@ -1,0 +1,25 @@
+{
+  "manifest_version": "1.0.0",
+  "package_version": "1.0.0",
+  "normalization_version": "1.0.0",
+  "threshold_policy_version": "phase1-v1",
+  "evaluated_package_digest": "6ff05a923d5bba51ba2b3e11d297b39f0a2c0b621f3ea8427e5261a23fe45733",
+  "files": [
+    {"path": "contracts/README.md", "bytes": 2127, "sha256": "9ede828969afccd4e6a52f6629a75163cf9afcd29e94dda673672cfc6f0a6384"},
+    {"path": "contracts/candidate-repo-set.schema.json", "bytes": 4434, "sha256": "b6effd125f6948699d81e0c118367e07fffb231c87be20996a3662a8826f3572"},
+    {"path": "contracts/change-surface-set.schema.json", "bytes": 6428, "sha256": "c8301f38fec1fde6fe51e8c1f76ba29c91a700659d33a96728452af0732951c9"},
+    {"path": "contracts/closure-package.schema.json", "bytes": 8750, "sha256": "463aa8f26aeb54e0f532ba4d7addc9f7130b333412beed7f83b4b69d558baf8a"},
+    {"path": "contracts/closure-review.schema.json", "bytes": 5773, "sha256": "a6ea49e1481b4ad6874d2068081cb1bfe82031d2e16868075495df037b2dfe6f"},
+    {"path": "contracts/evidence-record.schema.json", "bytes": 4492, "sha256": "85d0eb6c2a4fc72c9ab7fa100f0aa49bbaa67b8feb30688ea4e2e5488e1289c1"},
+    {"path": "contracts/intent-spec.schema.json", "bytes": 8015, "sha256": "e809f4a030c713312cd1e76bc4b2514bf2787381174a02116cf3a9866900418c"},
+    {"path": "skills/changesurface-investigation/SKILL.md", "bytes": 5094, "sha256": "49d146291f1f45b8aba7513660c62adc5148766ecf5d13554853e60694d9a2a6"},
+    {"path": "skills/closure-review/SKILL.md", "bytes": 5275, "sha256": "c24482c750f3e71c8f6cd2ef98b48e25ae3a5aa7804e54765b68b4cab1253fbd"},
+    {"path": "skills/dependency-closure/SKILL.md", "bytes": 5317, "sha256": "aa62ced44de6e93b81a9fd07267b290f2e98e83969b8727c2997d69f51fc1044"},
+    {"path": "skills/feature-intent-analysis/SKILL.md", "bytes": 5413, "sha256": "174a0eaa54b5a8df9d48ae59059c46bd04f864918117859ed6ca45a7567c28e4"},
+    {"path": "skills/repo-discovery/SKILL.md", "bytes": 5141, "sha256": "502d1c4f63f5fc4e76c87266e9f2aa13c24caa6dae0d1442644ee4904373247f"},
+    {"path": "validation/scoring/schemas/ground-truth-change-set.schema.json", "bytes": 1708, "sha256": "4600d74e9e7db16c2c2c0dd4891661196afaa734317975ef90cc75782d7a3bb6"},
+    {"path": "validation/scoring/schemas/replay-result.schema.json", "bytes": 2546, "sha256": "c80525591ab0744f65a9d161a53959209a27d4b4c9167a9e5c84f9c40a91ddd0"},
+    {"path": "validation/scoring/score.py", "bytes": 12956, "sha256": "5408ca648bce604771011260b25791de4f192a724e2b1513b2b83ea74d2a40da"},
+    {"path": "workflows/feature-closure.md", "bytes": 11490, "sha256": "06e8d4794e87c266793369763f952a60cead43ba5e1f669b26b58717caf8e26e"}
+  ]
+}
