@@ -1,7 +1,7 @@
 ---
 name: intention-to-spec
 description: Produce the five-member Delivery Spec using a staged, bounded, non-circular source selector.
-version: 0.1.0
+version: 0.1.1
 source: FDI adopted profile at 54db6e2879abd5ac8e7319efe8ef06a5b7ae5482
 compatible_runtime: Multica/Codex >=1.0 <2.0
 owner: FDI workflow owner
@@ -110,7 +110,7 @@ A missing required capability, runtime, schema, permission, owner, review, lifec
 <a id="permissions-and-approvals"></a>
 ## Permissions and approvals
 
-- Allowed: bounded authenticated reads; safe Markdown artifact writes; immutable Git inspection; transition-specific branch/PR operations when named above.
+- Allowed writes: `.fdi/features/{feature-id}/spec/index.md`; `.fdi/features/{feature-id}/spec/requirements.md`; `.fdi/features/{feature-id}/spec/design.md`; `.fdi/features/{feature-id}/spec/tasks.md`; `.fdi/features/{feature-id}/spec/vv-plan.md`; and only `.fdi/features/{feature-id}/evidence/{evidence-id}.md` whose exact investigation ID is allocated at `.fdi/features/{feature-id}/spec/index.md#gate-record` before creation. No source, Change Set, V&V, Baseline, current Context, Skill, or registry write is allowed.
 - Required approvals: product intent, source scope, repository candidate, independent verdict, release, and Context adoption stay with their named owners.
 - Prohibited: credentials, unsafe raw payloads, unbounded or mutable source reads, copied source trees, destructive history rewrites, external deployment, fabricated evidence, or scope expansion.
 - Sensitive data: retain safe identifiers/digests/redacted observations only.
@@ -137,7 +137,7 @@ Global Execution-verified remains NOT_CLAIMED until all HERM-209 transition revi
 <a id="version-and-provenance"></a>
 ## Version and provenance
 
-- Package version: 0.1.0
+- Package version: 0.1.1
 - Lifecycle: ACTIVE
 - Source profile: feature-delivery-intelligence:docs/superpowers/specs/2026-08-29-fdi-context-taxonomy-design.md@54db6e2879abd5ac8e7319efe8ef06a5b7ae5482
 - Workflow semantics: feature-delivery-intelligence:docs/superpowers/specs/2026-08-29-fdi-workflow-semantics-design.md@54db6e2879abd5ac8e7319efe8ef06a5b7ae5482

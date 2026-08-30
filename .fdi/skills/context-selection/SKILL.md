@@ -1,7 +1,7 @@
 ---
 name: context-selection
 description: Validate literal and bounded registry-first Context selection for every adopted-profile execution.
-version: 0.1.0
+version: 0.1.1
 source: FDI adopted profile at 54db6e2879abd5ac8e7319efe8ef06a5b7ae5482
 compatible_runtime: Multica/Codex >=1.0 <2.0
 owner: FDI workflow owner
@@ -29,7 +29,7 @@ Validate literal and bounded registry-first Context selection for every adopted-
 - .fdi/context/external/references.md when external reviews are selectable; revision qualifier required at execution.
 - .fdi/baseline/catalog.md when Baseline bundles are selectable; revision qualifier required at execution.
 - .fdi/skills/catalog.md and exact parent SKILL.md when Skill resources are selectable; revision qualifier required at execution.
-- Exact outputs/use: Validated selected-read set plus exclusions written only to the invoking transition's declared Context-consulted/selection-proof/gate destination.
+- Exact outputs/use: no canonical file output and no direct write path. Return one validated selected-read set plus exclusions to the invoking transition; only that transition Skill may write the set to its own exact `## Context consulted`, selector-preflight, or gate anchor.
 - Logical artifacts remain distinct from their physical bundle members.
 
 <a id="context-selection"></a>
@@ -65,7 +65,7 @@ A missing required capability, runtime, schema, permission, owner, review, lifec
 <a id="permissions-and-approvals"></a>
 ## Permissions and approvals
 
-- Allowed: bounded authenticated reads; safe Markdown artifact writes; immutable Git inspection; transition-specific branch/PR operations when named above.
+- Allowed reads: only the invoking transition's literal registries and bounded candidate paths. Allowed writes: none; this helper returns data to the invoking transition and never writes a canonical artifact, feature evidence, source path, Baseline path, or registry.
 - Required approvals: product intent, source scope, repository candidate, independent verdict, release, and Context adoption stay with their named owners.
 - Prohibited: credentials, unsafe raw payloads, unbounded or mutable source reads, copied source trees, destructive history rewrites, external deployment, fabricated evidence, or scope expansion.
 - Sensitive data: retain safe identifiers/digests/redacted observations only.
@@ -92,7 +92,7 @@ Global Execution-verified remains NOT_CLAIMED until all HERM-209 transition revi
 <a id="version-and-provenance"></a>
 ## Version and provenance
 
-- Package version: 0.1.0
+- Package version: 0.1.1
 - Lifecycle: ACTIVE
 - Source profile: feature-delivery-intelligence:docs/superpowers/specs/2026-08-29-fdi-context-taxonomy-design.md@54db6e2879abd5ac8e7319efe8ef06a5b7ae5482
 - Workflow semantics: feature-delivery-intelligence:docs/superpowers/specs/2026-08-29-fdi-workflow-semantics-design.md@54db6e2879abd5ac8e7319efe8ef06a5b7ae5482

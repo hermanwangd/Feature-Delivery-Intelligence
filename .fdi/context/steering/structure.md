@@ -45,7 +45,7 @@ Authenticated workspace/runtime instructions and source-repository controls cons
 <a id="topology-references"></a>
 ## Topology references
 
-Canonical topology is exclusively .fdi/context/codebase/catalog.md#entities and .fdi/context/codebase/relations.md#relations. Derived views cite registry version catalog-v1/relations-v1 with evidence revision 54db6e2879abd5ac8e7319efe8ef06a5b7ae5482.
+Canonical topology is exclusively `.fdi/context/codebase/catalog.md#entities` (registry revision `catalog-v1`) and `.fdi/context/codebase/relations.md#relations` (registry revision `relations-v1`). Derived views cite those exact registry paths and stable anchors; registry revisions are recorded separately.
 
 <a id="provenance"></a>
 ## Provenance

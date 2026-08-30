@@ -45,7 +45,7 @@ The documentation Component is implemented by Repository feature-delivery-intell
 <a id="rendered-registry-revision"></a>
 ## Rendered registry revision
 
-catalog-v1 and relations-v1, rendered from released evidence revision 54db6e2879abd5ac8e7319efe8ef06a5b7ae5482. Canonical truth remains in catalog.md#entities and relations.md#relations.
+Rendered from `.fdi/context/codebase/catalog.md#entities` (registry revision `catalog-v1`) and `.fdi/context/codebase/relations.md#relations` (registry revision `relations-v1`). Canonical truth remains only at those exact targets.
 
 <a id="provenance"></a>
 ## Provenance

@@ -50,7 +50,7 @@ No data migration is part of HERM-209.
 <a id="rendered-registry-revision"></a>
 ## Rendered registry revision
 
-catalog-v1 and relations-v1 at evidence revision 54db6e2879abd5ac8e7319efe8ef06a5b7ae5482; zero Resource/stores-in rows.
+`.fdi/context/codebase/catalog.md#entities` (registry revision `catalog-v1`) and `.fdi/context/codebase/relations.md#relations` (registry revision `relations-v1`); zero Resource/stores-in rows.
 
 <a id="provenance"></a>
 ## Provenance

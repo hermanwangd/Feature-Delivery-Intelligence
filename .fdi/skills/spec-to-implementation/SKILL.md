@@ -1,7 +1,7 @@
 ---
 name: spec-to-implementation
 description: Implement only the completed Delivery Spec in source repositories while preserving local authority and exact candidate identity.
-version: 0.1.0
+version: 0.1.1
 source: FDI adopted profile at 54db6e2879abd5ac8e7319efe8ef06a5b7ae5482
 compatible_runtime: Multica/Codex >=1.0 <2.0
 owner: FDI workflow owner
@@ -46,7 +46,7 @@ Implement only the completed Delivery Spec in source repositories while preservi
 - .fdi/features/{feature-id}/spec/design.md; revision qualifier required at execution.
 - .fdi/features/{feature-id}/spec/tasks.md; revision qualifier required at execution.
 - .fdi/features/{feature-id}/spec/vv-plan.md; revision qualifier required at execution.
-- Exact outputs/use: Source candidate commits/PRs; .fdi/features/{feature-id}/change-set/index.md; allocated evidence. Gate at .fdi/features/{feature-id}/change-set/index.md#gate-record.
+- Exact outputs/use: concrete source-repository paths already authorized by `.fdi/features/{feature-id}/spec/index.md#change-surface-summary`; their immutable candidate commits and named PRs; `.fdi/features/{feature-id}/change-set/index.md`; and only `.fdi/features/{feature-id}/evidence/{evidence-id}.md` whose exact ID exists in `.fdi/features/{feature-id}/spec/vv-plan.md#evidence-destinations`. Gate: `.fdi/features/{feature-id}/change-set/index.md#gate-record`.
 - Logical artifacts remain distinct from their physical bundle members.
 
 <a id="context-selection"></a>
@@ -102,7 +102,7 @@ A missing required capability, runtime, schema, permission, owner, review, lifec
 <a id="permissions-and-approvals"></a>
 ## Permissions and approvals
 
-- Allowed: bounded authenticated reads; safe Markdown artifact writes; immutable Git inspection; transition-specific branch/PR operations when named above.
+- Allowed writes: only concrete source paths authorized by `.fdi/features/{feature-id}/spec/index.md#change-surface-summary`; `.fdi/features/{feature-id}/change-set/index.md`; and plan-allocated `.fdi/features/{feature-id}/evidence/{evidence-id}.md`. Allowed external mutation: create/update only the named source-repository branch and PR. No other source path, Intention, Spec, V&V, Baseline, current Context, Skill, registry, deployment, release, merge, or history rewrite is allowed.
 - Required approvals: product intent, source scope, repository candidate, independent verdict, release, and Context adoption stay with their named owners.
 - Prohibited: credentials, unsafe raw payloads, unbounded or mutable source reads, copied source trees, destructive history rewrites, external deployment, fabricated evidence, or scope expansion.
 - Sensitive data: retain safe identifiers/digests/redacted observations only.
@@ -129,7 +129,7 @@ Global Execution-verified remains NOT_CLAIMED until all HERM-209 transition revi
 <a id="version-and-provenance"></a>
 ## Version and provenance
 
-- Package version: 0.1.0
+- Package version: 0.1.1
 - Lifecycle: ACTIVE
 - Source profile: feature-delivery-intelligence:docs/superpowers/specs/2026-08-29-fdi-context-taxonomy-design.md@54db6e2879abd5ac8e7319efe8ef06a5b7ae5482
 - Workflow semantics: feature-delivery-intelligence:docs/superpowers/specs/2026-08-29-fdi-workflow-semantics-design.md@54db6e2879abd5ac8e7319efe8ef06a5b7ae5482

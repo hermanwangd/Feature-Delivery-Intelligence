@@ -33,7 +33,7 @@ Coordination repository and, for HERM-209 only, the single documentation source 
 <a id="owned-entities"></a>
 ## Owned entities
 
-Derived IDs from catalog-v1: component-fdi-documentation. The canonical entity definitions remain in .fdi/context/codebase/catalog.md#entities.
+Derived ID `component-fdi-documentation` from `.fdi/context/codebase/catalog.md#entities` (registry revision `catalog-v1`). The projection does not create or own an entity definition.
 
 <a id="entry-points"></a>
 ## Entry points

@@ -8,6 +8,7 @@
 - Owner: Architecture owner with relation owners
 - Approver: Architecture owner with relation owners
 - Version: 0.1.0
+- Registry revision: relations-v1
 - Last reviewed: 2026-08-30
 - Next review: 2026-11-28
 - Superseded by: none
@@ -16,6 +17,8 @@
 ## Purpose
 
 Sole canonical registry for evidence-backed current topology relations.
+
+`relations-v1` is the stable, resolvable registry revision identity for this rendered relation set. Cross-file consumers cite `.fdi/context/codebase/relations.md#relations`; record `Registry revision: relations-v1` separately.
 
 <a id="relationship-model"></a>
 ## Relationship model
@@ -52,7 +55,7 @@ current means independently evidenced at a released revision; planned remains on
 <a id="validation"></a>
 ## Validation
 
-All endpoints exist in catalog-v1, type pairs are allowed, evidence is immutable, and no planned relation appears as current.
+All endpoints exist in `.fdi/context/codebase/catalog.md#entities` (registry revision `catalog-v1`), type pairs are allowed, evidence is immutable, and no planned relation appears as current.
 
 <a id="known-gaps"></a>
 ## Known gaps
@@ -68,6 +71,7 @@ No integration, data, deployment, API, or runtime dependency relation is evidenc
   - feature-delivery-intelligence:docs/superpowers/specs/2026-08-29-fdi-workflow-semantics-design.md@54db6e2879abd5ac8e7319efe8ef06a5b7ae5482
   - feature-delivery-intelligence:docs/superpowers/specs/2026-08-29-fdi-context-taxonomy-design.md@54db6e2879abd5ac8e7319efe8ef06a5b7ae5482
 - Producer: HERM-209 profile bootstrap
+- Registry revision: relations-v1
 - Produced: 2026-08-30
 - Validation method: approved-profile schema projection with stable-anchor review
 
