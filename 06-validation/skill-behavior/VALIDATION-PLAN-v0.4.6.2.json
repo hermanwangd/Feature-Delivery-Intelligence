@@ -1,0 +1,26 @@
+{
+  "release": "fdi-mvp-v0.4.6.2",
+  "validation_mode": "FRESH_CONTEXT_RED_GREEN",
+  "claim_boundary": "EXECUTION_READY_NOT_BEHAVIORALLY_VALIDATED",
+  "option_b_hypothesis_ref": "00-product/MVP-HYPOTHESIS-FREEZE-v0.4.6.2.md",
+  "execution_requirements": {
+    "independent_fresh_contexts": true,
+    "same_frozen_scenario_per_red_green_pair": true,
+    "independent_review_required": true,
+    "ground_truth_mounted": false,
+    "current_session_executor_available": false
+  },
+  "scenarios": [
+    {"priority": 1, "skill_or_behavior": "PA-Codebase-Inventory", "red_requires_fresh_context": true, "green_requires_fresh_context": true, "status": "NOT_EXECUTED"},
+    {"priority": 2, "skill_or_behavior": "PA-Historical-Delivery", "red_requires_fresh_context": true, "green_requires_fresh_context": true, "status": "NOT_EXECUTED"},
+    {"priority": 3, "skill_or_behavior": "feature-intent-analysis", "red_requires_fresh_context": true, "green_requires_fresh_context": true, "status": "NOT_EXECUTED"},
+    {"priority": 4, "skill_or_behavior": "repo-discovery", "red_requires_fresh_context": true, "green_requires_fresh_context": true, "status": "NOT_EXECUTED"},
+    {"priority": 5, "skill_or_behavior": "changesurface-investigation", "red_requires_fresh_context": true, "green_requires_fresh_context": true, "status": "NOT_EXECUTED"},
+    {"priority": 6, "skill_or_behavior": "dependency-closure", "red_requires_fresh_context": true, "green_requires_fresh_context": true, "status": "NOT_EXECUTED"},
+    {"priority": 7, "skill_or_behavior": "closure-review", "red_requires_fresh_context": true, "green_requires_fresh_context": true, "status": "NOT_EXECUTED"},
+    {"priority": 8, "skill_or_behavior": "ft-t1-intention", "red_requires_fresh_context": true, "green_requires_fresh_context": true, "status": "NOT_EXECUTED"},
+    {"priority": 9, "skill_or_behavior": "ft-t2-delivery-spec", "red_requires_fresh_context": true, "green_requires_fresh_context": true, "status": "NOT_EXECUTED"},
+    {"priority": 10, "skill_or_behavior": "product-team-onboarding-leader", "red_requires_fresh_context": true, "green_requires_fresh_context": true, "status": "NOT_EXECUTED"},
+    {"priority": 11, "skill_or_behavior": "product-knowledge-feature-discovery-closed-loop", "kind": "SYSTEM_BEHAVIOR_NOT_SKILL", "red_requires_fresh_context": true, "green_requires_fresh_context": true, "status": "NOT_EXECUTED"}
+  ]
+}

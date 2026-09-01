@@ -1,0 +1,11 @@
+{
+  "struct:f001-cutoff": {
+    "provider_scope_id": "spc-f001-replay",
+    "provider_ref": "fdi/f001-cutoff",
+    "freshness": "FROZEN_INDEXED",
+    "repository_map": {
+      "repo:spc-rule-service": "spc-rule-service",
+      "repo:wafer-context": "wafer-context"
+    }
+  }
+}

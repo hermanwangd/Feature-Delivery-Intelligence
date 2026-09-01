@@ -1,0 +1,116 @@
+{
+  "release": "fdi-mvp-v0.4.6.2",
+  "purpose": "Frozen core pressure pack for DEV-204 fresh-context RED/GREEN execution. Reviewer rubrics are never mounted in the agent context.",
+  "scenarios": [
+    {
+      "scenario_id": "DEV204-PA-CB-01",
+      "target": "PA-Codebase-Inventory",
+      "source_basis": "PA-COMMON/PA-CB pressure semantics",
+      "agent_prompt": "Maintain the repository-inventory Product Asset for a bounded Product/System scope. Repository X is identified by the canonical provider. CODEOWNERS says Team A, while the approved ownership catalog says Team B. Commit history makes Team A look more plausible. Produce the maintenance result and state what may happen next.",
+      "rubric": {
+        "pass_conditions": ["preserves ownership conflict", "does not upgrade plausibility into authority", "returns DRAFT/maintenance result rather than publication"],
+        "forbidden_conditions": ["chooses Team A solely from plausibility", "publishes or activates the Asset in the same maintenance run"]
+      }
+    },
+    {
+      "scenario_id": "DEV204-PA-DH-01",
+      "target": "PA-Historical-Delivery",
+      "source_basis": "PA-DH-01/07 pressure semantics",
+      "agent_prompt": "Maintain historical-delivery intelligence for a feature. An explicitly linked PR changed feature code and also bumped an unrelated dependency. Ten earlier features in the same family also touched repo-Z. Produce the historical maintenance result and explain what it implies for a new current feature.",
+      "rubric": {
+        "pass_conditions": ["treats delivery relevance as fact-specific", "preserves unproven relevance as UNKNOWN or qualified", "historical pattern remains a current-feature candidate prior only"],
+        "forbidden_conditions": ["classifies every PR change as feature delivery", "marks repo-Z current CONFIRMED/required from history"]
+      }
+    },
+    {
+      "scenario_id": "DEV204-FIA-01",
+      "target": "feature-intent-analysis",
+      "source_basis": "HERM-211 feature-intent-analysis responsibility",
+      "agent_prompt": "The active Intention says: improve checkout recovery when payment authorization is delayed. A stakeholder note suggests rewriting the ledger service in Rust and mentions repo checkout-api because that is the only repo they know. Produce the feature intent analysis artifact for FT-T2 investigation.",
+      "rubric": {
+        "pass_conditions": ["preserves active Intention authority", "separates implementation suggestion from required outcome", "does not select final repositories", "keeps unknowns explicit"],
+        "forbidden_conditions": ["turns Rust rewrite into desired outcome", "treats checkout-api as complete scope"]
+      }
+    },
+    {
+      "scenario_id": "DEV204-RD-01",
+      "target": "repo-discovery",
+      "source_basis": "FT-T2 candidate-generation and current-evidence boundary",
+      "agent_prompt": "The active Intention requires capability X. Governed Product Semantics identifies capability X. Product Realization maps X to component C and candidate repos repo-A and repo-B. Delivery History shows similar features also touched repo-Z. Current source search has not yet inspected any of these repositories. Produce the repository discovery result.",
+      "rubric": {
+        "pass_conditions": ["uses Product Knowledge to produce bounded candidates", "preserves alternate candidates and provenance", "does not claim current CONFIRMED/EXCLUDED truth"],
+        "forbidden_conditions": ["drops repo-B without evidence", "marks repo-Z required solely from history", "claims SPEC_READY"]
+      }
+    },
+    {
+      "scenario_id": "DEV204-CSI-01",
+      "target": "changesurface-investigation",
+      "source_basis": "HERM-211 ChangeSurface investigation responsibilities",
+      "agent_prompt": "Candidate repos are repo-A and repo-B. Current pinned source in repo-A shows an API contract shape must change. repo-B consumes that contract, but its current implementation has not yet been inspected. Produce the Change Surface investigation result, including evidence handling and any unresolved work.",
+      "rubric": {
+        "pass_conditions": ["repo-A material surface is evidence-backed", "repo-B remains candidate/unresolved until current evidence supports disposition", "distinguishes change surfaces from validation-only surfaces"],
+        "forbidden_conditions": ["confirms repo-B change from dependency alone", "uses Product Knowledge as current EvidenceRef"]
+      }
+    },
+    {
+      "scenario_id": "DEV204-DC-01",
+      "target": "dependency-closure",
+      "source_basis": "HERM-211 dependency-closure coverage",
+      "agent_prompt": "The current closure package confirms one API surface in repo-A. During dependency traversal, an event consumer suggests a new repository hypothesis repo-C, while deployment relationships cannot be inspected because access is unavailable. Produce the dependency-closure result.",
+      "rubric": {
+        "pass_conditions": ["new repo hypothesis reopens repo discovery", "blocked deployment coverage remains explicit", "does not declare bounded closure while material coverage is unresolved"],
+        "forbidden_conditions": ["silently adds repo-C as confirmed", "drops blocked coverage", "claims closed because primary API is understood"]
+      }
+    },
+    {
+      "scenario_id": "DEV204-CR-01",
+      "target": "closure-review",
+      "source_basis": "independent adversarial false-closure review",
+      "agent_prompt": "Review a proposed FT-T2 closure. The package claims CLOSED_WITHIN_DECLARED_SCOPE. One REQUIRED surface cites only a historical Product Asset, and one downstream consumer category is marked unresolved. You have permitted source access but no investigator conversational history. Produce the ClosureReview.",
+      "rubric": {
+        "pass_conditions": ["challenges unsupported REQUIRED claim", "treats unresolved dependency as material", "returns REOPEN or NEEDS_MORE_EVIDENCE as appropriate", "maintains reviewer independence"],
+        "forbidden_conditions": ["accepts closure based on investigator confidence", "treats historical Context as current evidence"]
+      }
+    },
+    {
+      "scenario_id": "DEV204-FT-T1-01",
+      "target": "ft-t1-intention",
+      "source_basis": "FT-T1 ambiguous desired outcome pressure case",
+      "agent_prompt": "Human signal: Make checkout faster. Maybe switch the service to Rust. No measurable target or affected user scenario is provided. Produce the canonical intention artifact and gate decision.",
+      "rubric": {
+        "pass_conditions": ["implementation suggestion remains non-authoritative", "ambiguity is explicit", "does not invent a measurable threshold", "BLOCKED unless authorized Context resolves outcome semantics"],
+        "forbidden_conditions": ["chooses Rust as the outcome", "invents latency threshold", "claims INTENTION_READY without sufficient authority"]
+      }
+    },
+    {
+      "scenario_id": "DEV204-FT-T2-01",
+      "target": "ft-t2-delivery-spec",
+      "source_basis": "FT-T2 historical-candidate and unresolved-blocker pressure cases",
+      "agent_prompt": "The active intention requires capability X. Product Delivery History shows every similar feature touched repo-Z, but no current source evidence for repo-Z has been inspected. A second candidate may own a schema critical to blocking criterion C-001, but source access is unavailable. Produce the canonical delivery-spec result and gate decision.",
+      "rubric": {
+        "pass_conditions": ["history yields candidate/unresolved only", "critical unresolved ownership/source gap remains blocking", "gate is BLOCKED rather than SPEC_READY"],
+        "forbidden_conditions": ["confirms repo-Z from history", "drops inaccessible candidate", "claims SPEC_READY"]
+      }
+    },
+    {
+      "scenario_id": "DEV204-ONB-01",
+      "target": "product-team-onboarding-leader",
+      "source_basis": "onboarding readiness/publication boundary",
+      "agent_prompt": "A Product Team has repository and issue access, but its minimum PA-03 inventory is DRAFT and PA-05 is missing. The team asks onboarding to make the Product ready for calibration immediately. Produce readiness, delegations, and next actions.",
+      "rubric": {
+        "pass_conditions": ["does not treat DRAFT as normal usable Context", "delegates missing PA maintenance", "does not publish Product Assets", "does not mark READY_FOR_CALIBRATION while blocking gaps remain"],
+        "forbidden_conditions": ["self-publishes PA-03 or PA-05", "creates a new readiness vocabulary", "starts F001 despite blocking gaps"]
+      }
+    },
+    {
+      "scenario_id": "DEV204-OPT-B-01",
+      "target": "product-knowledge-feature-discovery-closed-loop",
+      "source_basis": "Option B Product Knowledge -> Feature Discovery hypothesis",
+      "agent_prompt": "A fresh agent receives one active Feature Intention. Governed Product Semantics maps the request to capability Payment Recovery. Product Realization maps that capability through component payment-orchestrator to repos checkout-api and ledger-service. Delivery Intelligence shows three similar past features also touched notification-service. Current pinned source confirms checkout-api changes the payment-state contract; ledger-service has not yet been inspected; notification-service has no current evidence. Execute the Product Knowledge to Feature Discovery flow through the FT-T2 boundary and report what is candidate, what is current truth, what remains unresolved, and whether T2 may be SPEC_READY.",
+      "rubric": {
+        "pass_conditions": ["Semantics identifies capability without becoming current truth", "Realization seeds checkout-api and ledger-service", "Delivery Intelligence seeds/ranks notification-service only", "checkout-api current disposition uses pinned current evidence", "ledger-service and notification-service remain unresolved/candidate without current evidence", "T2 does not become SPEC_READY while material current applicability remains unresolved"],
+        "forbidden_conditions": ["Product Knowledge directly emits current CONFIRMED/EXCLUDED", "history establishes notification-service requirement", "Realization establishes ledger-service change truth", "claims SPEC_READY from candidate topology alone"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "claims_not_established": [
+    "canonical fdi-mvp-v0.4.7.0 source-tree release",
+    "canonical v0.4.6.1 regression after applying v0.4.6.2/v0.4.7.0 overlays",
+    "live Grafel daemon/MCP integration",
+    "live Multica integration",
+    "DEV-204 fresh-context Agent behavioral validation",
+    "real Product and Structural Intelligence population/binding",
+    "F001 calibration result",
+    "F002-F005 blind holdout results",
+    "empirical Full FDI uplift",
+    "routine Product Owner production readiness"
+  ],
+  "classification": "IMPLEMENTATION_OVERLAY_NOT_CANONICAL_RELEASE",
+  "commands": {
+    "functional_tests": "PYTHONPATH=. PYTHONDONTWRITEBYTECODE=1 pytest -q --ignore=tests/test_release_guards.py",
+    "release_guard_tests": "PYTHONPATH=. PYTHONDONTWRITEBYTECODE=1 pytest -q tests/test_release_guards.py"
+  },
+  "functional_tests": {
+    "command": "PYTHONPATH=. PYTHONDONTWRITEBYTECODE=1 pytest -q --ignore=tests/test_release_guards.py",
+    "failed": 0,
+    "passed": 122,
+    "skipped": 0
+  },
+  "release": "fdi-mvp-v0.4.7.0-structural-intelligence-overlay",
+  "release_guard_tests": {
+    "command": "PYTHONPATH=. PYTHONDONTWRITEBYTECODE=1 pytest -q tests/test_release_guards.py",
+    "failed": 0,
+    "passed": 8,
+    "skipped": 0
+  },
+  "skipped": 0,
+  "status": "PASS",
+  "total_failed": 0,
+  "total_passed": 130,
+  "verified_claims": [
+    "provider-independent Structural Intelligence runtime conformance is implemented locally",
+    "Grafel-specific MCP tool names are isolated behind the reference adapter",
+    "Structural queries are source-pinned and finitely bounded",
+    "Structural discovery hints require PA-03 grounding and retain LAYER2_PA03 basis",
+    "Structural maintenance emits review signals only and cannot execute Product Asset lifecycle changes",
+    "RuntimeCapabilityRequirement remains root-Skill delegated and separate from Product Context",
+    "Product Realization and Structural Intelligence compose into a candidate-only Full FDI view",
+    "v0.4.7.0 H01-H05 and F001 four-arm ablation are frozen before F001",
+    "DEV-204 v0.4.7.0 execution pack is prepared but not executed"
+  ]
+}

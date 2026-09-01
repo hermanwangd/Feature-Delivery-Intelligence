@@ -1,0 +1,44 @@
+{
+  "claims_not_established": [
+    "canonical v0.4.6.2 source-tree release",
+    "canonical v0.4.6.1 regression after applying overlay",
+    "DEV-204 fresh-context Agent behavioral validation",
+    "real Product Knowledge population/binding",
+    "F001 calibration result",
+    "F002-F005 blind holdout results",
+    "live Multica integration",
+    "empirical Product Knowledge uplift",
+    "routine Product Owner production readiness"
+  ],
+  "classification": "IMPLEMENTATION_OVERLAY_NOT_CANONICAL_RELEASE",
+  "commands": {
+    "functional_tests": "PYTHONPATH=. PYTHONDONTWRITEBYTECODE=1 pytest -q --ignore=tests/test_release_guards.py",
+    "release_guard_tests": "PYTHONPATH=. PYTHONDONTWRITEBYTECODE=1 pytest -q tests/test_release_guards.py"
+  },
+  "functional_tests": {
+    "command": "PYTHONPATH=. PYTHONDONTWRITEBYTECODE=1 pytest -q --ignore=tests/test_release_guards.py",
+    "failed": 0,
+    "passed": 83,
+    "skipped": 0
+  },
+  "release": "fdi-mvp-v0.4.6.2-implementation-overlay",
+  "release_guard_tests": {
+    "command": "PYTHONPATH=. PYTHONDONTWRITEBYTECODE=1 pytest -q tests/test_release_guards.py",
+    "failed": 0,
+    "passed": 5,
+    "skipped": 0
+  },
+  "skipped": 0,
+  "status": "PASS",
+  "total_failed": 0,
+  "total_passed": 88,
+  "verified_claims": [
+    "Option B H01-H05 remain frozen before F001",
+    "PA-01/FeatureKnowledgePlan/realization/maintenance overlay conformance tests pass",
+    "DEV-204 fresh-context evidence harness is execution-ready with 11 frozen scenarios, 22 RED/GREEN packets, and reviewer-only rubrics",
+    "DEV-204 evidence validation rejects GroundTruth mounting, non-fresh execution, target-Skill loading in RED, and non-independent RED/GREEN/reviewer contexts",
+    "Option B closed-loop deterministic guard rejects Product Knowledge-only current truth and false SPEC_READY",
+    "release/package guard tests pass",
+    "package verification logs are guarded from mutating the release input tree"
+  ]
+}

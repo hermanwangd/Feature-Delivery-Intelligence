@@ -1,0 +1,59 @@
+{
+  "canonical_runtime_release": false,
+  "claim_boundary": "Local overlay GREEN demonstrates Structural Intelligence integration conformance only. It does not establish a canonical fdi-mvp-v0.4.7.0 runtime release, live Grafel/Multica integration, fresh-agent behavior, real Product binding, or empirical uplift.",
+  "classification": "SOURCE_TREE_READY_STRUCTURAL_INTELLIGENCE_OVERLAY",
+  "dev204_harness": {
+    "execution_record_schema": "06-validation/skill-behavior/execution-record.schema.json",
+    "prepared_agent_packets": 24,
+    "prepared_reviewer_rubrics": 12,
+    "scenario_pack": "06-validation/skill-behavior/SCENARIOS-v0.4.7.0.json",
+    "scenarios": 12,
+    "status": "EXECUTION_READY_NOT_EXECUTED",
+    "structural_system_behavior": "DEV204-FDI-SI-01",
+    "validation_plan": "06-validation/skill-behavior/VALIDATION-PLAN-v0.4.7.0.json"
+  },
+  "external_gates": {
+    "DEV-204": "EXECUTION_READY_NOT_EXECUTED",
+    "F001": "NOT_EXECUTED",
+    "F002_F005": "NOT_POPULATED",
+    "canonical_source_tree_patch": "NOT_EXECUTED_SOURCE_TREE_UNAVAILABLE",
+    "canonical_v0.4.7.0_full_regression": "NOT_EXECUTED_SOURCE_TREE_UNAVAILABLE",
+    "empirical_mvp_proof": "NOT_ESTABLISHED",
+    "live_grafel": "NOT_EXECUTED",
+    "live_multica": "NOT_EXECUTED",
+    "real_product_binding": "NOT_POPULATED"
+  },
+  "local_verification": {
+    "failed": 0,
+    "functional_tests": 122,
+    "release_guard_tests": 8,
+    "skipped": 0,
+    "status": "PASS",
+    "summary_ref": "VERIFICATION-SUMMARY-v0.4.7.0-overlay.json",
+    "total_passed": 130
+  },
+  "option_b": {
+    "H01_H05": "FROZEN_v0.4.7.0_BEFORE_F001",
+    "f001_arms": [
+      "A_BASELINE",
+      "B_STRUCTURAL_ONLY",
+      "C_PRODUCT_INTELLIGENCE_ONLY",
+      "D_FULL_FDI"
+    ],
+    "f002_f005_primary_comparison": "A_BASELINE_vs_D_FULL_FDI",
+    "hypothesis": "Full FDI -> Feature Discovery",
+    "temporal_isolation": "FROZEN"
+  },
+  "release": "fdi-mvp-v0.4.7.0-structural-intelligence-overlay",
+  "source_basis": "clean v0.4.6.2 implementation-overlay HEAD 6f93ab8 plus approved v0.4.7.0 Structural Intelligence integration decision; canonical v0.4.6.1 source tree was not mounted in this runtime",
+  "structural_intelligence_conformance": {
+    "bounded_source_pinned_queries": "IMPLEMENTED_LOCAL_OVERLAY",
+    "current_feature_truth_authority": "PROHIBITED",
+    "full_fdi_candidate_composition": "IMPLEMENTED_LOCAL_OVERLAY",
+    "grafel_adapter_boundary": "IMPLEMENTED_LOCAL_OVERLAY",
+    "maintain_product_signals": "IMPLEMENTED_LOCAL_OVERLAY",
+    "pa03_grounded_feature_discovery": "IMPLEMENTED_LOCAL_OVERLAY",
+    "provider_independent_contracts": "IMPLEMENTED_LOCAL_OVERLAY",
+    "runtime_capability_delegation": "IMPLEMENTED_LOCAL_OVERLAY"
+  }
+}

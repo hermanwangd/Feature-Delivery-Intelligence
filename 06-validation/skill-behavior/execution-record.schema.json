@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fdi://dev204/execution-record/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "release", "scenario_id", "target", "arm",
+    "fresh_context", "context_id", "reviewer_context_id", "scenario_sha256",
+    "target_skill_loaded", "ground_truth_mounted", "agent_output_ref", "review_ref",
+    "scores", "overall"
+  ],
+  "properties": {
+    "schema_version": {"const": "0.1"},
+    "release": {"const": "fdi-mvp-v0.4.6.2"},
+    "scenario_id": {"type": "string", "minLength": 1},
+    "target": {"type": "string", "minLength": 1},
+    "arm": {"enum": ["RED", "GREEN"]},
+    "fresh_context": {"const": true},
+    "context_id": {"type": "string", "minLength": 1},
+    "reviewer_context_id": {"type": "string", "minLength": 1},
+    "scenario_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "target_skill_loaded": {"type": "boolean"},
+    "ground_truth_mounted": {"const": false},
+    "agent_output_ref": {"type": "string", "minLength": 1},
+    "review_ref": {"type": "string", "minLength": 1},
+    "scores": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authority", "decision", "physical_shape", "provenance", "lifecycle", "reentry"],
+      "properties": {
+        "authority": {"enum": ["PASS", "FAIL", "N/A"]},
+        "decision": {"enum": ["PASS", "FAIL", "N/A"]},
+        "physical_shape": {"enum": ["PASS", "FAIL", "N/A"]},
+        "provenance": {"enum": ["PASS", "FAIL", "N/A"]},
+        "lifecycle": {"enum": ["PASS", "FAIL", "N/A"]},
+        "reentry": {"enum": ["PASS", "FAIL", "N/A"]}
+      }
+    },
+    "overall": {"enum": ["PASS", "FAIL"]}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"arm": {"const": "RED"}}, "required": ["arm"]},
+      "then": {"properties": {"target_skill_loaded": {"const": false}}}
+    },
+    {
+      "if": {"properties": {"arm": {"const": "GREEN"}}, "required": ["arm"]},
+      "then": {"properties": {"target_skill_loaded": {"const": true}}}
+    }
+  ]
+}
