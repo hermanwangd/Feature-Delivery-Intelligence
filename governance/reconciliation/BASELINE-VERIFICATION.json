@@ -1,16 +1,13 @@
 {
-  "baseline_digest": "71a4e5ef5098ac58a2591b67894eeb0d25e4d444670e07a258228b199f49c6a5",
+  "baseline_digest": "96d5f43a3c50ba2697907d4170f01997ab1b21e60f01e67c27ae5ed8f9fdc48e",
   "baseline_id": "GB-0001",
-  "baseline_status": "CANDIDATE",
+  "baseline_status": "APPROVED",
   "integrity_failures": [],
-  "promotion_blockers": [
-    "INDEPENDENT_VALIDATION_REQUIRED",
-    "HUMAN_APPROVAL_REQUIRED"
-  ],
-  "promotion_ready_for_independent_review": true,
+  "promotion_blockers": [],
+  "promotion_ready_for_independent_review": false,
   "source_revision": "44e953c3630e8a0078000c2d00eba28f7fc03220",
   "summary": {
-    "active_approved_baselines": 0,
+    "active_approved_baselines": 1,
     "compatibility_failures": 0,
     "competing_active_authorities": 0,
     "digest_failures": 0,

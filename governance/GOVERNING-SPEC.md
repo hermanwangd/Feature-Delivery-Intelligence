@@ -2,8 +2,8 @@
 
 > GENERATED — DO NOT EDIT
 > baseline_id: GB-0001
-> baseline_status: CANDIDATE
-> baseline_digest: 71a4e5ef5098ac58a2591b67894eeb0d25e4d444670e07a258228b199f49c6a5
+> baseline_status: APPROVED
+> baseline_digest: 96d5f43a3c50ba2697907d4170f01997ab1b21e60f01e67c27ae5ed8f9fdc48e
 
 This view contains only baseline-selected normative modules. The baseline
 selects authority; the exact modules below define semantics.
