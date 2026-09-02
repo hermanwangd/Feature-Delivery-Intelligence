@@ -1,0 +1,5 @@
+product_id: <product>
+store_backend: GIT
+store_repository: <product>-product-intelligence.git
+publication_default: HUMAN_APPROVAL
+structural_provider: GRAFEL

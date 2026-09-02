@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "proposal_id",
+    "target_asset_id",
+    "proposed_asset",
+    "evidence_refs",
+    "proposal_kind",
+    "review_requirement"
+  ],
+  "properties": {
+    "proposal_id": {
+      "type": "string"
+    },
+    "target_asset_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "proposed_asset": {
+      "type": "object"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "proposal_kind": {
+      "enum": [
+        "CREATE",
+        "REVISE",
+        "MARK_STALE",
+        "SUPERSEDE",
+        "RETIRE"
+      ]
+    },
+    "review_requirement": {
+      "enum": [
+        "HUMAN_APPROVAL",
+        "RULE_BASED_AUTO",
+        "SOURCE_REFERENCE"
+      ]
+    },
+    "uncertainty": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

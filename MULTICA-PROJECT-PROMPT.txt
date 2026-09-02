@@ -1,0 +1,7 @@
+Treat this extracted directory as the sole active FDI project baseline v0.4.8.2. Do not merge in the corrupted prior project or any recovery workspace as active source.
+
+Read MULTICA-HANDOFF.md and DEVELOPMENT-BACKLOG.md first. Continue normal development from DEV-218 onward. Preserve the external approved-source identity lock and do not redesign Layer 1, FT-T2, Layer 2 lifecycle, or PA-03/PA-05 semantics.
+
+Priorities: complete Git-backed ProductIntelligenceStore lifecycle; bind Azure Repos to exact local worktrees; execute live Grafel exact binding; bootstrap PA-03; generate PA-01/Product Semantics only as governed proposal; then execute DEV-204 and F001 when prerequisites are satisfied.
+
+Never let Product Intelligence, Delivery History, Grafel, or indexed relations establish current CONFIRMED/EXCLUDED or SPEC_READY without current feature-specific pinned Evidence and the canonical T2 gate.

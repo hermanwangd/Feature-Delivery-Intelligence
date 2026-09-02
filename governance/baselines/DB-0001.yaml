@@ -1,0 +1,21 @@
+baseline_id: DB-0001
+baseline_type: CLEAN_DEVELOPMENT_BASELINE
+project_version: 0.4.8.2
+status: ACTIVE
+semantic_authority:
+  mode: EXTERNAL_APPROVED_SOURCE_IDENTITY_LOCK
+  lock_ref: governance/approved-source-lock.json
+  exact_source_bytes_embedded: false
+  semantic_mutation_allowed: false
+implementation_continuation_allowed: true
+scope:
+  - product-intelligence-store scaffold/hardening
+  - Azure Repos pinned acquisition
+  - Grafel provider binding/observations
+  - PA-03/PA-05 implementation conformance
+  - DEV-204/F001 preparation/execution when prerequisites are met
+prohibitions:
+  - redefine Layer 1 T1/T2/T3/T4 semantics
+  - change FT-T2 six-contract/five-Skill surface
+  - promote PA-01 as governing without explicit approval
+  - let Product/Structural Intelligence establish current Feature truth

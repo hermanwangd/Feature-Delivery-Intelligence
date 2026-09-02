@@ -1,0 +1,9 @@
+provider:
+  type: AZURE_REPOS
+  organization: <org>
+  project: <project>
+repositories:
+  - id: repo-a
+    remote: https://dev.azure.com/<org>/<project>/_git/repo-a
+    branch_or_ref: main
+# Credentials are external; never store PATs/passwords here.

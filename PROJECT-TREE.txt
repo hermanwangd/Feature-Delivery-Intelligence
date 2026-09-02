@@ -1,0 +1,165 @@
+fdi-clean-project-baseline-v0.4.8.2/
+├── archive/
+│   ├── recovery/
+│   │   └── v0.4.8.1/
+│   │       └── README.md
+│   └── superseded/
+├── config/
+│   ├── multica/
+│   │   ├── MAPPING.md
+│   │   └── PROJECT-INSTRUCTIONS.md
+│   ├── azure-repos.example.yaml
+│   ├── grafel.example.yaml
+│   └── product-intelligence.example.yaml
+├── contracts/
+│   ├── ft-t2/
+│   │   └── README.md
+│   ├── layer1/
+│   │   └── README.md
+│   ├── layer2/
+│   │   ├── ContextRequirement.schema.json
+│   │   ├── ProductAssetDescriptor.schema.json
+│   │   ├── ProductAssetProposal.schema.json
+│   │   ├── ProductAssetRef.schema.json
+│   │   ├── ResolvedContextRef.schema.json
+│   │   └── SourceSnapshotSet.schema.json
+│   ├── source-integration/
+│   │   └── RepositorySourceConfig.schema.json
+│   └── structural-intelligence/
+│       ├── GrafelBindingEvidenceRecord.schema.json
+│       ├── SnapshotBindingAttestation.schema.json
+│       ├── StructuralObservationSet.schema.json
+│       ├── StructuralQuery.schema.json
+│       └── StructuralSnapshotRef.schema.json
+├── governance/
+│   ├── baselines/
+│   │   └── DB-0001.yaml
+│   ├── decisions/
+│   │   ├── ADR-001-code-intelligence-provider.md
+│   │   ├── ADR-002-product-intelligence-store.md
+│   │   └── ADR-003-azure-repos-acquisition.md
+│   ├── approved-source-lock.json
+│   ├── CURRENT
+│   └── GOVERNING-SOURCES.md
+├── scripts/
+│   ├── build_bundle.py
+│   ├── create_runtime_workspace.py
+│   ├── generate_project_tree.py
+│   ├── validate_schemas.py
+│   └── verify_project.py
+├── skills/
+│   ├── ft-t2/
+│   │   ├── changesurface-investigation/
+│   │   │   └── SKILL.md
+│   │   ├── closure-review/
+│   │   │   └── SKILL.md
+│   │   ├── dependency-closure/
+│   │   │   └── SKILL.md
+│   │   ├── feature-intent-analysis/
+│   │   │   └── SKILL.md
+│   │   └── repo-discovery/
+│   │       └── SKILL.md
+│   ├── layer1/
+│   │   ├── ft-t1-intention/
+│   │   │   └── SKILL.md
+│   │   ├── ft-t2-delivery-spec/
+│   │   │   └── SKILL.md
+│   │   ├── ft-t3-implementation/
+│   │   │   └── SKILL.md
+│   │   └── ft-t4-correctness/
+│   │       └── SKILL.md
+│   └── layer2/
+│       ├── PA-Codebase-Inventory/
+│       │   └── SKILL.md
+│       ├── PA-Historical-Delivery/
+│       │   └── SKILL.md
+│       └── product-intelligence-synthesis/
+│           └── SKILL.md
+├── specs/
+│   ├── approved/
+│   │   └── README.md
+│   ├── ft-t2-feature-closure/
+│   │   └── LOCKED-SURFACE.md
+│   ├── layer1/
+│   │   ├── LAYER1-APPROVED-CONFORMANCE.md
+│   │   └── MARKDOWN-IO-APPROVED-CONFORMANCE.md
+│   ├── layer2/
+│   │   ├── product-knowledge/
+│   │   │   ├── PRODUCT-INTELLIGENCE-STORE.md
+│   │   │   └── PRODUCT-KNOWLEDGE-MODEL.md
+│   │   ├── profiles/
+│   │   │   └── PA-03-PA-05-BOUNDARY.md
+│   │   └── LAYER2-APPROVED-CONFORMANCE.md
+│   ├── proposals/
+│   │   └── PA-01/
+│   │       └── README.md
+│   ├── source-integration/
+│   │   └── AZURE-REPOS.md
+│   ├── structural-intelligence/
+│   │   └── GRAFEL-BOUNDARY.md
+│   └── README.md
+├── src/
+│   └── fdi/
+│       ├── product_intelligence/
+│       │   ├── __init__.py
+│       │   ├── product_store.py
+│       │   └── registry.py
+│       ├── providers/
+│       │   └── __init__.py
+│       ├── source_integration/
+│       │   ├── __init__.py
+│       │   └── azure_repos.py
+│       ├── structural_intelligence/
+│       │   ├── __init__.py
+│       │   ├── code_intelligence_provider.py
+│       │   ├── git_revision.py
+│       │   ├── grafel_adapter.py
+│       │   └── grafel_binding.py
+│       └── __init__.py
+├── templates/
+│   └── product-intelligence/
+│       ├── assets/
+│       │   └── by-id/
+│       │       └── .gitkeep
+│       ├── evidence/
+│       │   ├── code/
+│       │   │   └── .gitkeep
+│       │   ├── delivery/
+│       │   │   └── .gitkeep
+│       │   ├── sme/
+│       │   │   └── .gitkeep
+│       │   └── specs/
+│       │       └── .gitkeep
+│       ├── examples/
+│       │   └── sample-pa03-repository-asset.json
+│       ├── policies/
+│       │   ├── owners.yaml
+│       │   └── publication.yaml
+│       ├── proposals/
+│       │   └── .gitkeep
+│       ├── registry/
+│       │   └── active.json
+│       ├── sources/
+│       │   └── repositories.yaml
+│       ├── product.json
+│       └── README.md
+├── tests/
+│   ├── test_clean_project_structure.py
+│   └── test_contracts_and_hardening.py
+├── validation/
+│   ├── dev204/
+│   │   └── README.md
+│   └── f001/
+│       └── F001-ABLATION.md
+├── workflows/
+│   ├── BOOTSTRAP-PRODUCT.md
+│   ├── DEVELOP-FEATURE.md
+│   └── MAINTAIN-PRODUCT.md
+├── .gitignore
+├── DEVELOPMENT-BACKLOG.md
+├── MULTICA-HANDOFF.md
+├── MULTICA-PROJECT-PROMPT.txt
+├── pyproject.toml
+├── README.md
+├── STATUS.json
+└── VERSION

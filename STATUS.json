@@ -1,0 +1,18 @@
+{
+  "project_version": "0.4.8.2",
+  "baseline_type": "CLEAN_DEVELOPMENT_BASELINE",
+  "status": "ACTIVE_FOR_IMPLEMENTATION",
+  "governing_sources": {
+    "identity_lock": "PINNED",
+    "source_bytes_embedded": false,
+    "semantic_mutation": "BLOCKED_UNTIL_REHYDRATED"
+  },
+  "product_intelligence_store": "SCAFFOLD_HARDENED_NOT_COMPLETE",
+  "azure_repos_provider": "REFERENCE_IMPLEMENTATION_LIVE_AUTH_NOT_CONFIGURED",
+  "grafel_adapter": "MOCK_TESTED_LIVE_NOT_EXECUTED",
+  "pa03_bootstrap": "NOT_EXECUTED",
+  "pa01": "PROPOSAL_ONLY",
+  "dev204": "NOT_EXECUTED",
+  "f001": "NOT_EXECUTED",
+  "empirical_uplift": "NOT_ESTABLISHED"
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ContextRequirement.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "purpose",
+    "authority_dimension",
+    "mode",
+    "selector",
+    "applicability",
+    "freshness_requirement",
+    "trust_requirement",
+    "claims"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "authority_dimension": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mode": {
+      "enum": [
+        "REQUIRED",
+        "CONDITIONAL",
+        "ON_DEMAND"
+      ]
+    },
+    "selector": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "applicability": {},
+    "freshness_requirement": {},
+    "trust_requirement": {},
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

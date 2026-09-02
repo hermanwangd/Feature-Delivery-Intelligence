@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "lock_type": "EXTERNAL_APPROVED_SOURCE_IDENTITY_LOCK",
+  "note": "Exact approved source identities are recovered from the user File Library. Bytes/digests are not embedded in this clean project package; semantic mutation is prohibited until byte rehydration/digest pinning is completed.",
+  "sources": [
+    {
+      "id": "L1-SEM",
+      "title": "fdi-layer1-specification-v0.2-approved.md",
+      "revision": "0.2",
+      "stable_source_id": "file_00000000685482118de1eec4e5a218c7",
+      "status": "APPROVED",
+      "authority": "Layer 1 semantic contract",
+      "source_bytes_digest_status": "NOT_EMBEDDED"
+    },
+    {
+      "id": "L1-IO",
+      "title": "fdi-layer1-markdown-io-profile-v0.1-approved.md",
+      "revision": "0.1",
+      "stable_source_id": "file_000000003b948206bfc0e0e9be316bb2",
+      "status": "APPROVED",
+      "authority": "Layer 1 physical Markdown I/O contract",
+      "source_bytes_digest_status": "NOT_EMBEDDED"
+    },
+    {
+      "id": "L2-FWK",
+      "title": "fdi-layer2-product-intelligence-framework-v0.1-approved.md",
+      "revision": "0.1",
+      "stable_source_id": "file_00000000642881f5807216c4502623c6",
+      "status": "APPROVED",
+      "authority": "Layer 2 Product Intelligence framework",
+      "source_bytes_digest_status": "NOT_EMBEDDED"
+    },
+    {
+      "id": "L2-PROFILE",
+      "title": "fdi-product-asset-profile-specification-v0.1-approved.md",
+      "revision": "0.1",
+      "stable_source_id": "file_00000000b8788206bf413e727452eaac",
+      "status": "APPROVED",
+      "authority": "PA-03/PA-05 Product Asset profiles",
+      "source_bytes_digest_status": "NOT_EMBEDDED"
+    },
+    {
+      "id": "L2-MAINT",
+      "title": "fdi-product-asset-maintenance-skill-contracts-v0.1-approved.md",
+      "revision": "0.1",
+      "stable_source_id": "file_000000000b48820781c3ddf887728665",
+      "status": "APPROVED",
+      "authority": "PA maintenance Skill contract",
+      "source_bytes_digest_status": "NOT_EMBEDDED"
+    },
+    {
+      "id": "FT-T2",
+      "title": "HERM-211 FT-T2 locked helper surface",
+      "revision": "LOCKED_SET",
+      "stable_source_id": null,
+      "status": "APPROVED_SEMANTICS",
+      "authority": "six helper contracts + five helper Skills",
+      "source_bytes_digest_status": "NOT_EMBEDDED"
+    }
+  ],
+  "ft_t2_locked_surface": {
+    "contracts": [
+      "IntentSpec",
+      "CandidateRepoSet",
+      "ChangeSurfaceSet",
+      "EvidenceRecord",
+      "ClosurePackage",
+      "ClosureReview"
+    ],
+    "skills": [
+      "feature-intent-analysis",
+      "repo-discovery",
+      "changesurface-investigation",
+      "dependency-closure",
+      "closure-review"
+    ],
+    "helper_status": [
+      "OPEN",
+      "PARTIAL",
+      "CLOSED_WITHIN_DECLARED_SCOPE"
+    ],
+    "canonical_t2_gate": [
+      "SPEC_READY",
+      "BLOCKED"
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "snapshot_id",
+    "provider",
+    "provider_scope_id",
+    "provider_ref",
+    "repositories"
+  ],
+  "properties": {
+    "snapshot_id": {
+      "type": "string"
+    },
+    "provider": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "version",
+        "adapter_version"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "adapter_version": {
+          "type": "string"
+        }
+      }
+    },
+    "provider_scope_id": {
+      "type": "string"
+    },
+    "provider_ref": {
+      "type": "string"
+    },
+    "repositories": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "repository_id",
+          "local_path",
+          "canonical_revision"
+        ],
+        "properties": {
+          "repository_id": {
+            "type": "string"
+          },
+          "local_path": {
+            "type": "string"
+          },
+          "canonical_revision": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{40}$"
+          }
+        }
+      }
+    }
+  }
+}

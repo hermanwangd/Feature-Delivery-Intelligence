@@ -1,0 +1,496 @@
+{
+  "schema_version": "1.0",
+  "bundle": "fdi-clean-project-baseline-v0.4.8.2",
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "0057fb7dd771d9130848a5470ddb4c3a1a357db9d53f25ddb98456dd97af971e",
+      "size": 66
+    },
+    {
+      "path": "DEVELOPMENT-BACKLOG.md",
+      "sha256": "33756aba506b6ae413371f6f2f91b26984a5ec422bef43e2c6b36e832a6670dc",
+      "size": 2010
+    },
+    {
+      "path": "MULTICA-HANDOFF.md",
+      "sha256": "25b5e050d351792c1e74c1de6e027cf2d864c5aa0888a7663eca65b1c3e7f437",
+      "size": 1495
+    },
+    {
+      "path": "MULTICA-PROJECT-PROMPT.txt",
+      "sha256": "338cd50e8508a6e2022c826458c5d8c05286b35876fc5f9b42a7e70afd816f25",
+      "size": 905
+    },
+    {
+      "path": "PROJECT-TREE.txt",
+      "sha256": "de3c87894368375febff68092ad40f5bb08fa72594a64bdbd02754e1a666f6d5",
+      "size": 6056
+    },
+    {
+      "path": "README.md",
+      "sha256": "a8a500c1f975741b2b6777c83dc32edc8935c8cfdbdf675794f848603b12227c",
+      "size": 1648
+    },
+    {
+      "path": "STATUS.json",
+      "sha256": "08b1198347c80a8c8a39bde0f344e146f5e84fcf638f9cb49eb8edd3a42bf144",
+      "size": 630
+    },
+    {
+      "path": "VERIFICATION-SUMMARY.json",
+      "sha256": "71a7c423c9ab27ef403599317ca386dae6f20d04c708f0fc8ca5fdfa96872109",
+      "size": 1046
+    },
+    {
+      "path": "VERSION",
+      "sha256": "c255ccdf2645fa39e70fbee782e9544bcdc766a496389fc7463650aec83fc8f0",
+      "size": 8
+    },
+    {
+      "path": "archive/recovery/v0.4.8.1/README.md",
+      "sha256": "006b620a4020ab34f2140403dcddd9c1171b39204af16c6384f01e91af1f96f3",
+      "size": 589
+    },
+    {
+      "path": "config/azure-repos.example.yaml",
+      "sha256": "e02280a25022a6eed6956d859bac49f8b8da6750513303cd7a325b20c76cbfed",
+      "size": 249
+    },
+    {
+      "path": "config/grafel.example.yaml",
+      "sha256": "78c831aeb695247809a374bd26b1012689296ba826e54d1a1c6cc86f9a794a06",
+      "size": 322
+    },
+    {
+      "path": "config/multica/MAPPING.md",
+      "sha256": "6e64395f95b11ffe0e513b4cecdc448c0bebae4961572fd1c38383fc67a10fcc",
+      "size": 754
+    },
+    {
+      "path": "config/multica/PROJECT-INSTRUCTIONS.md",
+      "sha256": "680a178c1a1609b6df9e54d4a8947d2708c3fafcaf0de2ad7c331b9004c00061",
+      "size": 792
+    },
+    {
+      "path": "config/product-intelligence.example.yaml",
+      "sha256": "d4017c9f80f7d2997a50f724d32868723b77e5adfb58b31ca6bbc7b098875a27",
+      "size": 158
+    },
+    {
+      "path": "contracts/ft-t2/README.md",
+      "sha256": "fc273be6e784f462e4335ec94c282f408c04ad90eab2ff9ee23018f2039c2505",
+      "size": 780
+    },
+    {
+      "path": "contracts/layer1/README.md",
+      "sha256": "333b3b0871b8e248fb4f3fccc7cd4194bf536a71f71568319f7723f338b6654b",
+      "size": 718
+    },
+    {
+      "path": "contracts/layer2/ContextRequirement.schema.json",
+      "sha256": "6693806045da8e5002c6c248807d82c08b94c15cb419907527d89958054b5b0d",
+      "size": 950
+    },
+    {
+      "path": "contracts/layer2/ProductAssetDescriptor.schema.json",
+      "sha256": "4100ce022553061843d8ce6103353420df1ce21b8fcb5b45973162b83f7c1e5f",
+      "size": 7161
+    },
+    {
+      "path": "contracts/layer2/ProductAssetProposal.schema.json",
+      "sha256": "b01049614ab552d5cbf9005982b13af821c828687fc1fe0bb66fd4d524710993",
+      "size": 999
+    },
+    {
+      "path": "contracts/layer2/ProductAssetRef.schema.json",
+      "sha256": "136b3726677f89bf53898b49bc9088792359809a99f5e438ae4ea2c09c3310d6",
+      "size": 2037
+    },
+    {
+      "path": "contracts/layer2/ResolvedContextRef.schema.json",
+      "sha256": "95f4d68bf94307f51314b9d5e180b5b39f4beae1dcf9b3b8453f8aabdebf6021",
+      "size": 762
+    },
+    {
+      "path": "contracts/layer2/SourceSnapshotSet.schema.json",
+      "sha256": "e3052912c653d7c85c3fbed607f0006ea13103efa46ee921871c53d14496d8d8",
+      "size": 1032
+    },
+    {
+      "path": "contracts/source-integration/RepositorySourceConfig.schema.json",
+      "sha256": "9a1677d56e8fef3becc7b7f7f3036acdf87392376fa4b54cf971622c078617e4",
+      "size": 1110
+    },
+    {
+      "path": "contracts/structural-intelligence/GrafelBindingEvidenceRecord.schema.json",
+      "sha256": "e8afb137ca1029493e84cedc07a0bcbfaea606ed99c750f79594fda32a08a16d",
+      "size": 5179
+    },
+    {
+      "path": "contracts/structural-intelligence/SnapshotBindingAttestation.schema.json",
+      "sha256": "8056eda39e36a83b23840c670e4fad64d0a98ba2d6d66486d0c17792c6d68c4f",
+      "size": 1946
+    },
+    {
+      "path": "contracts/structural-intelligence/StructuralObservationSet.schema.json",
+      "sha256": "d5c68b66ad677306d95e597c6397679c14624bac37e0b1aa2fa0389a90d6d939",
+      "size": 1784
+    },
+    {
+      "path": "contracts/structural-intelligence/StructuralQuery.schema.json",
+      "sha256": "dd1e71653fe53eb98e3d44a678926a15ca8924e2be81067eff3769e7ca75891f",
+      "size": 1346
+    },
+    {
+      "path": "contracts/structural-intelligence/StructuralSnapshotRef.schema.json",
+      "sha256": "bb0fd136e8ad79a78123e226bfb61e2db48d53a2564057f3c624527f49035b48",
+      "size": 1376
+    },
+    {
+      "path": "governance/CURRENT",
+      "sha256": "eecd7623615144fadba3d8a8f9d3a44c643d22b09f79bdffc0736208a8e7592c",
+      "size": 8
+    },
+    {
+      "path": "governance/GOVERNING-SOURCES.md",
+      "sha256": "1483aac96764f8fcba89cdc46e15e5a3b0ab69ea0b6b0013db8559a124dbd39a",
+      "size": 1286
+    },
+    {
+      "path": "governance/approved-source-lock.json",
+      "sha256": "d0440c9b1bab55a6bed8211235118c2f7e9773fb273978849f48e1ef8b1680c8",
+      "size": 2855
+    },
+    {
+      "path": "governance/baselines/DB-0001.yaml",
+      "sha256": "94f8eed22257f7314c0ae9bbb56ac7a3082b50ef2af79537386718365ee79e88",
+      "size": 810
+    },
+    {
+      "path": "governance/decisions/ADR-001-code-intelligence-provider.md",
+      "sha256": "c25dbc7107e0fe75f1b15ebcd70aa5c813cc12ddd7ddaf11c7748f040a7c7d52",
+      "size": 378
+    },
+    {
+      "path": "governance/decisions/ADR-002-product-intelligence-store.md",
+      "sha256": "f65e3f5e11f835537eef01b3151d4c10f6569ab6784abbefc39fa92e5da34ee4",
+      "size": 361
+    },
+    {
+      "path": "governance/decisions/ADR-003-azure-repos-acquisition.md",
+      "sha256": "8f98ac331bd334de6972925aa409fc4bcb133eadc925e5ef762f5d2bdebac47e",
+      "size": 250
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "3d14e4b65584b80a81f72d7706966f319baf232a5ac788b2c85218c9c416744a",
+      "size": 274
+    },
+    {
+      "path": "scripts/build_bundle.py",
+      "sha256": "8ba08158d49defc7c5d333b5df529f0ddbac6bfb88480fe35938a8e9027a7973",
+      "size": 1695
+    },
+    {
+      "path": "scripts/create_runtime_workspace.py",
+      "sha256": "45feec844b252e90ba47bdae6b94edd2822c86060af747df1e07f751f4be9de2",
+      "size": 275
+    },
+    {
+      "path": "scripts/generate_project_tree.py",
+      "sha256": "71a3620e794d08ad52861dfd967ec2e9527218539385b24928013cba2241e31c",
+      "size": 800
+    },
+    {
+      "path": "scripts/validate_schemas.py",
+      "sha256": "b8ecbbbb906450ad6e6f4d55d38c4ffbb48fe400eabb427fcb0b8d6280697a4a",
+      "size": 358
+    },
+    {
+      "path": "scripts/verify_project.py",
+      "sha256": "140201c2ebe37ddc5f1859ef95d29e1a95e92bd84d34b7eb135ae5f39b1c7727",
+      "size": 954
+    },
+    {
+      "path": "skills/ft-t2/changesurface-investigation/SKILL.md",
+      "sha256": "bcf8675b1e1ebbec517853e4bcc25f935570a48ed767f92de2476355fd180932",
+      "size": 307
+    },
+    {
+      "path": "skills/ft-t2/closure-review/SKILL.md",
+      "sha256": "b2e9a15f81a85f45b3fcc956630bff57e290a8d5a04c9ae45ca86f0f799c0bd3",
+      "size": 274
+    },
+    {
+      "path": "skills/ft-t2/dependency-closure/SKILL.md",
+      "sha256": "1aba0b38d16947311eb5139956a161f0c2e22a93b98b6d07f26596ab7f51fbba",
+      "size": 279
+    },
+    {
+      "path": "skills/ft-t2/feature-intent-analysis/SKILL.md",
+      "sha256": "8978372e76baa28a0f871c2e0111e923a631052568433865cad33491ec7488f7",
+      "size": 280
+    },
+    {
+      "path": "skills/ft-t2/repo-discovery/SKILL.md",
+      "sha256": "1834994299b8e46c7a272f370534c80e101d0959c5c337107c24e3fa8389b12d",
+      "size": 277
+    },
+    {
+      "path": "skills/layer1/ft-t1-intention/SKILL.md",
+      "sha256": "dcbe701c7b70cfea23ae62ab1a1033c3da54271d295af9caf90a1fb66d8aa5d3",
+      "size": 356
+    },
+    {
+      "path": "skills/layer1/ft-t2-delivery-spec/SKILL.md",
+      "sha256": "71a46c8a9a0accbbd8400763f335524dd47e8df87add35706cb98774821a07e7",
+      "size": 349
+    },
+    {
+      "path": "skills/layer1/ft-t3-implementation/SKILL.md",
+      "sha256": "75215303651c89b41ba872d8ebfe5effc0b6d59fffccc20585da977042c244ca",
+      "size": 377
+    },
+    {
+      "path": "skills/layer1/ft-t4-correctness/SKILL.md",
+      "sha256": "221cc5617437fcd6e9a06539d9475155ad181624f6293f90819390e76fdad4ce",
+      "size": 390
+    },
+    {
+      "path": "skills/layer2/PA-Codebase-Inventory/SKILL.md",
+      "sha256": "ea64e6800533851beb209368cb56705924cdbdf457b0ffb1d2f194215e338355",
+      "size": 264
+    },
+    {
+      "path": "skills/layer2/PA-Historical-Delivery/SKILL.md",
+      "sha256": "90d67377cd51c134a3ee11af3aef0bdc2578ecaad86c60800db265e3d305e4b5",
+      "size": 197
+    },
+    {
+      "path": "skills/layer2/product-intelligence-synthesis/SKILL.md",
+      "sha256": "2885b909d91211d1e83521f8a93795d0bd0a8773af31c6529c2d21b5f0006fa7",
+      "size": 263
+    },
+    {
+      "path": "specs/README.md",
+      "sha256": "771470416f976e95b0c37006e7cc836dbb76e935fcd6defa324087a54931e4ed",
+      "size": 241
+    },
+    {
+      "path": "specs/approved/README.md",
+      "sha256": "dde2f83fdac6bf289e2e43c5111f182c2dcb143c9896c291d7ce4a2889cdf43f",
+      "size": 863
+    },
+    {
+      "path": "specs/ft-t2-feature-closure/LOCKED-SURFACE.md",
+      "sha256": "582b631fe96f0a564a306a39346363e243f739b5a8b226ef199b9cd27eddd01a",
+      "size": 552
+    },
+    {
+      "path": "specs/layer1/LAYER1-APPROVED-CONFORMANCE.md",
+      "sha256": "1a33252676394be58069f30fa2cac27cb4e74239539c186c466d75064f76834f",
+      "size": 798
+    },
+    {
+      "path": "specs/layer1/MARKDOWN-IO-APPROVED-CONFORMANCE.md",
+      "sha256": "08a20532ffce9a17bdb7874489c370f9fa4037e71a2c8a68368f16b276f67991",
+      "size": 411
+    },
+    {
+      "path": "specs/layer2/LAYER2-APPROVED-CONFORMANCE.md",
+      "sha256": "5d1c2c0f4bd4915fd83622a6eec43a57ba424d712eacc5a540750819e07c3d2e",
+      "size": 649
+    },
+    {
+      "path": "specs/layer2/product-knowledge/PRODUCT-INTELLIGENCE-STORE.md",
+      "sha256": "90eb8e402e5105c444978e1e3e05550540d82cb05160de49bd6962d326538a0f",
+      "size": 1034
+    },
+    {
+      "path": "specs/layer2/product-knowledge/PRODUCT-KNOWLEDGE-MODEL.md",
+      "sha256": "cabbafede072a6241007ced110e2511c8c8aeb57e5f1b0ec81c2276679f2051a",
+      "size": 1398
+    },
+    {
+      "path": "specs/layer2/profiles/PA-03-PA-05-BOUNDARY.md",
+      "sha256": "6957019a587b2a0e024ccf88578e2d684befc2232a8eb643d203d50841c533bd",
+      "size": 573
+    },
+    {
+      "path": "specs/proposals/PA-01/README.md",
+      "sha256": "b962b89aee6b28d2610ff388c7ce4d07af7c1445e339f65b50a1117e303acbbd",
+      "size": 277
+    },
+    {
+      "path": "specs/source-integration/AZURE-REPOS.md",
+      "sha256": "108afaa05caef666870dcaa43263c5f2140448b66f3fb56af9e039fa61f2610f",
+      "size": 711
+    },
+    {
+      "path": "specs/structural-intelligence/GRAFEL-BOUNDARY.md",
+      "sha256": "830e7a86ebd1b934ec8c00aeb4658fdfbe7271a0f6cea5dd163861af5b19058c",
+      "size": 1283
+    },
+    {
+      "path": "src/fdi/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "src/fdi/product_intelligence/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "src/fdi/product_intelligence/product_store.py",
+      "sha256": "6922b5247fa8c96c0ff3c5ae62115dffa28644337b5ec3250d0bb2ff45e0f1fc",
+      "size": 1683
+    },
+    {
+      "path": "src/fdi/product_intelligence/registry.py",
+      "sha256": "ae1e360b7314a61116df0664182b3fd172cf3068edf9a5b7804e9aea25a1de36",
+      "size": 2754
+    },
+    {
+      "path": "src/fdi/providers/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "src/fdi/source_integration/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "src/fdi/source_integration/azure_repos.py",
+      "sha256": "1df126fe0d35e18de01f10fc99a8cf94ceb31f2d104f3bd3e91cfa5468ac306a",
+      "size": 1636
+    },
+    {
+      "path": "src/fdi/structural_intelligence/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "src/fdi/structural_intelligence/code_intelligence_provider.py",
+      "sha256": "dae24ab3231cee2a745eaa259d81576d775b06b78edabea29458a41f97859767",
+      "size": 327
+    },
+    {
+      "path": "src/fdi/structural_intelligence/git_revision.py",
+      "sha256": "0cc93ccd7ad4dbfa64ce361a186d34d15d71b59d1713eb73759a7441a7a6776f",
+      "size": 960
+    },
+    {
+      "path": "src/fdi/structural_intelligence/grafel_adapter.py",
+      "sha256": "b99a255f995fffa01b15e288fffa1d80e4e26993e06add16035b4be82a2e7a92",
+      "size": 2613
+    },
+    {
+      "path": "src/fdi/structural_intelligence/grafel_binding.py",
+      "sha256": "6297ec4050d1cdfe76269b1cd5cdd53028e6be88999e07d379cedad8a3fb969f",
+      "size": 5149
+    },
+    {
+      "path": "templates/product-intelligence/README.md",
+      "sha256": "7c58d7561beff43104c99c10d1a30d3123792c1a328424ee22522afbf4406527",
+      "size": 306
+    },
+    {
+      "path": "templates/product-intelligence/assets/by-id/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "templates/product-intelligence/evidence/code/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "templates/product-intelligence/evidence/delivery/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "templates/product-intelligence/evidence/sme/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "templates/product-intelligence/evidence/specs/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "templates/product-intelligence/examples/sample-pa03-repository-asset.json",
+      "sha256": "c742179a9cafbe4ddbfbee51b6cca146527c8a80f6f38c00a22ce01f820ac280",
+      "size": 1096
+    },
+    {
+      "path": "templates/product-intelligence/policies/owners.yaml",
+      "sha256": "fcf0fa322d99ad0be5ae94f6fff5657f66bf0f683cf27696ed7e5737541f005b",
+      "size": 52
+    },
+    {
+      "path": "templates/product-intelligence/policies/publication.yaml",
+      "sha256": "68a68322b7a4c34ab39da3ddd1c8858258b6381d08f7959e1757f2ae7a3b692a",
+      "size": 160
+    },
+    {
+      "path": "templates/product-intelligence/product.json",
+      "sha256": "76debc9bb41fc27fcee8bb8e5c88e6dff41ebcc114fb4eabd4d5fe6f3fb3e6b4",
+      "size": 92
+    },
+    {
+      "path": "templates/product-intelligence/proposals/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "templates/product-intelligence/registry/active.json",
+      "sha256": "bc60d1ca8b19d8f1728ae0c31827f12d4e46ca27139f10d9b0d4d720d688ec07",
+      "size": 46
+    },
+    {
+      "path": "templates/product-intelligence/sources/repositories.yaml",
+      "sha256": "403a9a3e49e18ecac579b64160e40856795b8ca371dd8849a930c08bda8a56bf",
+      "size": 210
+    },
+    {
+      "path": "tests/test_clean_project_structure.py",
+      "sha256": "4722a57485356866f80c6464ad38d586e2383ceadb5fa51dcac7fdde79c1765f",
+      "size": 914
+    },
+    {
+      "path": "tests/test_contracts_and_hardening.py",
+      "sha256": "fd44c2e41758bf3a6ffe6590b5f61f9785829bd976020d41f8ad880d7c2cbf0b",
+      "size": 5355
+    },
+    {
+      "path": "validation/dev204/README.md",
+      "sha256": "9cd592f5778eeccc5e75eb62fae16b3677227fe0411e711b9f004d6c90a01edc",
+      "size": 208
+    },
+    {
+      "path": "validation/f001/F001-ABLATION.md",
+      "sha256": "c10d910169386a1a896396751a787c8481679519c7409800dec5fe59e5f6cd66",
+      "size": 696
+    },
+    {
+      "path": "workflows/BOOTSTRAP-PRODUCT.md",
+      "sha256": "f09c787f673782cbcebaaae54bbdaa4cea74f1b7f96f67c1518b5dbedb3163c3",
+      "size": 768
+    },
+    {
+      "path": "workflows/DEVELOP-FEATURE.md",
+      "sha256": "92ac590f828318c21251efd8f1294ff3b2c20254ba00d43313e3e6e85609aec1",
+      "size": 476
+    },
+    {
+      "path": "workflows/MAINTAIN-PRODUCT.md",
+      "sha256": "87604d6233206af3ba0410bb9ab89110a13bd5e2ade64c62f024f13a00acfea1",
+      "size": 476
+    }
+  ]
+}
