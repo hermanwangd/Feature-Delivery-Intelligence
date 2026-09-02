@@ -1,0 +1,47 @@
+{
+  "claims_not_established": [
+    "canonical fdi-mvp-v0.4.7.1 source-tree release",
+    "canonical v0.4.6.1 regression after applying the v0.4.7.1 overlay",
+    "live Grafel daemon/MCP integration",
+    "live Grafel SnapshotBindingAttestor implementation/execution",
+    "live Multica integration",
+    "DEV-204 fresh-context Agent behavioral validation",
+    "real Product and Structural Intelligence population/binding",
+    "F001 calibration result",
+    "F002-F005 blind holdout results",
+    "empirical Full FDI uplift",
+    "routine Product Owner production readiness"
+  ],
+  "classification": "IMPLEMENTATION_OVERLAY_NOT_CANONICAL_RELEASE",
+  "commands": {
+    "functional_tests": "PYTHONPATH=. PYTHONDONTWRITEBYTECODE=1 pytest -q --ignore=tests/test_release_guards.py",
+    "release_guard_tests": "PYTHONPATH=. PYTHONDONTWRITEBYTECODE=1 pytest -q tests/test_release_guards.py"
+  },
+  "functional_tests": {
+    "command": "PYTHONPATH=. PYTHONDONTWRITEBYTECODE=1 pytest -q --ignore=tests/test_release_guards.py",
+    "failed": 0,
+    "passed": 148,
+    "skipped": 0
+  },
+  "release": "fdi-mvp-v0.4.7.1-structural-intelligence-hardening-overlay",
+  "release_guard_tests": {
+    "command": "PYTHONPATH=. PYTHONDONTWRITEBYTECODE=1 pytest -q tests/test_release_guards.py",
+    "failed": 0,
+    "passed": 11,
+    "skipped": 0
+  },
+  "skipped": 0,
+  "status": "PASS",
+  "total_failed": 0,
+  "total_passed": 159,
+  "verified_claims": [
+    "StructuralSnapshotRef execution requires an exact queryable SnapshotBindingAttestation with explicit provider scope/ref routing",
+    "FROZEN_INDEXED historical provider refs are valid when they prove exact canonical repository revisions; current HEAD is not required",
+    "GrafelAdapter routes orient/find/expand/trace through the same provider scope/ref proven by the binding attestation",
+    "Structural diff uses two independently attested queryable provider refs and preserves both binding attestation IDs",
+    "normalized structural results enforce repository/relation/node/edge/path/byte bounds",
+    "F001 all four arms share only a neutral PA-03 CB-01 repository identity substrate",
+    "DEV-204 system behavior uses target_kind/target_loaded rather than Skill-only loading semantics",
+    "Structural Intelligence remains non-authoritative for current Feature truth"
+  ]
+}

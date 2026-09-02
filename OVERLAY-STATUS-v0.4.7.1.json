@@ -1,0 +1,67 @@
+{
+  "canonical_runtime_release": false,
+  "claim_boundary": "Local overlay GREEN may establish provider-neutral exact/queryable snapshot-binding contracts, routed Grafel adapter behavior, and evaluation conformance after final verification. It does not establish a live Grafel binding attestor, canonical fdi-mvp-v0.4.7.1 runtime release, live Grafel/Multica integration, fresh-agent behavior, real Product binding, or empirical uplift.",
+  "classification": "SOURCE_TREE_READY_STRUCTURAL_INTELLIGENCE_HARDENING_OVERLAY",
+  "dev204_harness": {
+    "execution_guide": "06-validation/skill-behavior/EXECUTION-GUIDE-v0.4.7.1.md",
+    "execution_record_schema": "06-validation/skill-behavior/execution-record-v0.2.schema.json",
+    "prepared_agent_packets": 24,
+    "prepared_reviewer_rubrics": 12,
+    "prepared_set": "06-validation/skill-behavior/prepared-v0.4.7.1",
+    "scenario_pack": "06-validation/skill-behavior/SCENARIOS-v0.4.7.1.json",
+    "scenarios": 12,
+    "status": "EXECUTION_READY_NOT_EXECUTED",
+    "structural_system_behavior": "DEV204-FDI-SI-01",
+    "validation_plan": "06-validation/skill-behavior/VALIDATION-PLAN-v0.4.7.1.json"
+  },
+  "external_gates": {
+    "DEV-204": "EXECUTION_READY_NOT_EXECUTED",
+    "F001": "NOT_EXECUTED",
+    "F002_F005": "NOT_POPULATED",
+    "canonical_source_tree_patch": "NOT_EXECUTED_SOURCE_TREE_UNAVAILABLE",
+    "canonical_v0.4.7.1_full_regression": "NOT_EXECUTED_SOURCE_TREE_UNAVAILABLE",
+    "empirical_mvp_proof": "NOT_ESTABLISHED",
+    "live_grafel": "NOT_EXECUTED",
+    "live_grafel_binding_attestor": "NOT_EXECUTED",
+    "live_multica": "NOT_EXECUTED",
+    "real_product_binding": "NOT_POPULATED"
+  },
+  "local_verification": {
+    "failed": 0,
+    "functional_tests": 148,
+    "release_guard_tests": 11,
+    "skipped": 0,
+    "status": "PASS",
+    "summary_ref": "VERIFICATION-SUMMARY-v0.4.7.1-overlay.json",
+    "total_passed": 159
+  },
+  "option_b": {
+    "H01_H05": "FROZEN_v0.4.7.1_BEFORE_F001",
+    "f001_arms": [
+      "A_BASELINE",
+      "B_STRUCTURAL_ONLY",
+      "C_PRODUCT_INTELLIGENCE_ONLY",
+      "D_FULL_FDI"
+    ],
+    "f002_f005_primary_comparison": "A_BASELINE_vs_D_FULL_FDI",
+    "hypothesis": "Full FDI -> Feature Discovery",
+    "shared_repository_identity_substrate": "PA03_CB01_IDENTITY_ONLY_ALL_ARMS",
+    "temporal_isolation": "FROZEN"
+  },
+  "release": "fdi-mvp-v0.4.7.1-structural-intelligence-hardening-overlay",
+  "source_basis": "v0.4.7.0 structural overlay baseline plus v0.4.7.1 source-binding, dual-snapshot diff, bounded-result, neutral ablation, and DEV-204 evidence hardening; canonical v0.4.6.1 source tree is not mounted in this runtime",
+  "structural_intelligence_conformance": {
+    "binding_attestation_retention": "REQUIRED_EXECUTION_EVIDENCE",
+    "bounded_result_postconditions": "IMPLEMENTED_LOCAL_OVERLAY",
+    "current_feature_truth_authority": "PROHIBITED",
+    "dev204_neutral_target_semantics": "IMPLEMENTED_LOCAL_OVERLAY",
+    "dual_snapshot_diff_attestation": "IMPLEMENTED_LOCAL_OVERLAY",
+    "grafel_adapter_boundary": "IMPLEMENTED_LOCAL_OVERLAY",
+    "identity_only_ablation_substrate": "IMPLEMENTED_LOCAL_OVERLAY",
+    "live_grafel_binding_attestor": "NOT_IMPLEMENTED_IN_OVERLAY",
+    "pa03_grounded_feature_discovery": "IMPLEMENTED_LOCAL_OVERLAY",
+    "provider_independent_contracts": "IMPLEMENTED_LOCAL_OVERLAY",
+    "provider_route_enforcement": "IMPLEMENTED_LOCAL_OVERLAY",
+    "snapshot_binding_contract": "IMPLEMENTED_LOCAL_OVERLAY"
+  }
+}
