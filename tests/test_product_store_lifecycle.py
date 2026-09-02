@@ -223,7 +223,7 @@ class ProductStoreLifecycleTests(unittest.TestCase):
 
             def publish(asset_id):
                 try:
-                    return store.publish_proposal(
+                    return product_store.GitStoreAdapter(root).publish_proposal(
                         f"replace-A-with-{asset_id}", authorization(), current
                     )
                 except Exception as error:

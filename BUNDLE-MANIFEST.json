@@ -469,8 +469,8 @@
     },
     {
       "path": "tests/test_product_store_lifecycle.py",
-      "sha256": "93fb210235034435a98fffe0b6976f4093f93f3ab0ad88d8aef470fdf0b33db9",
-      "size": 15058
+      "sha256": "b047b61cb593b4180ce2216737eb4cf58f15c97256fc1fdb45a712cb5925663b",
+      "size": 15088
     },
     {
       "path": "tests/test_project_verification.py",
