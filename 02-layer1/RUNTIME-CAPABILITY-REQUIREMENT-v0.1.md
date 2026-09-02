@@ -1,6 +1,6 @@
 # RuntimeCapabilityRequirement v0.1
 
-**FDI release:** v0.4.7.0  
+**FDI release:** v0.4.7.0<br>
 **Purpose:** bind optional/on-demand FDI runtime capabilities without changing Layer 2 ContextRequirement authority.
 
 ## Separation

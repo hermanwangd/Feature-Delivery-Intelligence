@@ -1,7 +1,7 @@
 # FDI MVP Hypothesis Freeze v0.4.7.0
 
-**Status:** Governing experiment freeze before F001.  
-**Supersedes for future MVP execution:** `MVP-HYPOTHESIS-FREEZE-v0.4.6.2.md`  
+**Status:** Governing experiment freeze before F001.<br>
+**Supersedes for future MVP execution:** `MVP-HYPOTHESIS-FREEZE-v0.4.6.2.md`<br>
 **Reason for revision:** Structural Intelligence was formally integrated into FDI before F001 execution; the experiment must therefore evaluate the complete Feature Delivery Intelligence architecture rather than Product Knowledge alone.
 
 ## MVP-H01 — Core hypothesis

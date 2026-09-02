@@ -1,6 +1,6 @@
 # Grafel Adapter Contract v0.1
 
-**FDI release:** v0.4.7.0  
+**FDI release:** v0.4.7.0<br>
 **Classification:** reference provider adapter; not a governing Layer 1 or Product Asset contract.
 
 ## Boundary

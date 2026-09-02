@@ -1,7 +1,7 @@
 # FDI MVP v0.4.7.0 — Structural Intelligence Integration
 
-**Status:** APPROVED DESIGN / IMPLEMENTATION TARGET  
-**Supersedes for MVP experiment semantics:** `MVP-HYPOTHESIS-FREEZE-v0.4.6.2.md`  
+**Status:** APPROVED DESIGN / IMPLEMENTATION TARGET<br>
+**Supersedes for MVP experiment semantics:** `MVP-HYPOTHESIS-FREEZE-v0.4.6.2.md`<br>
 **Does not modify:** Layer 1 T1–T4 governing transitions, HERM-211 six helper contracts, or the sole T2 `SPEC_READY | BLOCKED` gate.
 
 ## 1. Decision

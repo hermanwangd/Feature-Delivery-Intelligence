@@ -1,6 +1,6 @@
 # FDI v0.4.7.0 F001 Ablation & Blind Holdout Protocol
 
-**Status:** FROZEN BEFORE F001  
+**Status:** FROZEN BEFORE F001<br>
 **Hypothesis:** `00-product/MVP-HYPOTHESIS-FREEZE-v0.4.7.0.md`
 
 ## 1. Fair controls
