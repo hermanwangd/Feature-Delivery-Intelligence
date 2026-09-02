@@ -344,8 +344,8 @@
     },
     {
       "path": "src/fdi/product_intelligence/product_store.py",
-      "sha256": "576357e8580debd361da589e93451ab23afc7a9e02df5e1cd5087e7903e366bf",
-      "size": 11195
+      "sha256": "9d86db106c9bd0c697da0292beab7686e4a7b16c953d5b1c769e439128f652b2",
+      "size": 11734
     },
     {
       "path": "src/fdi/product_intelligence/registry.py",
@@ -469,8 +469,8 @@
     },
     {
       "path": "tests/test_product_store_lifecycle.py",
-      "sha256": "ab5247998dfa6abb3da24ba1a0e7889b098985bbf91322b545560f9bd4eee2c6",
-      "size": 12021
+      "sha256": "93fb210235034435a98fffe0b6976f4093f93f3ab0ad88d8aef470fdf0b33db9",
+      "size": 15058
     },
     {
       "path": "tests/test_project_verification.py",

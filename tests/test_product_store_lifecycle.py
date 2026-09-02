@@ -1,6 +1,8 @@
 import copy
+from concurrent.futures import ThreadPoolExecutor
 import json
 import tempfile
+import threading
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -187,6 +189,74 @@ class ProductStoreLifecycleTests(unittest.TestCase):
             self.assertEqual(store.get_current_ref("B"), new_ref)
             active = registry.rebuild_registry(root)["assets"]
             self.assertEqual([(item["asset_id"], item["asset_revision"]) for item in active], [("B", 1)])
+
+    def test_concurrent_cross_asset_supersede_is_atomic(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            store = product_store.GitStoreAdapter(root)
+            store.write_draft(proposal("create-A", "CREATE", valid_asset()))
+            current = store.publish_proposal("create-A", authorization(), None)
+
+            for asset_id in ("B", "C"):
+                replacement = valid_asset(
+                    asset_id=asset_id,
+                    revision=1,
+                    supersedes={"asset_id": "A", "asset_revision": 1},
+                )
+                store.write_draft(
+                    proposal(f"replace-A-with-{asset_id}", "SUPERSEDE", replacement, "A")
+                )
+
+            contenders_ready = threading.Barrier(2)
+            original_write_once = product_store._write_once
+
+            def synchronize_successor_writes(path, content):
+                if path in {
+                    root / "assets/by-id/B/revisions/r0001.json",
+                    root / "assets/by-id/C/revisions/r0001.json",
+                }:
+                    try:
+                        contenders_ready.wait(timeout=2)
+                    except threading.BrokenBarrierError:
+                        pass
+                return original_write_once(path, content)
+
+            def publish(asset_id):
+                try:
+                    return store.publish_proposal(
+                        f"replace-A-with-{asset_id}", authorization(), current
+                    )
+                except Exception as error:
+                    return error
+
+            with patch.object(
+                product_store, "_write_once", side_effect=synchronize_successor_writes
+            ), ThreadPoolExecutor(max_workers=2) as executor:
+                results = list(executor.map(publish, ("B", "C")))
+
+            committed = [result for result in results if isinstance(result, product_store.ProductAssetRef)]
+            rejected = [result for result in results if isinstance(result, Exception)]
+            self.assertEqual(len(committed), 1)
+            self.assertEqual(len(rejected), 1)
+            self.assertIsInstance(rejected[0], product_store.StoreConflictError)
+
+            durable_successors = [
+                asset_id
+                for asset_id in ("B", "C")
+                if (root / f"assets/by-id/{asset_id}/revisions/r0001.json").exists()
+            ]
+            self.assertEqual(durable_successors, [committed[0].asset_id])
+
+            rebuilt = registry.rebuild_registry(root)
+            self.assertEqual(rebuilt, registry.rebuild_registry(root))
+            self.assertEqual(
+                [(item["asset_id"], item["asset_revision"]) for item in rebuilt["assets"]],
+                [(committed[0].asset_id, 1)],
+            )
+            self.assertEqual(
+                json.loads((root / "registry/active.json").read_text(encoding="utf-8")),
+                rebuilt,
+            )
 
     def test_stale_expected_revision_and_malformed_transition_are_conflicts(self):
         with tempfile.TemporaryDirectory() as td:

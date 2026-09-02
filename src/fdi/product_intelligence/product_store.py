@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+from contextlib import contextmanager
 from dataclasses import dataclass
+import fcntl
 import json
 import os
 from pathlib import Path
@@ -124,6 +126,21 @@ def _write_once(path: Path, content: bytes) -> None:
             raise StoreConflictError(f"path already contains different immutable bytes: {path}")
     finally:
         temporary.unlink(missing_ok=True)
+
+
+@contextmanager
+def _publication_lock(root: Path):
+    """Serialize durable store publication across processes and adapters."""
+
+    lock_target = root / "registry"
+    lock_target.mkdir(parents=True, exist_ok=True)
+    descriptor = os.open(lock_target, os.O_RDONLY)
+    try:
+        fcntl.flock(descriptor, fcntl.LOCK_EX)
+        yield
+    finally:
+        fcntl.flock(descriptor, fcntl.LOCK_UN)
+        os.close(descriptor)
 
 
 class GitStoreAdapter:
@@ -265,10 +282,12 @@ class GitStoreAdapter:
         asset = proposal["proposed_asset"]
         _validate(asset, "ProductAssetDescriptor.schema.json", "ProductAssetDescriptor")
         self._authorize(proposal, authorization)
-        new_ref = self._validate_transition(proposal, expected_current)
-        _write_once(self._asset_file(new_ref), _json_bytes(asset))
 
-        from .registry import write_registry
+        with _publication_lock(self.root):
+            new_ref = self._validate_transition(proposal, expected_current)
+            _write_once(self._asset_file(new_ref), _json_bytes(asset))
 
-        write_registry(self.root)
+            from .registry import write_registry
+
+            write_registry(self.root)
         return new_ref
