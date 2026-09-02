@@ -1,9 +1,8 @@
 fdi-clean-project-baseline-v0.4.8.2/
 ├── archive/
-│   ├── recovery/
-│   │   └── v0.4.8.1/
-│   │       └── README.md
-│   └── superseded/
+│   └── recovery/
+│       └── v0.4.8.1/
+│           └── README.md
 ├── config/
 │   ├── multica/
 │   │   ├── MAPPING.md
@@ -145,9 +144,13 @@ fdi-clean-project-baseline-v0.4.8.2/
 │       └── README.md
 ├── tests/
 │   ├── test_clean_project_structure.py
-│   └── test_contracts_and_hardening.py
+│   ├── test_contracts_and_hardening.py
+│   ├── test_product_store_lifecycle.py
+│   └── test_project_verification.py
 ├── validation/
 │   ├── dev204/
+│   │   └── README.md
+│   ├── dev219/
 │   │   └── README.md
 │   └── f001/
 │       └── F001-ABLATION.md

@@ -7,7 +7,7 @@
     "source_bytes_embedded": false,
     "semantic_mutation": "BLOCKED_UNTIL_REHYDRATED"
   },
-  "product_intelligence_store": "SCAFFOLD_HARDENED_NOT_COMPLETE",
+  "product_intelligence_store": "IMPLEMENTED_TESTED_AWAITING_REVIEW",
   "azure_repos_provider": "REFERENCE_IMPLEMENTATION_LIVE_AUTH_NOT_CONFIGURED",
   "grafel_adapter": "MOCK_TESTED_LIVE_NOT_EXECUTED",
   "pa03_bootstrap": "NOT_EXECUTED",

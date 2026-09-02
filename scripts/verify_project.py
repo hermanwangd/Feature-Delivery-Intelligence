@@ -4,7 +4,8 @@ root=Path(sys.argv[1]) if len(sys.argv)>1 else Path(__file__).resolve().parents[
 manifest=json.loads((root/'BUNDLE-MANIFEST.json').read_text(encoding='utf-8'))
 expected={x['path']:x['sha256'] for x in manifest['files']}
 ignored={'BUNDLE-MANIFEST.json'}
-actual={str(p.relative_to(root)).replace('\\','/') for p in root.rglob('*') if p.is_file() and '__pycache__' not in p.parts and '.pytest_cache' not in p.parts and str(p.relative_to(root)).replace('\\','/') not in ignored}
+ignored_parts={'__pycache__','.pytest_cache','.git','.fdi-work'}
+actual={str(p.relative_to(root)).replace('\\','/') for p in root.rglob('*') if p.is_file() and not any(part in ignored_parts for part in p.relative_to(root).parts) and str(p.relative_to(root)).replace('\\','/') not in ignored}
 fail=[]
 for rel,dig in expected.items():
     p=root/rel

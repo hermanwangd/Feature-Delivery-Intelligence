@@ -2,7 +2,7 @@
   "project_version": "0.4.8.2",
   "baseline_type": "CLEAN_DEVELOPMENT_BASELINE",
   "verification": {
-    "unit_tests": {"passed": 10, "failed": 0},
+    "unit_tests": {"passed": 20, "failed": 0, "subtests_passed": 3},
     "json_schemas": {"passed": 12, "failed": 0},
     "sample_pa03_descriptor_errors": 0,
     "python_compile": "PASS",
@@ -11,13 +11,18 @@
     "grafel_bound_mapping": "PASS_LOCAL_MOCK",
     "grafel_binding_cross_field_validation": "PASS_LOCAL",
     "product_asset_lifecycle_guard": "PASS_LOCAL",
-    "registry_one_active_lineage_guard": "PASS_LOCAL"
+    "product_asset_immutable_revision_guard": "PASS_LOCAL",
+    "product_asset_publication_gate": "PASS_LOCAL",
+    "product_asset_conflict_guard": "PASS_LOCAL",
+    "registry_one_active_lineage_guard": "PASS_LOCAL",
+    "registry_atomic_replace_and_rebuild": "PASS_LOCAL"
   },
   "claim_boundary": {
     "approved_source_identities": "PINNED",
     "approved_source_bytes_embedded": false,
     "semantic_mutation": "BLOCKED_UNTIL_REHYDRATED",
-    "git_product_intelligence_store": "SCAFFOLD_HARDENED_NOT_COMPLETE",
+    "git_product_intelligence_store": "IMPLEMENTED_TESTED_LOCAL_REVIEW_PENDING",
+    "product_assets_published": false,
     "azure_repos_live_auth": "NOT_CONFIGURED",
     "grafel_live_execution": "NOT_EXECUTED",
     "real_20_repo_bootstrap": "NOT_EXECUTED",
