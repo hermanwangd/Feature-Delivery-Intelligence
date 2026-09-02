@@ -2,6 +2,20 @@
 
 This repository is the dedicated FDI coordination repository. It contains the Phase 1 contract package and the v0.4.7.2 provider-neutral Structural Intelligence runtime with a concrete Grafel snapshot-binding seam. Product Intelligence remains the mandatory second core layer, and source repositories retain authority for their code, tests, CI, review, release, and rollback.
 
+## Governing specification baseline
+
+`governance/baselines/GB-0001.yaml` is the digest-addressed candidate authority
+set. `governance/GOVERNING-SPEC.md` is generated from its selected exact modules
+and must not be edited manually. `governance/CURRENT` remains `UNSET` until the
+FDI Validation Steward independently verifies the freeze and Herman Wang
+explicitly approves promotion; runtime or bundle versions are not semantic
+authority.
+
+```sh
+python3 scripts/governance_baseline.py \
+  --report governance/reconciliation/BASELINE-VERIFICATION.json
+```
+
 ## FDI MVP v0.4.7.2 integration boundary
 
 The v0.4.7.2 implementation overlay, originally prepared for a canonical v0.4.6.1 source tree, is integrated here without changing the H01–H05 freeze or the shared PA-03 CB-01 identity-only substrate. The DEV-204 harness still uses neutral `target_kind` and `target_loaded` fields.
