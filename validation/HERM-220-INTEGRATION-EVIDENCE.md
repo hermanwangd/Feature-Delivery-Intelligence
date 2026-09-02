@@ -7,6 +7,8 @@
 - Isolated integration branch: `agent/mika/herm-220-live-grafel-binding`
 - Corrected integration implementation commit: `24b9e65c97e5db09d9f850231c1d6ea003fc3a89`
 - Validated remediation commit: `d195f52ce8aba360d9398d9cd1456882f45a0187`
+- Queryability amendment contract: `03-structural-intelligence/GRAFEL-BINDING-ATTESTOR-v0.2.md`
+- Queryability amendment implementation commit: `650dc58ee3b0ce1fb214cbeae86908e8d860bbdd`
 - Source bundle: `fdi-mvp-v0.4.7.2-multica-handoff-bundle.zip`
 - Source bundle SHA-256: `7c35ea4872c74549efb50f1251ffa9af4eed6e24027f44f9055af769ca9517b0`
 - Successor handoff SHA-256: `2d2cf4e3a72e29d492921303f74bd3de48d8061041bf86655203185a8a2cb441`
@@ -46,7 +48,7 @@ The immutable extracted overlay was also independently verified before integrati
 
 ## Corrected integration behavior
 
-- `GrafelSnapshotBindingAttestor` rejects empty orient results; absent or mismatched scope/ref; missing or false queryability; missing, true, or incomplete warming/indexing state; absent or mismatched group metadata identity; ambiguous mappings; and extra/missing metadata repositories.
+- Under the v0.2 amendment, `GrafelSnapshotBindingAttestor` accepts Grafel v0.3.0's omitted `queryable` field only when orient returns a non-empty exact scope/ref identity echo with boolean `warming: false` and `indexing: false`. Missing readiness fields, true or false-like readiness values, and an explicit non-true `queryable` value fail closed. Empty results, identity mismatch, absent or mismatched group metadata identity, ambiguous mappings, and extra/missing metadata repositories remain rejected.
 - The concrete binding state records each FDI repository identity with its `provider_repository` Grafel slug. `validate_snapshot_binding` retains that mapping and includes it in the attestation digest.
 - `GrafelAdapter` uses only the attested Grafel slug for `orient.repo_filter`, `find.repo_filter`, and `diff.repo`. `diff` rejects a mapping that changes between its two independently attested snapshots.
 - Response mapping and normalized observations/deltas continue to expose FDI repository identities and remain non-authoritative.
@@ -68,6 +70,43 @@ Executed from the fresh environment against validated remediation commit `d195f5
 | `git diff --check e29cc31ec1f7480f624ffc33aa83fc9eb5db27a9..d195f52ce8aba360d9398d9cd1456882f45a0187` | PASS — exit 0, 0 findings |
 
 The remediation replaces eight trailing-space Markdown hard breaks with explicit `<br>` markers, preserving rendered line separation while making the complete continuation-base-to-remediation range whitespace-clean. It does not change runtime behavior, governing semantics, or authority boundaries.
+
+## HERM-224 v0.2 amendment verification
+
+HERM-224 changes only the queryability-evidence predicate bound to Grafel
+v0.3.0 (commit `b037c3f`). `GRAFEL-BINDING-ATTESTOR-v0.1.md` remains unchanged
+for provenance; v0.2 retains the exact identity, SHA-prefix, repository-set,
+bounded-query, freshness, normalization, and authority gates.
+
+The TDD RED command was:
+
+```text
+PYTHONPATH=. PYTHONDONTWRITEBYTECODE=1 <fresh-venv>/bin/python -m pytest -q tests/test_grafel_binding_attestor.py tests/test_grafel_live_binding_regressions.py
+```
+
+Against the v0.1 implementation it failed as expected: 15 failed and 11
+passed. The failures stopped at the legacy mandatory `queryable` check,
+including the new Grafel v0.3.0 acceptance shape. The amended implementation's
+focused GREEN run passed 26/26.
+
+The versioned-document release guards were also run RED before v0.2 existed (2
+failed, 13 passed), then GREEN after the amendment document was added (15/15
+passed). The documented fresh environment used Python `3.9.6`,
+`jsonschema[format]` `4.25.1`, and pytest `8.4.2`.
+
+The complete amended suite command and retained result were:
+
+| Command | Result |
+|---|---|
+| `make test-all PYTHON=<fresh-venv>/bin/python` | PASS |
+| native `unittest` stage | 19 passed, 0 failed, 0 skipped |
+| functional `pytest` stage | 195 passed, 0 failed, 0 skipped |
+| release-guard `pytest` stage | 13 passed, 0 failed, 0 skipped |
+
+No HERM-220 live-gate or Product query was run for HERM-224. The historical
+fail-closed invocations below remain unmodified evidence; they are not a v0.2
+attestation result. Real Product binding, DEV-204, F001, empirical proof,
+canonical release, and `Execution-verified` status remain unestablished.
 
 ## Live binding gate
 
