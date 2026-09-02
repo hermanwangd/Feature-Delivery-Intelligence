@@ -31,9 +31,8 @@ class FakeTransport:
         self.response = response or {
             "group": "spc-f001-replay",
             "indexed_ref": "fdi/f001-cutoff",
-            "queryable": True,
             "warming": False,
-            "indexing": 0,
+            "indexing": False,
         }
 
     def invoke(self, tool_name, payload):
@@ -120,7 +119,7 @@ def test_attestor_fails_closed_when_grafel_graph_revision_does_not_match_canonic
 
 def test_attestor_fails_closed_when_graph_is_warming_or_provider_ref_is_wrong():
     warming = GrafelSnapshotBindingAttestor(
-        FakeTransport({"group": "spc-f001-replay", "indexed_ref": "fdi/f001-cutoff", "queryable": True, "warming": True, "indexing": 0}),
+        FakeTransport({"group": "spc-f001-replay", "indexed_ref": "fdi/f001-cutoff", "warming": True, "indexing": False}),
         route_resolver=route_resolver(),
         group_metadata_client=FakeGroupMetadataClient(group_metadata()),
     )
@@ -239,9 +238,8 @@ def test_attestor_decodes_mcp_text_envelope_before_validating_route_identity():
                     {
                         "group": "spc-f001-replay",
                         "indexed_ref": "wrong/ref",
-                        "queryable": True,
                         "warming": False,
-                        "indexing": 0,
+                        "indexing": False,
                     }
                 ),
             }

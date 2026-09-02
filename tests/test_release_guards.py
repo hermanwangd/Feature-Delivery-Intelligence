@@ -182,7 +182,7 @@ def test_packager_excludes_local_virtual_environment(tmp_path):
 
 def test_v0472_concrete_grafel_binding_attestor_is_packaged_but_live_execution_remains_external():
     module = ROOT / "runtime" / "grafel_binding_attestor.py"
-    doc = ROOT / "03-structural-intelligence" / "GRAFEL-BINDING-ATTESTOR-v0.1.md"
+    doc = ROOT / "03-structural-intelligence" / "GRAFEL-BINDING-ATTESTOR-v0.2.md"
     assert module.exists() and doc.exists()
     text = module.read_text() + "\n" + doc.read_text()
     for term in ("GrafelSnapshotBindingAttestor", "grafel_orient", "indexed_ref", "indexed_sha", "FROZEN_INDEXED"):

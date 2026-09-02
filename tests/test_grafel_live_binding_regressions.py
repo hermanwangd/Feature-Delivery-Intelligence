@@ -96,15 +96,14 @@ def attestor(orient_response, metadata=None, route_resolver=None):
     "response, error",
     [
         ({}, "incomplete"),
-        ({"indexed_ref": "refs/current", "queryable": True, "warming": False, "indexing": 0}, "scope"),
-        ({"group": "shop-group", "queryable": True, "warming": False, "indexing": 0}, "ref"),
+        ({"indexed_ref": "refs/current", "warming": False, "indexing": False}, "scope"),
+        ({"group": "shop-group", "warming": False, "indexing": False}, "ref"),
         (
             {
                 "group": "other-group",
                 "indexed_ref": "refs/current",
-                "queryable": True,
                 "warming": False,
-                "indexing": 0,
+                "indexing": False,
             },
             "scope",
         ),
@@ -112,9 +111,8 @@ def attestor(orient_response, metadata=None, route_resolver=None):
             {
                 "group": "shop-group",
                 "indexed_ref": "refs/other",
-                "queryable": True,
                 "warming": False,
-                "indexing": 0,
+                "indexing": False,
             },
             "ref",
         ),
@@ -125,39 +123,53 @@ def test_route_probe_requires_complete_exact_scope_and_ref_identity(response, er
         attestor(response)(snapshot())
 
 
+def test_route_probe_accepts_grafel_v030_identity_and_explicit_idle_state_without_queryable_field():
+    state = attestor(
+        {
+            "group": "shop-group",
+            "indexed_ref": "refs/current",
+            "warming": False,
+            "indexing": False,
+        }
+    )(snapshot())
+
+    assert state["queryability"] == "QUERYABLE"
+
+
 @pytest.mark.parametrize(
     "response, error",
     [
-        ({"group": "shop-group", "indexed_ref": "refs/current", "warming": False, "indexing": 0}, "queryable"),
+        ({"group": "shop-group", "indexed_ref": "refs/current", "indexing": False}, "warming"),
+        (
+            {"group": "shop-group", "indexed_ref": "refs/current", "warming": True, "indexing": False},
+            "warming",
+        ),
+        (
+            {"group": "shop-group", "indexed_ref": "refs/current", "warming": 0, "indexing": False},
+            "warming",
+        ),
+        ({"group": "shop-group", "indexed_ref": "refs/current", "warming": False}, "indexing"),
+        (
+            {"group": "shop-group", "indexed_ref": "refs/current", "warming": False, "indexing": True},
+            "indexing",
+        ),
+        (
+            {"group": "shop-group", "indexed_ref": "refs/current", "warming": False, "indexing": 0},
+            "indexing",
+        ),
         (
             {
                 "group": "shop-group",
                 "indexed_ref": "refs/current",
                 "queryable": False,
                 "warming": False,
-                "indexing": 0,
+                "indexing": False,
             },
             "queryable",
         ),
-        (
-            {"group": "shop-group", "indexed_ref": "refs/current", "queryable": True, "indexing": 0},
-            "warming",
-        ),
-        (
-            {"group": "shop-group", "indexed_ref": "refs/current", "queryable": True, "warming": True, "indexing": 0},
-            "warming",
-        ),
-        (
-            {"group": "shop-group", "indexed_ref": "refs/current", "queryable": True, "warming": False},
-            "indexing",
-        ),
-        (
-            {"group": "shop-group", "indexed_ref": "refs/current", "queryable": True, "warming": False, "indexing": 1},
-            "indexing",
-        ),
     ],
 )
-def test_route_probe_requires_explicit_queryable_ready_state(response, error):
+def test_route_probe_fails_closed_when_readiness_evidence_is_absent_or_not_explicitly_false(response, error):
     with pytest.raises(GrafelBindingAttestorError, match=error):
         attestor(response)(snapshot())
 
@@ -170,9 +182,8 @@ def test_group_metadata_requires_exact_nonempty_scope_identity(group_id):
     orient = {
         "group": "shop-group",
         "indexed_ref": "refs/current",
-        "queryable": True,
         "warming": False,
-        "indexing": 0,
+        "indexing": False,
     }
     with pytest.raises(GrafelBindingAttestorError, match="group metadata.*scope"):
         attestor(orient, response)(snapshot())
@@ -190,9 +201,8 @@ def test_attestor_rejects_ambiguous_mapping_and_metadata_repository_set_mismatch
     orient = {
         "group": "shop-group",
         "indexed_ref": "refs/current",
-        "queryable": True,
         "warming": False,
-        "indexing": 0,
+        "indexing": False,
     }
     extra_repo = group_metadata(
         repos=[

@@ -207,15 +207,14 @@ class GrafelSnapshotBindingAttestor:
             raise GrafelBindingAttestorError("Grafel orient provider scope is missing or does not match")
         if result.get("indexed_ref") != route["provider_ref"]:
             raise GrafelBindingAttestorError("Grafel orient resolved a different provider ref or omitted provider ref")
-        if result.get("queryable") is not True:
-            raise GrafelBindingAttestorError("Grafel explicit route lacks affirmative queryable evidence")
+        # Grafel v0.3.0 does not emit ``queryable``. Exact route identity plus
+        # explicit idle booleans is its affirmative queryability evidence. If a
+        # provider does emit the field, contradictory evidence still fails closed.
+        if "queryable" in result and result["queryable"] is not True:
+            raise GrafelBindingAttestorError("Grafel explicit route reports non-queryable state")
         if result.get("warming") is not False:
             raise GrafelBindingAttestorError("Grafel explicit route warming state is not explicitly false")
-        indexing = result.get("indexing")
-        indexing_complete = indexing is False or (
-            isinstance(indexing, int) and not isinstance(indexing, bool) and indexing == 0
-        )
-        if not indexing_complete:
+        if result.get("indexing") is not False:
             raise GrafelBindingAttestorError("Grafel explicit route indexing state is not explicitly complete")
         return result
 
