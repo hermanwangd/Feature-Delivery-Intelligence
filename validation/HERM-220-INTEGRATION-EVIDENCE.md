@@ -71,7 +71,10 @@ The remediation replaces eight trailing-space Markdown hard breaks with explicit
 
 ## Live binding gate
 
-Status: `FAILED_CLOSED_AT_ATTESTATION`.
+Status: `FAILED_CLOSED_AT_ATTESTATION` after two separately authorized
+invocations. The first invocation failed on the lowercase provider identity;
+the second invocation changed only that authorized field to `GRAFEL` and then
+failed on missing affirmative queryability evidence.
 
 Herman Wang authorized the HERM-222-derived route on 2026-09-02. The execution
 used PR #5 head `422b921aae9e06667ed41da5dfb88b733405b9ac`, Python `3.9.6`, provider
@@ -182,6 +185,150 @@ applied immediately: the input was not changed or retried, and the required
 bounded `GrafelAdapter` query was not executed. Consequently there is no query
 timestamp or bounded-query result to report. This is a fail-closed result, not a
 successful live binding and not evidence for any authority or proof upgrade.
+
+### Human-authorized provider-identity correction invocation
+
+Herman Wang authorized one new invocation on 2026-09-02 with exactly one
+confirmed input-field correction: `StructuralSnapshotRef.provider.name` changed
+from `grafel` to the existing attestor-contract value `GRAFEL`. The contract,
+canonical revision, provider runtime version, provider scope/ref, and repository
+map were unchanged. The invocation used PR #5 runtime revision
+`999e0a595d74213d400b6ad32d5f77fac7ed379f`, adapter revision
+`fdi-grafel-adapter@0.4`, and execution timestamp
+`2026-09-02T03:00:06.334642Z`.
+
+Immediately before the invocation, the non-querying index-status read-back was:
+
+```json
+{"repos":[{"repo":"/Users/herman_mbp2023/multica_workspaces_desktop-api.multica.ai/herman-lab-74d8e0781f12/herm-222-5f1f7030d3b5/worktree/trading-pipeline","group":"herm-220-live","state":"current","dirty":false,"indexed_commit_short":"c30646e5838d","at_head":true}],"any_indexing":false,"parsing":0,"busy":false,"concurrency":{"indexing":0,"queued":0,"cap":2},"elapsed_ms":56}
+```
+
+The dashboard group metadata read-back before execution was:
+
+```json
+{"ok":true,"data":{"id":"herm-220-live","name":"herm-220-live","entities":9615,"fidelity":1,"indexedAt":1788316067924,"health":"healthy","features":{"watchers":false,"gitHooks":false},"docsPath":"","repos":[{"slug":"trading-pipeline","path":"/Users/herman_mbp2023/multica_workspaces_desktop-api.multica.ai/herman-lab-74d8e0781f12/herm-222-5f1f7030d3b5/worktree/trading-pipeline","stack":"python","files":742,"entities":9615,"indexedAt":1788316067924,"monorepo":null,"indexed_ref":"fdi/herm-220-live","indexed_sha":"c30646e5838d","is_worktree":true,"coverage_status":"full"}]}}
+```
+
+The provider runtime read-back from the pinned Product checkout was:
+
+```json
+{"status":"ok","engine_pid":78145,"heartbeat_at":"2026-09-02T02:57:45.102793Z","version":"v0.3.0 (commit b037c3f, built 2026-08-21T18:26:14Z)","repo_path":"/Users/herman_mbp2023/multica_workspaces_desktop-api.multica.ai/herman-lab-74d8e0781f12/herm-222-5f1f7030d3b5/worktree/trading-pipeline","indexed_commit":"c30646e5838d","entities":9615,"relationships":79027,"graph_fb_mtime":1788316067924061237,"indexing":false,"engine_started_at":"0001-01-01T00:00:00Z","engine_busy_started_at":"0001-01-01T00:00:00Z"}
+```
+
+The full canonical revision vector, route, and repository map supplied to the
+new invocation were:
+
+```json
+{
+  "StructuralSnapshotRef": {
+    "adapter_version": "fdi-grafel-adapter@0.4",
+    "created_at": "2026-09-02T03:00:06.334642Z",
+    "provider": {
+      "name": "GRAFEL",
+      "version": "v0.3.0 (commit b037c3f, built 2026-08-21T18:26:14Z)"
+    },
+    "snapshot_id": "struct:herm-220-live:c30646e5838d42921061a0924c1328c46fd280ff",
+    "source_snapshots": [
+      {
+        "repository": "https://github.com/hermanwangd/trading-pipeline",
+        "revision": "c30646e5838d42921061a0924c1328c46fd280ff"
+      }
+    ]
+  },
+  "provider_ref": "fdi/herm-220-live",
+  "provider_scope_id": "herm-220-live",
+  "repository_map": {
+    "https://github.com/hermanwangd/trading-pipeline": "trading-pipeline"
+  }
+}
+```
+
+The one new gate invocation exited `2`. Its complete verbatim execution result
+was:
+
+```json
+{
+  "StructuralSnapshotRef": {
+    "adapter_version": "fdi-grafel-adapter@0.4",
+    "created_at": "2026-09-02T03:00:06.334642Z",
+    "provider": {
+      "name": "GRAFEL",
+      "version": "v0.3.0 (commit b037c3f, built 2026-08-21T18:26:14Z)"
+    },
+    "snapshot_id": "struct:herm-220-live:c30646e5838d42921061a0924c1328c46fd280ff",
+    "source_snapshots": [
+      {
+        "repository": "https://github.com/hermanwangd/trading-pipeline",
+        "revision": "c30646e5838d42921061a0924c1328c46fd280ff"
+      }
+    ]
+  },
+  "adapter_revision": "fdi-grafel-adapter@0.4",
+  "attestation": null,
+  "attestor_result": {
+    "error": "Grafel explicit route lacks affirmative queryable evidence",
+    "error_type": "GrafelBindingAttestorError",
+    "status": "FAILED"
+  },
+  "bounded_query": {
+    "adapter_result": null,
+    "raw_provider_result": null,
+    "reason": "stop condition: attestation check failed",
+    "request": null,
+    "status": "NOT_EXECUTED",
+    "timestamp": null
+  },
+  "execution_timestamp": "2026-09-02T03:00:06.334642Z",
+  "group_metadata_invocations": [],
+  "mcp_initialize_result": {
+    "capabilities": {
+      "tools": {}
+    },
+    "protocolVersion": "2024-11-05",
+    "serverInfo": {
+      "name": "grafel",
+      "version": "1.0"
+    }
+  },
+  "mcp_stderr": [],
+  "provider_ref": "fdi/herm-220-live",
+  "provider_scope_id": "herm-220-live",
+  "repository_map": {
+    "https://github.com/hermanwangd/trading-pipeline": "trading-pipeline"
+  },
+  "runtime_revision": "999e0a595d74213d400b6ad32d5f77fac7ed379f",
+  "transport_invocations": [
+    {
+      "completed_at": "2026-09-02T03:00:06.679259Z",
+      "payload": {
+        "group": "herm-220-live",
+        "ref": "fdi/herm-220-live",
+        "view": "me"
+      },
+      "result": {
+        "content": [
+          {
+            "text": "{\"candidate_count\":0,\"cwd_resolved_to\":\"herm-220-live / Feature-Delivery-Intelligence / agent/fdi-delivery-engineer/d06bc6f0c21f\",\"documentation_state\":\"never_generated\",\"elapsed_ms\":220,\"entity_count\":9615,\"group\":\"herm-220-live\",\"index\":{\"entity_count\":9615,\"indexed_ref\":\"fdi/herm-220-live\",\"indexed_sha\":\"c30646e5838d\",\"relationship_count\":79027,\"tests_edges\":6243},\"indexed_ref\":\"fdi/herm-220-live\",\"indexed_sha\":\"c30646e5838d\",\"indexing\":false,\"is_worktree\":true,\"last_docgen_at\":null,\"parent_repo\":\"/Users/herman_mbp2023/Documents/Feature Delivery Intelligence/Feature-Delivery-Intelligence\",\"patterns_count\":0,\"pending_algo\":0,\"pending_links\":0,\"registry_path\":\"/Users/herman_mbp2023/.grafel/registry.json\",\"relationship_count\":79027,\"repo\":\"herman_mbp2023\",\"residual_count\":5,\"source\":\"explicit\",\"stale_count\":0,\"suggested_action\":\"run /grafel-tech-docs\",\"tier\":\"cold\",\"warming\":false,\"wire_version\":\"0.1.0\"}",
+            "type": "text"
+          }
+        ]
+      },
+      "started_at": "2026-09-02T03:00:06.455973Z",
+      "tool": "grafel_orient"
+    }
+  ]
+}
+```
+
+The provider route probe returned the exact requested group/ref, indexed SHA,
+`warming: false`, and `indexing: false`, but it did not return the contract's
+required affirmative `queryable: true` field. The attestor therefore failed
+closed with `GrafelBindingAttestorError: Grafel explicit route lacks affirmative
+queryable evidence`. It stopped before the group-metadata client was called, so
+the complete attestation remained `null`. In accordance with the stop condition,
+the input was not changed or retried, and the bounded `GrafelAdapter` query was
+not executed; its timestamp, raw provider result, and adapter result are all
+`null`.
 
 ## Claim and authority boundary
 
