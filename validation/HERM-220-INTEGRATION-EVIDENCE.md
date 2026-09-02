@@ -71,23 +71,123 @@ The remediation replaces eight trailing-space Markdown hard breaks with explicit
 
 ## Live binding gate
 
-Status: `NOT_EXECUTED`.
+Status: `FAILED_CLOSED_AT_ATTESTATION`.
 
-Exact missing authorized capabilities:
+Herman Wang authorized the HERM-222-derived route on 2026-09-02. The execution
+used PR #5 head `422b921aae9e06667ed41da5dfb88b733405b9ac`, Python `3.9.6`, provider
+runtime `v0.3.0 (commit b037c3f, built 2026-08-21T18:26:14Z)`, and adapter
+revision `fdi-grafel-adapter@0.4`.
 
-- no Grafel MCP/dashboard tools are available to this run;
-- no `grafel` CLI is installed;
-- no Grafel endpoint/configuration is supplied;
-- the project resources provide only the FDI coordination repository, not an authorized real Product repository set and immutable revision vector; and
-- no authorized Product-to-Grafel `group/ref` plus repository-slug route map is supplied.
+Before attestation, the session-level `grafel_index_status` tool was called with
+`group="herm-220-live"` and `repo="trading-pipeline"`. Its complete result was:
 
-No synthetic live result was created. Consequently there is no real `StructuralSnapshotRef`, live attestation payload, bounded provider query, query timestamp, or provider runtime version to retain.
+```json
+{"repos":[{"repo":"/Users/herman_mbp2023/multica_workspaces_desktop-api.multica.ai/herman-lab-74d8e0781f12/herm-222-5f1f7030d3b5/worktree/trading-pipeline","group":"herm-220-live","state":"current","dirty":false,"indexed_commit_short":"c30646e5838d","at_head":true}],"any_indexing":false,"parsing":0,"busy":false,"concurrency":{"indexing":0,"queued":0,"cap":2},"elapsed_ms":62}
+```
+
+The same provider runtime also returned the following foreground read-back from
+the pinned Product checkout before the attestor invocation:
+
+```text
+$ grafel status --json
+{"status":"ok","engine_pid":78145,"heartbeat_at":"2026-09-02T02:41:35.096135Z","version":"v0.3.0 (commit b037c3f, built 2026-08-21T18:26:14Z)","repo_path":"/Users/herman_mbp2023/multica_workspaces_desktop-api.multica.ai/herman-lab-74d8e0781f12/herm-222-5f1f7030d3b5/worktree/trading-pipeline","indexed_commit":"c30646e5838d","entities":9615,"relationships":79027,"graph_fb_mtime":1788316067924061237,"indexing":false,"engine_started_at":"0001-01-01T00:00:00Z","engine_busy_started_at":"0001-01-01T00:00:00Z"}
+```
+
+Thus the provider read-back remained current, clean, and not indexing at
+`c30646e5838d`, a 12-hex prefix of the full canonical revision
+`c30646e5838d42921061a0924c1328c46fd280ff`. The confirmed indexed/provider ref
+supplied to the attestor was `fdi/herm-220-live`; the full canonical revision
+vector, route, and repository mapping supplied to the attestor were:
+
+```json
+{
+  "StructuralSnapshotRef": {
+    "adapter_version": "fdi-grafel-adapter@0.4",
+    "created_at": "2026-09-02T02:43:03.636305Z",
+    "provider": {
+      "name": "grafel",
+      "version": "v0.3.0 (commit b037c3f, built 2026-08-21T18:26:14Z)"
+    },
+    "snapshot_id": "struct:herm-220-live:c30646e5838d42921061a0924c1328c46fd280ff",
+    "source_snapshots": [
+      {
+        "repository": "https://github.com/hermanwangd/trading-pipeline",
+        "revision": "c30646e5838d42921061a0924c1328c46fd280ff"
+      }
+    ]
+  },
+  "provider_scope_id": "herm-220-live",
+  "provider_ref": "fdi/herm-220-live",
+  "repository_map": {
+    "https://github.com/hermanwangd/trading-pipeline": "trading-pipeline"
+  }
+}
+```
+
+The exact execution command was:
+
+```text
+PYTHONPATH=<PR-5-worktree> python3 ./h220_live_gate_attempt.py
+```
+
+It exited `2`. The complete execution result was:
+
+```json
+{
+  "StructuralSnapshotRef": {
+    "adapter_version": "fdi-grafel-adapter@0.4",
+    "created_at": "2026-09-02T02:43:03.636305Z",
+    "provider": {
+      "name": "grafel",
+      "version": "v0.3.0 (commit b037c3f, built 2026-08-21T18:26:14Z)"
+    },
+    "snapshot_id": "struct:herm-220-live:c30646e5838d42921061a0924c1328c46fd280ff",
+    "source_snapshots": [
+      {
+        "repository": "https://github.com/hermanwangd/trading-pipeline",
+        "revision": "c30646e5838d42921061a0924c1328c46fd280ff"
+      }
+    ]
+  },
+  "adapter_revision": "fdi-grafel-adapter@0.4",
+  "attestation": null,
+  "attestor_result": {
+    "error": "GrafelSnapshotBindingAttestor requires provider.name=GRAFEL",
+    "error_type": "GrafelBindingAttestorError",
+    "status": "FAILED"
+  },
+  "bounded_query": {
+    "reason": "stop condition: attestation check failed",
+    "result": null,
+    "status": "NOT_EXECUTED",
+    "timestamp": null
+  },
+  "execution_timestamp": "2026-09-02T02:43:03.636305Z",
+  "group_metadata_invocations": [],
+  "provider_ref": "fdi/herm-220-live",
+  "provider_scope_id": "herm-220-live",
+  "repository_map": {
+    "https://github.com/hermanwangd/trading-pipeline": "trading-pipeline"
+  },
+  "runtime_revision": "422b921aae9e06667ed41da5dfb88b733405b9ac",
+  "transport_invocations": []
+}
+```
+
+The immutable confirmed input uses provider name `grafel`; the integrated
+attestor requires the exact provider identity `GRAFEL`. This check failed before
+the provider transport or group-metadata client was invoked, so no attestation
+payload was produced (`attestation: null`). The authorized stop condition was
+applied immediately: the input was not changed or retried, and the required
+bounded `GrafelAdapter` query was not executed. Consequently there is no query
+timestamp or bounded-query result to report. This is a fail-closed result, not a
+successful live binding and not evidence for any authority or proof upgrade.
 
 ## Claim and authority boundary
 
 - Canonical/local source-tree integration: `PASS` on the isolated branch.
-- Live Grafel binding: `NOT_EXECUTED`.
-- Real Product binding: `NOT_POPULATED`.
+- Live Grafel binding: `FAILED_CLOSED_AT_ATTESTATION`.
+- Real Product binding: `NOT_ESTABLISHED`.
 - DEV-204 fresh-context behavior: `NOT_EXECUTED`.
 - F001: `NOT_EXECUTED`; F002–F005: `NOT_POPULATED`.
 - Empirical MVP proof: `NOT_ESTABLISHED`.
