@@ -369,11 +369,76 @@ the input was not changed or retried, and the bounded `GrafelAdapter` query was
 not executed; its timestamp, raw provider result, and adapter result are all
 `null`.
 
+### Cleared v0.2 live-gate rerun
+
+After the Validation Steward froze and cleared PR #5 head
+`b3a5e53798c279fdf690b173993e1d06a524138d`, one live-gate rerun was executed
+under `GRAFEL-BINDING-ATTESTOR-v0.2.md`. No route input was changed and no retry
+was performed.
+
+The execution timestamp was `2026-09-02T05:06:08.376000Z`. Immediately before
+execution, `grafel_index_status(group="herm-220-live",
+repo="trading-pipeline")` returned `state: current`, `dirty: false`,
+`any_indexing: false`, and indexed SHA `c30646e5838d`. The dashboard returned
+group `herm-220-live`, health `healthy`, 9,615 entities, and exactly one
+repository with slug `trading-pipeline`, indexed ref `fdi/herm-220-live`, and
+indexed SHA `c30646e5838d`. The Product checkout itself resolved to the full
+canonical revision `c30646e5838d42921061a0924c1328c46fd280ff`.
+
+The complete attestation payload was:
+
+```json
+{
+  "attestation_id": "sba:22f4b71def95cd0114f80276",
+  "binding_state": "VERIFIED",
+  "freshness": "FROZEN_INDEXED",
+  "provider_route": {
+    "ref": "fdi/herm-220-live",
+    "scope_id": "herm-220-live"
+  },
+  "repositories": [
+    {
+      "head_revision": null,
+      "indexed_revision": "c30646e5838d42921061a0924c1328c46fd280ff",
+      "provider_repository": "trading-pipeline",
+      "queryable": true,
+      "repository": "https://github.com/hermanwangd/trading-pipeline"
+    }
+  ],
+  "snapshot_id": "struct:herm-220-live:c30646e5838d42921061a0924c1328c46fd280ff"
+}
+```
+
+After that attestation, exactly one repository-scoped `GrafelAdapter.orient`
+query ran at `2026-09-02T05:06:08.646607Z` with request
+`{"view":"overview","repositories":["https://github.com/hermanwangd/trading-pipeline"]}`.
+The provider payload reused the attested route and mapping exactly:
+`{"group":"herm-220-live","ref":"fdi/herm-220-live","view":"overview","repo_filter":["trading-pipeline"]}`.
+The adapter returned `binding_attestation_id:
+sba:22f4b71def95cd0114f80276`, `non_authoritative: true`, and one provider
+result. The canonical UTF-8 JSON SHA-256 of the complete adapter result is
+`7b5ce5b89bed87e3335e724e59964f8518600d62631d6fd494cc492c556a6cc5`.
+
+The full verbatim-value execution evidence, including the complete
+`StructuralSnapshotRef`, provider binding state, attestation, route/map,
+pre-execution index and group metadata, exact query request/payload/timestamp,
+complete adapter result, and daemon invocation audit is retained in
+`validation/HERM-220-LIVE-GATE-RERUN-EVIDENCE.json` (file SHA-256
+`2698107f0d24c65fa36031b61fa3c5ff6a7ad5b68bd9909c408d3c9479452ca1`).
+The audit records one attestation route probe, one metadata read, exactly one
+adapter query, zero input mutations, and zero retries.
+
+This result proves only that the non-authoritative structural query was routed
+to the intended frozen Product snapshot. It does not establish current Feature
+truth, `CONFIRMED`, `EXCLUDED`, `ChangeSurfaceSet`, `SPEC_READY`, Product Asset
+publication, lifecycle transitions, DEV-204, F001, empirical proof, canonical
+release, or `Execution-verified` status.
+
 ## Claim and authority boundary
 
 - Canonical/local source-tree integration: `PASS` on the isolated branch.
-- Live Grafel binding: `FAILED_CLOSED_AT_ATTESTATION`.
-- Real Product binding: `NOT_ESTABLISHED`.
+- Live Grafel binding: `PASS` under the v0.2 contract for the pinned frozen snapshot.
+- Real Product binding: `ESTABLISHED_FOR_PINNED_FROZEN_SNAPSHOT_ONLY`.
 - DEV-204 fresh-context behavior: `NOT_EXECUTED`.
 - F001: `NOT_EXECUTED`; F002–F005: `NOT_POPULATED`.
 - Empirical MVP proof: `NOT_ESTABLISHED`.

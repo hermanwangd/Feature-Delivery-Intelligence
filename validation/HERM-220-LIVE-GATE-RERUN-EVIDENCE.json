@@ -1,0 +1,174 @@
+{
+  "StructuralSnapshotRef": {
+    "adapter_version": "fdi-grafel-adapter@0.4",
+    "created_at": "2026-09-02T05:06:08.376000Z",
+    "provider": {
+      "name": "GRAFEL",
+      "version": "v0.3.0 (commit b037c3f, built 2026-08-21T18:26:14Z)"
+    },
+    "snapshot_id": "struct:herm-220-live:c30646e5838d42921061a0924c1328c46fd280ff",
+    "source_snapshots": [
+      {
+        "repository": "https://github.com/hermanwangd/trading-pipeline",
+        "revision": "c30646e5838d42921061a0924c1328c46fd280ff"
+      }
+    ]
+  },
+  "adapter_revision": "fdi-grafel-adapter@0.4",
+  "attestation": {
+    "attestation_id": "sba:22f4b71def95cd0114f80276",
+    "binding_state": "VERIFIED",
+    "freshness": "FROZEN_INDEXED",
+    "provider_route": {
+      "ref": "fdi/herm-220-live",
+      "scope_id": "herm-220-live"
+    },
+    "repositories": [
+      {
+        "head_revision": null,
+        "indexed_revision": "c30646e5838d42921061a0924c1328c46fd280ff",
+        "provider_repository": "trading-pipeline",
+        "queryable": true,
+        "repository": "https://github.com/hermanwangd/trading-pipeline"
+      }
+    ],
+    "snapshot_id": "struct:herm-220-live:c30646e5838d42921061a0924c1328c46fd280ff"
+  },
+  "attestor_result": {
+    "status": "PASSED"
+  },
+  "authority_boundary": {
+    "governing_claim_upgrades": [],
+    "non_authoritative": true,
+    "note": "Package integrity and live snapshot binding only; no current Feature truth or release-proof claim is established."
+  },
+  "bounded_query": {
+    "adapter_result": {
+      "binding_attestation_id": "sba:22f4b71def95cd0114f80276",
+      "non_authoritative": true,
+      "provider_result": {
+        "count": 1,
+        "elapsed_ms": 182,
+        "items": "[!schema {cross_cutting_edges,key_entities,orientation_questions,repo}]\n{[\\{\"from_id\":\"03068826f691d804\"\\,\"to_id\":\"50e2c643bb581b76\"\\,\"from_name\":\"test_compute_kpis_handles_losses_and_drawdown -\\\\u003e _trade_rows\"\\,\"to_name\":\"compute_kpis\"\\,\"kind\":\"TESTS\"\\,\"score\":3\\,\"reasons\":[\"bridges_communities\"\\,\"crosses_layer:test-\\\\u003eui\"]\\,\"from_community\":10\\,\"to_community\":2\\}\\,\\{\"from_id\":\"06fc37407bce5b6d\"\\,\"to_id\":\"0fa5392cbad290f9\"\\,\"from_name\":\"main\"\\,\"to_name\":\"ExecutionReconcileUseCase.reconcile_open_trades\"\\,\"kind\":\"CALLS\"\\,\"score\":3\\,\"reasons\":[\"bridges_communities\"\\,\"crosses_layer:test-\\\\u003eservice\"]\\,\"from_community\":7\\,\"to_community\":5\\}\\,\\{\"from_id\":\"06fc37407bce5b6d\"\\,\"to_id\":\"7081aa6a83ef43c3\"\\,\"from_name\":\"main\"\\,\"to_name\":\"ExecutionReconcileUseCase\"\\,\"kind\":\"CALLS\"\\,\"score\":3\\,\"reasons\":[\"bridges_communities\"\\,\"crosses_layer:test-\\\\u003eservice\"]\\,\"from_community\":7\\,\"to_community\":5\\}\\,\\{\"from_id\":\"094720aab08ea139\"\\,\"to_id\":\"38ecc58924018e39\"\\,\"from_name\":\"test_import_command_is_explicit_execute_with_only_filters\"\\,\"to_name\":\"build_import_cmd\"\\,\"kind\":\"CALLS\"\\,\"score\":3\\,\"reasons\":[\"bridges_communities\"\\,\"crosses_layer:test-\\\\u003eui\"]\\,\"from_community\":6\\,\"to_community\":7\\}\\,\\{\"from_id\":\"0dd7e9f5fcfd624a\"\\,\"to_id\":\"50e2c643bb581b76\"\\,\"from_name\":\"tests/unit/test_btc_4h_ma33_quant_attribution_review.py\"\\,\"to_name\":\"compute_kpis\"\\,\"kind\":\"IMPORTS\"\\,\"score\":3\\,\"reasons\":[\"bridges_communities\"\\,\"crosses_layer:test-\\\\u003eui\"]\\,\"from_community\":10\\,\"to_community\":2\\}\\,\\{\"from_id\":\"1086586055467bf9\"\\,\"to_id\":\"038c3e3d5c702c5f\"\\,\"from_name\":\"test_naive_utc_timestamp_normalizes_stably\"\\,\"to_name\":\"SignalNormalizeUseCase._normalize_time\"\\,\"kind\":\"TESTS\"\\,\"score\":3\\,\"reasons\":[\"bridges_communities\"\\,\"crosses_layer:test-\\\\u003eservice\"]\\,\"from_community\":1\\,\"to_community\":5\\}\\,\\{\"from_id\":\"1086586055467bf9\"\\,\"to_id\":\"0b61bdf1f012d4eb\"\\,\"from_name\":\"test_naive_utc_timestamp_normalizes_stably\"\\,\"to_name\":\"validate_signal_payload\"\\,\"kind\":\"TESTS\"\\,\"score\":3\\,\"reasons\":[\"bridges_communities\"\\,\"crosses_layer:test-\\\\u003eservice\"]\\,\"from_community\":1\\,\"to_community\":11\\}\\,\\{\"from_id\":\"1313885c1ac703b0\"\\,\"to_id\":\"3b4cc7d9f225531f\"\\,\"from_name\":\"test_plan_recent_block_full_rebuild_uses_available_shorter_overlap_window\"\\,\"to_name\":\"_plan_policy_rewrite\"\\,\"kind\":\"CALLS\"\\,\"score\":3\\,\"reasons\":[\"bridges_communities\"\\,\"crosses_layer:test-\\\\u003eui\"]\\,\"from_community\":1\\,\"to_community\":2\\}\\,\\{\"from_id\":\"1398bb9a609c92ca\"\\,\"to_id\":\"92f241b73490dbb8\"\\,\"from_name\":\"test_signal_usecase_apply_returns_entity_and_validates\"\\,\"to_name\":\"Signal\"\\,\"kind\":\"REFERENCES\"\\,\"score\":3\\,\"reasons\":[\"bridges_communities\"\\,\"crosses_layer:test-\\\\u003eservice\"]\\,\"from_community\":5\\,\"to_community\":1\\}\\,\\{\"from_id\":\"1398bb9a609c92ca\"\\,\"to_id\":\"92f241b73490dbb8\"\\,\"from_name\":\"test_signal_usecase_apply_returns_entity_and_validates\"\\,\"to_name\":\"Signal\"\\,\"kind\":\"TESTS\"\\,\"score\":3\\,\"reasons\":[\"bridges_communities\"\\,\"crosses_layer:test-\\\\u003eservice\"]\\,\"from_community\":5\\,\"to_community\":1\\}\\,\\{\"from_id\":\"148df9db3f5bce76\"\\,\"to_id\":\"6a3e131102b46b39\"\\,\"from_name\":\"build_signal_from_row\"\\,\"to_name\":\"normalize_symbol\"\\,\"kind\":\"CALLS\"\\,\"score\":3\\,\"reasons\":[\"bridges_communities\"\\,\"crosses_layer:data-\\\\u003eservice\"]\\,\"from_community\":1\\,\"to_community\":11\\}\\,\\{\"from_id\":\"162064bb89255aed\"\\,\"to_id\":\"1fa3523a67f7a894\"\\,\"from_name\":\"tests/unit/test_dataset_revision_policy.py\"\\,\"to_name\":\"resolve_revision_policy\"\\,\"kind\":\"IMPORTS\"\\,\"score\":3\\,\"reasons\":[\"bridges_communities\"\\,\"crosses_layer:test-\\\\u003eservice\"]\\,\"from_community\":9\\,\"to_community\":11\\}\\,\\{\"from_id\":\"162064bb89255aed\"\\,\"to_id\":\"92382d784f52098d\"\\,\"from_name\":\"tests/unit/test_dataset_revision_policy.py\"\\,\"to_name\":\"src/domain/dataset_revision_policy.py\"\\,\"kind\":\"IMPORTS\"\\,\"score\":3\\,\"reasons\":[\"bridges_communities\"\\,\"crosses_layer:test-\\\\u003eservice\"]\\,\"from_community\":9\\,\"to_community\":11\\}\\,\\{\"from_id\":\"1bd783201d4b842d\"\\,\"to_id\":\"92f241b73490dbb8\"\\,\"from_name\":\"tests/unit/test_signal_entry_usecase.py\"\\,\"to_name\":\"Signal\"\\,\"kind\":\"IMPORTS\"\\,\"score\":3\\,\"reasons\":[\"bridges_communities\"\\,\"crosses_layer:test-\\\\u003eservice\"]\\,\"from_community\":5\\,\"to_community\":1\\}\\,\\{\"from_id\":\"23d3979ebb4e3684\"\\,\"to_id\":\"73e09953779ff43c\"\\,\"from_name\":\"scripts/test_entry_flow_db.py\"\\,\"to_name\":\"EntryUseCase\"\\,\"kind\":\"IMPORTS\"\\,\"score\":3\\,\"reasons\":[\"bridges_communities\"\\,\"crosses_layer:test-\\\\u003eservice\"]\\,\"from_community\":11\\,\"to_community\":5\\}],[\\{\"id\":\"298f0fb8f8585763\"\\,\"name\":\"TradingOrchestrator.__init__\"\\,\"kind\":\"SCOPE.Operation\"\\,\"source_file\":\"src/manager/trading_orchestrator.py\"\\,\"community_id\":5\\,\"degree\":194\\,\"betweenness\":172725.9188\\,\"pagerank\":0.0012\\,\"score\":0.6090813341135166\\,\"reason\":\"god_node — top-percentile betweenness and/or pagerank\"\\}\\,\\{\"id\":\"98494ef19517829b\"\\,\"name\":\"trading-pipeline\"\\,\"kind\":\"Module\"\\,\"community_id\":1\\,\"degree\":8545\\,\"betweenness\":0\\,\"pagerank\":0.00005204\\,\"score\":0.4\\,\"reason\":\"articulation_point — removing it disconnects part of the graph\"\\}\\,\\{\"id\":\"92bab0d303018d86\"\\,\"name\":\"TradingOrchestrator\"\\,\"kind\":\"SCOPE.Component\"\\,\"source_file\":\"src/manager/trading_orchestrator.py\"\\,\"community_id\":5\\,\"degree\":148\\,\"betweenness\":67221.8196\\,\"pagerank\":0.0015\\,\"score\":0.24043723180200702\\,\"reason\":\"god_node — top-percentile betweenness and/or pagerank\"\\}\\,\\{\"id\":\"c6d8cbd33362b7e8\"\\,\"name\":\"_run_dataset\"\\,\"kind\":\"SCOPE.Operation\"\\,\"source_file\":\"src/dc_manager/manager.py\"\\,\"community_id\":6\\,\"degree\":159\\,\"betweenness\":51596.4893\\,\"pagerank\":0.000934\\,\"score\":0.18667426420241692\\,\"reason\":\"god_node — top-percentile betweenness and/or pagerank\"\\}\\,\\{\"id\":\"529cead085095e7f\"\\,\"name\":\"TradingKernel\"\\,\"kind\":\"SCOPE.Component\"\\,\"source_file\":\"src/core/kernel.py\"\\,\"community_id\":11\\,\"degree\":16\\,\"betweenness\":32106.3075\\,\"pagerank\":0.0001136\\,\"score\":0.11227702364595117\\,\"reason\":\"god_node — top-percentile betweenness and/or pagerank\"\\}\\,\\{\"id\":\"a59c15d558176337\"\\,\"name\":\"SentinelRiskCenter\"\\,\"kind\":\"SCOPE.Component\"\\,\"source_file\":\"src/core/sentinel_risk_center.py\"\\,\"community_id\":5\\,\"degree\":54\\,\"betweenness\":27607.8165\\,\"pagerank\":0.0006026\\,\"score\":0.0984293820218765\\,\"reason\":\"god_node — top-percentile betweenness and/or pagerank\"\\}\\,\\{\"id\":\"eea99e391f605305\"\\,\"name\":\"pandas\"\\,\"kind\":\"SCOPE.Component\"\\,\"source_file\":\"pyproject.toml\"\\,\"community_id\":2\\,\"degree\":2009\\,\"betweenness\":0\\,\"pagerank\":0.0268\\,\"score\":0.09404330017554126\\,\"reason\":\"god_node — top-percentile betweenness and/or pagerank\"\\}\\,\\{\"id\":\"6ae2f375d332fa69\"\\,\"name\":\"AdvancedRiskManager\"\\,\"kind\":\"SCOPE.Component\"\\,\"source_file\":\"src/core/advanced_risk_control.py\"\\,\"community_id\":3\\,\"degree\":51\\,\"betweenness\":24152.862\\,\"pagerank\":0.000329\\,\"score\":0.08628743405119332\\,\"reason\":\"god_node — top-percentile betweenness and/or pagerank\"\\}\\,\\{\"id\":\"6fe01b50b0653274\"\\,\"name\":\"validate\"\\,\"kind\":\"SCOPE.Operation\"\\,\"source_file\":\"scripts/model_packager.py\"\\,\"community_id\":7\\,\"degree\":31\\,\"betweenness\":23767.6604\\,\"pagerank\":0.000105\\,\"score\":0.08401313483513205\\,\"reason\":\"god_node — top-percentile betweenness and/or pagerank\"\\}\\,\\{\"id\":\"69fa09c258c20441\"\\,\"name\":\"SentinelRiskCenter.__init__\"\\,\"kind\":\"SCOPE.Operation\"\\,\"source_file\":\"src/core/sentinel_risk_center.py\"\\,\"community_id\":11\\,\"degree\":15\\,\"betweenness\":23443.5479\\,\"pagerank\":0.0001347\\,\"score\":0.08213828552689816\\,\"reason\":\"god_node — top-percentile betweenness and/or pagerank\"\\}\\,\\{\"id\":\"7081aa6a83ef43c3\"\\,\"name\":\"ExecutionReconcileUseCase\"\\,\"kind\":\"SCOPE.Component\"\\,\"source_file\":\"src/usecases/reconcile_usecase.py\"\\,\"community_id\":5\\,\"degree\":60\\,\"betweenness\":19882.9357\\,\"pagerank\":0.0005731\\,\"score\":0.07187624122316096\\,\"reason\":\"god_node — top-percentile betweenness and/or pagerank\"\\}\\,\\{\"id\":\"3ae24aef39c4c9f6\"\\,\"name\":\"TradeRecord\"\\,\"kind\":\"SCOPE.Component\"\\,\"source_file\":\"src/core/advanced_risk_control.py\"\\,\"community_id\":1\\,\"degree\":73\\,\"betweenness\":18910.752\\,\"pagerank\":0.0002384\\,\"score\":0.06910769859097203\\,\"reason\":\"god_node — top-percentile betweenness and/or pagerank\"\\}\\,\\{\"id\":\"d1578556b456156d\"\\,\"name\":\"DatasetPolicy\"\\,\"kind\":\"SCOPE.Component\"\\,\"source_file\":\"src/dc_manager/registry.py\"\\,\"community_id\":6\\,\"degree\":170\\,\"betweenness\":16826.25\\,\"pagerank\":0.0018\\,\"score\":0.06640740720507654\\,\"reason\":\"god_node — top-percentile betweenness and/or pagerank\"\\}\\,\\{\"id\":\"203e3ecedf1cff9f\"\\,\"name\":\"Trade\"\\,\"kind\":\"SCOPE.Component\"\\,\"source_file\":\"src/domain/entities.py\"\\,\"community_id\":1\\,\"degree\":72\\,\"betweenness\":17119.0444\\,\"pagerank\":0.0003383\\,\"score\":0.06283701240437746\\,\"reason\":\"god_node — top-percentile betweenness and/or pagerank\"\\}\\,\\{\"id\":\"33e73cabe3c03db1\"\\,\"name\":\"run_cycle\"\\,\"kind\":\"SCOPE.Operation\"\\,\"source_file\":\"src/dc_manager/manager.py\"\\,\"community_id\":6\\,\"degree\":109\\,\"betweenness\":16208.6371\\,\"pagerank\":0.0007187\\,\"score\":0.06140652717359091\\,\"reason\":\"god_node — top-percentile betweenness and/or pagerank\"\\}],[\\{\"question\":\"\\\\\"TradingOrchestrator.__init__\\\\\" sits on many shortest paths (a bridge). What does it coordinate\\, and what breaks if it changes?\"\\,\"source\":\"bridge_node\"\\,\"entities\":[\"298f0fb8f8585763\"]\\}\\,\\{\"question\":\"\\\\\"TradingOrchestrator\\\\\" sits on many shortest paths (a bridge). What does it coordinate\\, and what breaks if it changes?\"\\,\"source\":\"bridge_node\"\\,\"entities\":[\"92bab0d303018d86\"]\\}\\,\\{\"question\":\"\\\\\"_run_dataset\\\\\" sits on many shortest paths (a bridge). What does it coordinate\\, and what breaks if it changes?\"\\,\"source\":\"bridge_node\"\\,\"entities\":[\"c6d8cbd33362b7e8\"]\\}\\,\\{\"question\":\"\\\\\"TradingKernel\\\\\" sits on many shortest paths (a bridge). What does it coordinate\\, and what breaks if it changes?\"\\,\"source\":\"bridge_node\"\\,\"entities\":[\"529cead085095e7f\"]\\}\\,\\{\"question\":\"\\\\\"SentinelRiskCenter\\\\\" sits on many shortest paths (a bridge). What does it coordinate\\, and what breaks if it changes?\"\\,\"source\":\"bridge_node\"\\,\"entities\":[\"a59c15d558176337\"]\\}\\,\\{\"question\":\"\\\\\"AdvancedRiskManager\\\\\" sits on many shortest paths (a bridge). What does it coordinate\\, and what breaks if it changes?\"\\,\"source\":\"bridge_node\"\\,\"entities\":[\"6ae2f375d332fa69\"]\\}\\,\\{\"question\":\"\\\\\"validate\\\\\" sits on many shortest paths (a bridge). What does it coordinate\\, and what breaks if it changes?\"\\,\"source\":\"bridge_node\"\\,\"entities\":[\"6fe01b50b0653274\"]\\}\\,\\{\"question\":\"\\\\\"SentinelRiskCenter.__init__\\\\\" sits on many shortest paths (a bridge). What does it coordinate\\, and what breaks if it changes?\"\\,\"source\":\"bridge_node\"\\,\"entities\":[\"69fa09c258c20441\"]\\}\\,\\{\"question\":\"\\\\\"ExecutionReconcileUseCase\\\\\" sits on many shortest paths (a bridge). What does it coordinate\\, and what breaks if it changes?\"\\,\"source\":\"bridge_node\"\\,\"entities\":[\"7081aa6a83ef43c3\"]\\}\\,\\{\"question\":\"\\\\\"TradeRecord\\\\\" sits on many shortest paths (a bridge). What does it coordinate\\, and what breaks if it changes?\"\\,\"source\":\"bridge_node\"\\,\"entities\":[\"3ae24aef39c4c9f6\"]\\}\\,\\{\"question\":\"\\\\\"DatasetPolicy\\\\\" sits on many shortest paths (a bridge). What does it coordinate\\, and what breaks if it changes?\"\\,\"source\":\"bridge_node\"\\,\"entities\":[\"d1578556b456156d\"]\\}\\,\\{\"question\":\"\\\\\"Trade\\\\\" sits on many shortest paths (a bridge). What does it coordinate\\, and what breaks if it changes?\"\\,\"source\":\"bridge_node\"\\,\"entities\":[\"203e3ecedf1cff9f\"]\\}],trading-pipeline}\n"
+      },
+      "structural_snapshot_id": "struct:herm-220-live:c30646e5838d42921061a0924c1328c46fd280ff"
+    },
+    "adapter_result_canonical_sha256": "7b5ce5b89bed87e3335e724e59964f8518600d62631d6fd494cc492c556a6cc5",
+    "operation": "orient",
+    "provider_payload": {
+      "group": "herm-220-live",
+      "ref": "fdi/herm-220-live",
+      "repo_filter": [
+        "trading-pipeline"
+      ],
+      "view": "overview"
+    },
+    "request": {
+      "repositories": [
+        "https://github.com/hermanwangd/trading-pipeline"
+      ],
+      "view": "overview"
+    },
+    "scope_bound": {
+      "repositories": [
+        "https://github.com/hermanwangd/trading-pipeline"
+      ]
+    },
+    "status": "PASSED",
+    "timestamp": "2026-09-02T05:06:08.646607Z"
+  },
+  "contract": {
+    "path": "03-structural-intelligence/GRAFEL-BINDING-ATTESTOR-v0.2.md",
+    "sha256": "821143ebb6ea90c5cc2746b67f8dfda35b6d5d7157532a609aa4dd07cab401e4"
+  },
+  "evidence_format": "HERM-220 live-gate rerun evidence v1",
+  "execution_result": "PASS",
+  "execution_timestamp": "2026-09-02T05:06:08.376000Z",
+  "invocation_audit": {
+    "adapter_query_count": 1,
+    "attestation_route_probe_count": 1,
+    "daemon_log": [
+      "time=2026-09-02T13:06:08.504+08:00 level=INFO msg=mcp_rpc phase=received tool=grafel_orient repo=/Users/herman_mbp2023/multica_workspaces_desktop-api.multica.ai/herman-lab-74d8e0781f12/herm-222-5f1f7030d3b5/worktree/trading-pipeline ts=2026-09-02T05:06:08Z",
+      "time=2026-09-02T13:06:08.633+08:00 level=INFO msg=mcp_rpc phase=done tool=grafel_orient elapsed_ms=129 wire_bytes=791 payload_token_estimate=197 repo=/Users/herman_mbp2023/multica_workspaces_desktop-api.multica.ai/herman-lab-74d8e0781f12/herm-222-5f1f7030d3b5/worktree/trading-pipeline ts=2026-09-02T05:06:08Z",
+      "time=2026-09-02T13:06:08.646+08:00 level=INFO msg=mcp_rpc phase=received tool=grafel_orient repo=/Users/herman_mbp2023/multica_workspaces_desktop-api.multica.ai/herman-lab-74d8e0781f12/herm-222-5f1f7030d3b5/worktree/trading-pipeline ts=2026-09-02T05:06:08Z",
+      "time=2026-09-02T13:06:08.830+08:00 level=INFO msg=mcp_rpc phase=done tool=grafel_orient elapsed_ms=183 wire_bytes=12900 payload_token_estimate=3225 repo=/Users/herman_mbp2023/multica_workspaces_desktop-api.multica.ai/herman-lab-74d8e0781f12/herm-222-5f1f7030d3b5/worktree/trading-pipeline ts=2026-09-02T05:06:08Z"
+    ],
+    "group_metadata_read_count": 1,
+    "input_mutations": 0,
+    "retries": 0
+  },
+  "pre_execution_group_metadata": {
+    "docsPath": "",
+    "entities": 9615,
+    "features": {
+      "gitHooks": false,
+      "watchers": false
+    },
+    "fidelity": 1,
+    "health": "healthy",
+    "id": "herm-220-live",
+    "indexedAt": 1788316067924,
+    "name": "herm-220-live",
+    "repos": [
+      {
+        "coverage_status": "full",
+        "entities": 9615,
+        "files": 742,
+        "indexedAt": 1788316067924,
+        "indexed_ref": "fdi/herm-220-live",
+        "indexed_sha": "c30646e5838d",
+        "is_worktree": true,
+        "monorepo": null,
+        "path": "/Users/herman_mbp2023/multica_workspaces_desktop-api.multica.ai/herman-lab-74d8e0781f12/herm-222-5f1f7030d3b5/worktree/trading-pipeline",
+        "slug": "trading-pipeline",
+        "stack": "python"
+      }
+    ]
+  },
+  "pre_execution_index_status": {
+    "any_indexing": false,
+    "busy": false,
+    "concurrency": {
+      "cap": 2,
+      "indexing": 0,
+      "queued": 0
+    },
+    "elapsed_ms": 47,
+    "parsing": 0,
+    "repos": [
+      {
+        "at_head": true,
+        "dirty": false,
+        "group": "herm-220-live",
+        "indexed_commit_short": "c30646e5838d",
+        "repo": "/Users/herman_mbp2023/multica_workspaces_desktop-api.multica.ai/herman-lab-74d8e0781f12/herm-222-5f1f7030d3b5/worktree/trading-pipeline",
+        "state": "current"
+      }
+    ]
+  },
+  "provider_binding_state": {
+    "freshness": "FROZEN_INDEXED",
+    "provider_ref": "fdi/herm-220-live",
+    "provider_scope_id": "herm-220-live",
+    "queryability": "QUERYABLE",
+    "repositories": [
+      {
+        "head_revision": null,
+        "indexed_revision": "c30646e5838d42921061a0924c1328c46fd280ff",
+        "provider_repository": "trading-pipeline",
+        "queryable": true,
+        "repository": "https://github.com/hermanwangd/trading-pipeline"
+      }
+    ]
+  },
+  "provider_ref": "fdi/herm-220-live",
+  "provider_runtime": {
+    "binary_sha256": "4960b7b6e7253d578da9b6dcf74bf44eec78c1c167dc1ba29bf695b13982dd12",
+    "version": "v0.3.0 (commit b037c3f, built 2026-08-21T18:26:14Z)"
+  },
+  "provider_scope_id": "herm-220-live",
+  "repository_map": {
+    "https://github.com/hermanwangd/trading-pipeline": "trading-pipeline"
+  },
+  "runtime_revision": "b3a5e53798c279fdf690b173993e1d06a524138d"
+}
