@@ -24,8 +24,8 @@
     },
     {
       "path": "PROJECT-TREE.txt",
-      "sha256": "de3c87894368375febff68092ad40f5bb08fa72594a64bdbd02754e1a666f6d5",
-      "size": 6056
+      "sha256": "7965de9a127827721e41936963ecc7f9d89e776001aaa2f8bfaa1e126a569a04",
+      "size": 6173
     },
     {
       "path": "README.md",
@@ -34,13 +34,13 @@
     },
     {
       "path": "STATUS.json",
-      "sha256": "08b1198347c80a8c8a39bde0f344e146f5e84fcf638f9cb49eb8edd3a42bf144",
-      "size": 630
+      "sha256": "28660f70d198f1a1fc06435d3cf13caab59458359efb2fa5b72ff3c0b8fc6d5b",
+      "size": 634
     },
     {
       "path": "VERIFICATION-SUMMARY.json",
-      "sha256": "71a7c423c9ab27ef403599317ca386dae6f20d04c708f0fc8ca5fdfa96872109",
-      "size": 1046
+      "sha256": "9e80f2b4f0745764ea6c3b750a0ee16cf140e0a13a512a8f308eaa6f3025dfec",
+      "size": 1335
     },
     {
       "path": "VERSION",
@@ -209,8 +209,8 @@
     },
     {
       "path": "scripts/verify_project.py",
-      "sha256": "140201c2ebe37ddc5f1859ef95d29e1a95e92bd84d34b7eb135ae5f39b1c7727",
-      "size": 954
+      "sha256": "521826bb256ba80891c075d48720e2bd7694f9e1bff2847ad0ade4862ab7283b",
+      "size": 1024
     },
     {
       "path": "skills/ft-t2/changesurface-investigation/SKILL.md",
@@ -344,13 +344,13 @@
     },
     {
       "path": "src/fdi/product_intelligence/product_store.py",
-      "sha256": "6922b5247fa8c96c0ff3c5ae62115dffa28644337b5ec3250d0bb2ff45e0f1fc",
-      "size": 1683
+      "sha256": "576357e8580debd361da589e93451ab23afc7a9e02df5e1cd5087e7903e366bf",
+      "size": 11195
     },
     {
       "path": "src/fdi/product_intelligence/registry.py",
-      "sha256": "ae1e360b7314a61116df0664182b3fd172cf3068edf9a5b7804e9aea25a1de36",
-      "size": 2754
+      "sha256": "a3dd07bac72256d693a99a86304ce22ba408a0426b55b1f275dc29348c93fe64",
+      "size": 6760
     },
     {
       "path": "src/fdi/providers/__init__.py",
@@ -468,9 +468,24 @@
       "size": 5355
     },
     {
+      "path": "tests/test_product_store_lifecycle.py",
+      "sha256": "ab5247998dfa6abb3da24ba1a0e7889b098985bbf91322b545560f9bd4eee2c6",
+      "size": 12021
+    },
+    {
+      "path": "tests/test_project_verification.py",
+      "sha256": "10e1ab691a97f768b8a2c095884a695ca6f6c1b6b9412054c78d60f83bd43d62",
+      "size": 1375
+    },
+    {
       "path": "validation/dev204/README.md",
       "sha256": "9cd592f5778eeccc5e75eb62fae16b3677227fe0411e711b9f004d6c90a01edc",
       "size": 208
+    },
+    {
+      "path": "validation/dev219/README.md",
+      "sha256": "ee6fe7c3f85475f7b40016bbf187ce96a4976b67d59996bcee4708fb699cd684",
+      "size": 951
     },
     {
       "path": "validation/f001/F001-ABLATION.md",
