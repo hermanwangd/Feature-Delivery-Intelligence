@@ -1,0 +1,362 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ProductAssetDescriptor.schema.json",
+  "title": "FDI ProductAssetDescriptor v0.1 recovery-conformant schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "fdi_asset_version",
+    "asset_id",
+    "asset_family",
+    "asset_type",
+    "asset_revision",
+    "content_ref",
+    "publication_state",
+    "validity_state",
+    "owner",
+    "maintenance_mode",
+    "publication_policy",
+    "scope",
+    "authority_dimensions",
+    "trust_profile",
+    "as_of",
+    "source_refs",
+    "dependency_refs",
+    "freshness_policy",
+    "supersedes",
+    "invalidation_triggers",
+    "selection_metadata"
+  ],
+  "properties": {
+    "fdi_asset_version": {
+      "const": "0.1"
+    },
+    "asset_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "asset_family": {
+      "enum": [
+        "PRODUCT",
+        "ARCHITECTURE",
+        "CODEBASE",
+        "DOMAIN",
+        "DELIVERY_HISTORY",
+        "OPERATIONS",
+        "KNOWLEDGE",
+        "REFERENCE"
+      ]
+    },
+    "asset_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "asset_revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "content_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "publication_state": {
+      "enum": [
+        "DRAFT",
+        "PUBLISHED",
+        "RETIRED"
+      ]
+    },
+    "validity_state": {
+      "enum": [
+        "NOT_APPLICABLE",
+        "ACTIVE",
+        "STALE",
+        "SUPERSEDED"
+      ]
+    },
+    "owner": {
+      "type": "string",
+      "minLength": 1
+    },
+    "maintenance_mode": {
+      "enum": [
+        "CURATED",
+        "DERIVED",
+        "REFERENCED"
+      ]
+    },
+    "publication_policy": {
+      "enum": [
+        "HUMAN_APPROVAL",
+        "RULE_BASED_AUTO",
+        "SOURCE_REFERENCE"
+      ]
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "products",
+        "systems",
+        "repositories",
+        "environments"
+      ],
+      "properties": {
+        "products": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "systems": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "repositories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "environments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "authority_dimensions": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "DURABLE_CONSTRAINT",
+          "CURRENT_BEHAVIOR_SUPPORT",
+          "RATIONALE_SUPPORT"
+        ]
+      }
+    },
+    "trust_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provenance",
+        "review",
+        "verification",
+        "authorization"
+      ],
+      "properties": {
+        "provenance": {
+          "enum": [
+            "DIRECT",
+            "DERIVED",
+            "ASSERTED"
+          ]
+        },
+        "review": {
+          "enum": [
+            "UNREVIEWED",
+            "REVIEWED"
+          ]
+        },
+        "verification": {
+          "enum": [
+            "NOT_VERIFIED",
+            "VERIFIED"
+          ]
+        },
+        "authorization": {
+          "enum": [
+            "NONE",
+            "SOURCE_INHERITED",
+            "EXPLICIT"
+          ]
+        }
+      }
+    },
+    "as_of": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "object"
+          }
+        ]
+      }
+    },
+    "dependency_refs": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "object"
+          }
+        ]
+      }
+    },
+    "freshness_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "ttl"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "UNTIL_SUPERSEDED",
+            "SOURCE_CHANGE",
+            "TTL",
+            "EVENT_DRIVEN",
+            "MANUAL"
+          ]
+        },
+        "ttl": {
+          "type": [
+            "string",
+            "integer",
+            "null"
+          ]
+        }
+      }
+    },
+    "supersedes": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "asset_id",
+            "asset_revision"
+          ],
+          "properties": {
+            "asset_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "asset_revision": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        }
+      ]
+    },
+    "invalidation_triggers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "selection_metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "terms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "applicability": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "profile_conformance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile_id",
+        "profile_spec_revision"
+      ],
+      "properties": {
+        "profile_id": {
+          "type": "string"
+        },
+        "profile_spec_revision": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "oneOf": [
+        {
+          "properties": {
+            "publication_state": {
+              "const": "DRAFT"
+            },
+            "validity_state": {
+              "const": "NOT_APPLICABLE"
+            }
+          }
+        },
+        {
+          "properties": {
+            "publication_state": {
+              "const": "PUBLISHED"
+            },
+            "validity_state": {
+              "const": "ACTIVE"
+            }
+          }
+        },
+        {
+          "properties": {
+            "publication_state": {
+              "const": "PUBLISHED"
+            },
+            "validity_state": {
+              "const": "STALE"
+            }
+          }
+        },
+        {
+          "properties": {
+            "publication_state": {
+              "const": "PUBLISHED"
+            },
+            "validity_state": {
+              "const": "SUPERSEDED"
+            }
+          }
+        },
+        {
+          "properties": {
+            "publication_state": {
+              "const": "RETIRED"
+            },
+            "validity_state": {
+              "const": "NOT_APPLICABLE"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

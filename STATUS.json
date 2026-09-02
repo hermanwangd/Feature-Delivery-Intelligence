@@ -1,0 +1,26 @@
+{
+  "version": "0.4.8.1-recovery",
+  "classification": "RECOVERY_WORKSPACE_HERM219_REQUIRED",
+  "active_governing_baseline": null,
+  "governance_current": "NONE",
+  "baseline_candidate": "GB-0001-CANDIDATE",
+  "baseline_promotion": "BLOCKED_EXACT_APPROVED_BYTES_NOT_VERIFIED",
+  "canonical_runtime_release": false,
+  "product_intelligence_store": "SCAFFOLD",
+  "live_grafel_proof": "NOT_EXECUTED",
+  "real_product_binding": "NOT_POPULATED",
+  "dev204": "NOT_EXECUTED",
+  "f001": "NOT_EXECUTED",
+  "empirical_uplift": "NOT_ESTABLISHED",
+  "recovery_hardening": [
+    "ProductAssetDescriptor governing v0.1 semantic surface restored in recovery schema",
+    "ProductAssetRef and Registry resolution metadata restored",
+    "illegal lifecycle combinations fail closed",
+    "one active Product Asset lineage per asset/scope enforced",
+    "Grafel runtime/wire/adapter evidence cross-field revalidation added",
+    "Structural query scope/relation/depth/result bounds mapped and postchecked",
+    "unexpected active bundle files fail verification",
+    "PA-01 moved to candidate namespace",
+    "recovery summaries removed from active authority role"
+  ]
+}

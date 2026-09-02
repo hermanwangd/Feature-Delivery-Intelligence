@@ -1,0 +1,62 @@
+baseline_id: GB-0001-CANDIDATE
+status: CANDIDATE
+created_for: HERM-219
+current_pointer_required_after_approval: GB-0001
+promotion_state: BLOCKED_EXACT_APPROVED_BYTES_NOT_VERIFIED
+modules:
+  - id: L1-SEM
+    semantic_version: "0.2"
+    approved_source: fdi-layer1-specification-v0.2-approved.md
+    local_path: null
+    sha256: null
+    approval_ref: "Herman design approval: APPROVED"
+    byte_identity: NOT_VERIFIED
+  - id: L1-IO
+    semantic_version: "0.1"
+    approved_source: fdi-layer1-markdown-io-profile-v0.1-approved.md
+    local_path: null
+    sha256: null
+    approval_ref: "Herman design approval: APPROVED"
+    byte_identity: NOT_VERIFIED
+  - id: FT-T2
+    semantic_version: LOCKED_SET
+    approved_source: HERM-211 approved helper package
+    local_path: null
+    tree_sha256: null
+    approval_ref: HERM-211
+    byte_identity: NOT_VERIFIED
+  - id: L2-FWK
+    semantic_version: "0.1"
+    approved_source: fdi-layer2-product-intelligence-framework-v0.1-approved.md
+    local_path: null
+    sha256: null
+    approval_ref: "Herman design approval: APPROVED"
+    byte_identity: NOT_VERIFIED
+  - id: L2-PROFILE
+    semantic_version: "0.1"
+    approved_source: fdi-product-asset-profile-specification-v0.1-approved.md
+    local_path: null
+    sha256: null
+    approval_ref: "Herman design approval: APPROVED"
+    byte_identity: NOT_VERIFIED
+    scope_note: "Only PA-03 and PA-05 are fully specified in v0.1."
+  - id: L2-MAINT
+    semantic_version: "0.1"
+    approved_source: fdi-product-asset-maintenance-skill-contracts-v0.1-approved.md
+    local_path: null
+    sha256: null
+    approval_ref: "Herman design approval: APPROVED"
+    byte_identity: NOT_VERIFIED
+candidates_not_selected:
+  - PA-01 Product Semantics
+  - Layer 1 v0.3 successor/consolidation
+promotion_gates:
+  - exact approved source bytes locally present
+  - exact SHA-256/tree digests computed
+  - Layer 1 v0.2 vs v0.3 reconciliation completed
+  - Layer 1 I/O compatibility PASS
+  - FT-T2 six-contract/five-Skill surface PASS
+  - Layer 2 PA-03/PA-05 scope PASS
+  - PA-01 promotion strategy explicit
+  - generated governing view matches selected modules
+  - explicit human approval

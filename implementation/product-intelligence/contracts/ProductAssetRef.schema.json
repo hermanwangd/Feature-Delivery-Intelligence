@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ProductAssetRef.schema.json",
+  "title": "FDI ProductAssetRef v0.1 recovery-conformant schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "asset_id",
+    "asset_revision",
+    "descriptor_ref",
+    "content_ref",
+    "publication_state",
+    "validity_state",
+    "as_of",
+    "authority_dimensions",
+    "trust_profile",
+    "scope_match"
+  ],
+  "properties": {
+    "asset_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "asset_revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "descriptor_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "content_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "publication_state": {
+      "const": "PUBLISHED"
+    },
+    "validity_state": {
+      "const": "ACTIVE"
+    },
+    "as_of": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "authority_dimensions": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "DURABLE_CONSTRAINT",
+          "CURRENT_BEHAVIOR_SUPPORT",
+          "RATIONALE_SUPPORT"
+        ]
+      }
+    },
+    "trust_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provenance",
+        "review",
+        "verification",
+        "authorization"
+      ],
+      "properties": {
+        "provenance": {
+          "enum": [
+            "DIRECT",
+            "DERIVED",
+            "ASSERTED"
+          ]
+        },
+        "review": {
+          "enum": [
+            "UNREVIEWED",
+            "REVIEWED"
+          ]
+        },
+        "verification": {
+          "enum": [
+            "NOT_VERIFIED",
+            "VERIFIED"
+          ]
+        },
+        "authorization": {
+          "enum": [
+            "NONE",
+            "SOURCE_INHERITED",
+            "EXPLICIT"
+          ]
+        }
+      }
+    },
+    "scope_match": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

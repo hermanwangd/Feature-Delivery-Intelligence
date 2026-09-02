@@ -1,0 +1,33 @@
+{
+  "layer1_transitions": [
+    "T1_INTENTION",
+    "T2_DELIVERY_SPEC",
+    "T3_IMPLEMENTATION",
+    "T4_CORRECTNESS"
+  ],
+  "ft_t2_helper_contracts": [
+    "IntentSpec",
+    "CandidateRepoSet",
+    "ChangeSurfaceSet",
+    "EvidenceRecord",
+    "ClosurePackage",
+    "ClosureReview"
+  ],
+  "ft_t2_helper_skills": [
+    "feature-intent-analysis",
+    "repo-discovery",
+    "changesurface-investigation",
+    "dependency-closure",
+    "closure-review"
+  ],
+  "closure_status": [
+    "OPEN",
+    "PARTIAL",
+    "CLOSED_WITHIN_DECLARED_SCOPE"
+  ],
+  "t2_gate": [
+    "SPEC_READY",
+    "BLOCKED"
+  ],
+  "current_truth_authority": "current feature-specific pinned Evidence"
+}

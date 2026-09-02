@@ -1,0 +1,34 @@
+{
+  "fdi_asset_version": "0.1",
+  "asset_id": "CB-REPO-SAMPLE",
+  "asset_family": "CODEBASE",
+  "asset_type": "CB-01_REPOSITORY_INVENTORY",
+  "asset_revision": 1,
+  "content_ref": "assets/by-id/CB-REPO-SAMPLE/content/r0001.json",
+  "publication_state": "DRAFT",
+  "validity_state": "NOT_APPLICABLE",
+  "owner": "REPLACE_ME",
+  "maintenance_mode": "DERIVED",
+  "publication_policy": "RULE_BASED_AUTO",
+  "scope": {
+    "products": ["REPLACE_ME"],
+    "systems": [],
+    "repositories": ["REPLACE_ME"],
+    "environments": []
+  },
+  "authority_dimensions": ["CURRENT_BEHAVIOR_SUPPORT"],
+  "trust_profile": {
+    "provenance": "DIRECT",
+    "review": "UNREVIEWED",
+    "verification": "NOT_VERIFIED",
+    "authorization": "NONE"
+  },
+  "as_of": null,
+  "source_refs": [],
+  "dependency_refs": [],
+  "freshness_policy": {"mode": "SOURCE_CHANGE", "ttl": null},
+  "supersedes": null,
+  "invalidation_triggers": ["repository source revision changes"],
+  "selection_metadata": {"terms": ["sample"], "applicability": []},
+  "profile_conformance": {"profile_id": "PA-03", "profile_spec_revision": "0.1"}
+}

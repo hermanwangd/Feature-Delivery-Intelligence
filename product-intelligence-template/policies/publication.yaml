@@ -1,0 +1,6 @@
+default_semantic_policy: HUMAN_APPROVAL
+default_structural_policy: HUMAN_APPROVAL
+allowed_policies:
+  - HUMAN_APPROVAL
+  - RULE_BASED_AUTO
+  - SOURCE_REFERENCE

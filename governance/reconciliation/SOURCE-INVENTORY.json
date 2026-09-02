@@ -1,0 +1,56 @@
+{
+  "inventory_version": "0.1",
+  "status": "RECOVERY_SOURCE_INVENTORY",
+  "promotion_blocked": true,
+  "reason": "Exact approved normative source byte identity is not embedded/verified in this recovery bundle; do not reconstruct authority from summaries.",
+  "sources": [
+    {
+      "id": "L1-SEM",
+      "title": "fdi-layer1-specification-v0.2-approved.md",
+      "semantic_version": "0.2",
+      "status": "APPROVED",
+      "authority": "Layer 1 semantic contract",
+      "local_byte_identity": "NOT_VERIFIED"
+    },
+    {
+      "id": "L1-IO",
+      "title": "fdi-layer1-markdown-io-profile-v0.1-approved.md",
+      "semantic_version": "0.1",
+      "status": "APPROVED",
+      "authority": "Layer 1 physical Markdown I/O contract",
+      "local_byte_identity": "NOT_VERIFIED"
+    },
+    {
+      "id": "FT-T2",
+      "title": "HERM-211 Feature Closure helper surface",
+      "semantic_version": "LOCKED_SET",
+      "status": "APPROVED_SEMANTICS",
+      "authority": "six helper contracts + five helper Skills + workflow",
+      "local_byte_identity": "NOT_VERIFIED"
+    },
+    {
+      "id": "L2-FWK",
+      "title": "fdi-layer2-product-intelligence-framework-v0.1-approved.md",
+      "semantic_version": "0.1",
+      "status": "APPROVED",
+      "authority": "Layer 2 Product Intelligence framework",
+      "local_byte_identity": "NOT_VERIFIED"
+    },
+    {
+      "id": "L2-PROFILE",
+      "title": "fdi-product-asset-profile-specification-v0.1-approved.md",
+      "semantic_version": "0.1",
+      "status": "APPROVED",
+      "authority": "PA-03/PA-05 fully specified",
+      "local_byte_identity": "NOT_VERIFIED"
+    },
+    {
+      "id": "L2-MAINT",
+      "title": "fdi-product-asset-maintenance-skill-contracts-v0.1-approved.md",
+      "semantic_version": "0.1",
+      "status": "APPROVED",
+      "authority": "PA-* maintenance Skill contract",
+      "local_byte_identity": "NOT_VERIFIED"
+    }
+  ]
+}

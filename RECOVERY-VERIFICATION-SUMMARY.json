@@ -1,0 +1,46 @@
+{
+  "version": "0.4.8.1-recovery",
+  "classification": "RECOVERY_WORKSPACE_HERM219_REQUIRED",
+  "tests": {
+    "unittest_total": 14,
+    "failed": 0,
+    "status": "PASS"
+  },
+  "schemas": {
+    "count": 12,
+    "failed": 0,
+    "status": "PASS"
+  },
+  "sample_descriptor_validation": {
+    "errors": 0,
+    "status": "PASS"
+  },
+  "baseline_recovery_guard": {
+    "current": "NONE",
+    "candidate": "GB-0001-CANDIDATE",
+    "expected_state": "PROMOTION_BLOCKED",
+    "status": "PASS"
+  },
+  "fixed_findings": [
+    "Recovery summary documents no longer define active authority",
+    "ProductAssetDescriptor lifecycle/trust/authority/freshness semantics hardened to approved v0.1 surface",
+    "ProductAssetRef/Registry projection hardened and duplicate active lineage rejected",
+    "Grafel runtime/wire/adapter attestation and stored evidence cross-field validation restored",
+    "Structural query repository/relation/depth/result bounds mapped pre-execution and enforced post-result",
+    "Unexpected active files fail bundle verification",
+    "PA-01 isolated under candidates and is not normative",
+    "Old simplified Layer 1 scaffold archived",
+    "GitStoreAdapter claim corrected to scaffold"
+  ],
+  "intentionally_not_established": [
+    "approved GB-0001 baseline",
+    "byte-verified embedded copies of all exact approved normative modules",
+    "complete Git-backed Product Intelligence Store publication/lifecycle implementation",
+    "live Azure authentication",
+    "live Grafel execution/binding",
+    "real Product bootstrap",
+    "DEV-204 behavioral proof",
+    "F001 calibration",
+    "empirical FDI uplift"
+  ]
+}

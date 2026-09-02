@@ -1,0 +1,16 @@
+provider: grafel
+adapter_version: recovery-0.1
+scope_id: replace-me
+provider_ref: fdi/bootstrap-cutoff
+relation_allowlist:
+  - API_RELATION
+  - EVENT_RELATION
+  - SCHEMA_RELATION
+  - PACKAGE_RELATION
+  - DATA_RELATION
+limits:
+  max_depth: 4
+  max_nodes: 1000
+  max_edges: 2000
+  max_paths: 200
+  max_result_bytes: 2000000

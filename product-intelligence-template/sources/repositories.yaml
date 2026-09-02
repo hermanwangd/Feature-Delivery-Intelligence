@@ -1,0 +1,9 @@
+product: REPLACE_ME
+provider:
+  type: AZURE_REPOS
+  organization: REPLACE_ME
+  project: REPLACE_ME
+repositories:
+  - id: repo-a
+    remote: https://dev.azure.com/ORG/PROJECT/_git/repo-a
+    branch_or_ref: main
