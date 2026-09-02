@@ -6,6 +6,7 @@
 - Canonical continuation base: `e29cc31ec1f7480f624ffc33aa83fc9eb5db27a9` (`agent/mika/herm-213-phase1-package`, PR #4)
 - Isolated integration branch: `agent/mika/herm-220-live-grafel-binding`
 - Corrected integration implementation commit: `24b9e65c97e5db09d9f850231c1d6ea003fc3a89`
+- Validated remediation commit: `d195f52ce8aba360d9398d9cd1456882f45a0187`
 - Source bundle: `fdi-mvp-v0.4.7.2-multica-handoff-bundle.zip`
 - Source bundle SHA-256: `7c35ea4872c74549efb50f1251ffa9af4eed6e24027f44f9055af769ca9517b0`
 - Successor handoff SHA-256: `2d2cf4e3a72e29d492921303f74bd3de48d8061041bf86655203185a8a2cb441`
@@ -55,7 +56,7 @@ TDD defect reproduction: the initial focused suite failed 12 cases against the s
 
 ## Post-integration verification
 
-Executed from the fresh environment against implementation commit `24b9e65c97e5db09d9f850231c1d6ea003fc3a89`:
+Executed from the fresh environment against validated remediation commit `d195f52ce8aba360d9398d9cd1456882f45a0187`, which contains implementation commit `24b9e65c97e5db09d9f850231c1d6ea003fc3a89`:
 
 | Command | Result |
 |---|---|
@@ -64,7 +65,9 @@ Executed from the fresh environment against implementation commit `24b9e65c97e5d
 | functional `pytest` stage within `make test-all` | 193 passed, 0 failed, 0 skipped |
 | release-guard `pytest` stage within `make test-all` | 13 passed, 0 failed, 0 skipped |
 | `make score PYTHON=../herm-220-work/fresh-venv/bin/python` | PASS — exit 0 |
-| `git diff --check` before implementation commit | PASS |
+| `git diff --check e29cc31ec1f7480f624ffc33aa83fc9eb5db27a9..d195f52ce8aba360d9398d9cd1456882f45a0187` | PASS — exit 0, 0 findings |
+
+The remediation replaces eight trailing-space Markdown hard breaks with explicit `<br>` markers, preserving rendered line separation while making the complete continuation-base-to-remediation range whitespace-clean. It does not change runtime behavior, governing semantics, or authority boundaries.
 
 ## Live binding gate
 
