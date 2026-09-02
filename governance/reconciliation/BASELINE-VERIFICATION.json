@@ -1,0 +1,18 @@
+{
+  "baseline_digest": "96d5f43a3c50ba2697907d4170f01997ab1b21e60f01e67c27ae5ed8f9fdc48e",
+  "baseline_id": "GB-0001",
+  "baseline_status": "APPROVED",
+  "integrity_failures": [],
+  "promotion_blockers": [],
+  "promotion_ready_for_independent_review": false,
+  "source_revision": "44e953c3630e8a0078000c2d00eba28f7fc03220",
+  "summary": {
+    "active_approved_baselines": 1,
+    "compatibility_failures": 0,
+    "competing_active_authorities": 0,
+    "digest_failures": 0,
+    "generated_view_failures": 0,
+    "missing_approval_references": 0,
+    "normative_conflicts": 0
+  }
+}

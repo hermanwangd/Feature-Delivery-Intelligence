@@ -1,0 +1,145 @@
+{
+  "baseline_id": "GB-0001",
+  "status": "APPROVED",
+  "created_date": "2026-09-02",
+  "immutable_after_approval": true,
+  "source_repository": "https://github.com/hermanwangd/Feature-Delivery-Intelligence",
+  "source_revision": "44e953c3630e8a0078000c2d00eba28f7fc03220",
+  "baseline_digest_algorithm": "sha256(canonical-json-without-baseline_digest)",
+  "baseline_digest": "96d5f43a3c50ba2697907d4170f01997ab1b21e60f01e67c27ae5ed8f9fdc48e",
+  "policy": {
+    "generated_governing_spec_editable": false,
+    "digest_mismatch": "BASELINE_INVALID",
+    "normative_conflict": "BASELINE_INVALID",
+    "candidate_as_approved": "BASELINE_INVALID",
+    "ambiguous_supersession": "BASELINE_INVALID"
+  },
+  "modules": [
+    {
+      "id": "L1-SEM",
+      "authority_domain": "layer1_semantics",
+      "semantic_version": "0.2",
+      "status": "APPROVED",
+      "approval_ref": "HERM-210; multica-attachment:01a05228-a42d-72fa-b388-558f59430632",
+      "supersedes": null,
+      "compatibility": "L1-IO@0.1; FT-T2@LOCKED-HERM-211",
+      "files": [
+        {
+          "path": "normative/layer1/semantic/fdi-layer1-specification-v0.2-approved.md",
+          "sha256": "9442f7ad788d4ffa59f9b1d5ef77de9b119550846df1e09df77737aa3fc7307d"
+        }
+      ]
+    },
+    {
+      "id": "L1-IO",
+      "authority_domain": "layer1_physical_io",
+      "semantic_version": "0.1",
+      "status": "APPROVED",
+      "approval_ref": "HERM-210; multica-attachment:01a05228-a42d-72fa-b388-558f59430632",
+      "supersedes": null,
+      "compatibility": "L1-SEM@0.2",
+      "files": [
+        {
+          "path": "normative/layer1/io/fdi-layer1-markdown-io-profile-v0.1-approved.md",
+          "sha256": "9793619861bf0745914746a2909a195131d318426f74d0eace6caabf34ac4c45"
+        }
+      ]
+    },
+    {
+      "id": "FT-T2",
+      "authority_domain": "layer1_ft_t2_helpers",
+      "semantic_version": "LOCKED-HERM-211",
+      "status": "APPROVED",
+      "approval_ref": "HERM-210:01a0532d-e397-793d-b334-05a4fc8d2560; HERM-211:01a05336-448a-746a-8deb-6dd6968a9ad4",
+      "supersedes": null,
+      "compatibility": "L1-SEM@0.2; sole gate SPEC_READY|BLOCKED",
+      "tree_sha256": "9bcbb5bbc97edc46a0a48053891d38cae8e3c2c56e351d568376ab63ceb8a280",
+      "files": [
+        {"path": "normative/ft-t2/contracts/candidate-repo-set.schema.json", "sha256": "b6effd125f6948699d81e0c118367e07fffb231c87be20996a3662a8826f3572"},
+        {"path": "normative/ft-t2/contracts/change-surface-set.schema.json", "sha256": "c8301f38fec1fde6fe51e8c1f76ba29c91a700659d33a96728452af0732951c9"},
+        {"path": "normative/ft-t2/contracts/closure-package.schema.json", "sha256": "463aa8f26aeb54e0f532ba4d7addc9f7130b333412beed7f83b4b69d558baf8a"},
+        {"path": "normative/ft-t2/contracts/closure-review.schema.json", "sha256": "a6ea49e1481b4ad6874d2068081cb1bfe82031d2e16868075495df037b2dfe6f"},
+        {"path": "normative/ft-t2/contracts/evidence-record.schema.json", "sha256": "85d0eb6c2a4fc72c9ab7fa100f0aa49bbaa67b8feb30688ea4e2e5488e1289c1"},
+        {"path": "normative/ft-t2/contracts/intent-spec.schema.json", "sha256": "e809f4a030c713312cd1e76bc4b2514bf2787381174a02116cf3a9866900418c"},
+        {"path": "normative/ft-t2/skills/changesurface-investigation/SKILL.md", "sha256": "49d146291f1f45b8aba7513660c62adc5148766ecf5d13554853e60694d9a2a6"},
+        {"path": "normative/ft-t2/skills/closure-review/SKILL.md", "sha256": "c24482c750f3e71c8f6cd2ef98b48e25ae3a5aa7804e54765b68b4cab1253fbd"},
+        {"path": "normative/ft-t2/skills/dependency-closure/SKILL.md", "sha256": "aa62ced44de6e93b81a9fd07267b290f2e98e83969b8727c2997d69f51fc1044"},
+        {"path": "normative/ft-t2/skills/feature-intent-analysis/SKILL.md", "sha256": "174a0eaa54b5a8df9d48ae59059c46bd04f864918117859ed6ca45a7567c28e4"},
+        {"path": "normative/ft-t2/skills/repo-discovery/SKILL.md", "sha256": "502d1c4f63f5fc4e76c87266e9f2aa13c24caa6dae0d1442644ee4904373247f"},
+        {"path": "normative/ft-t2/workflow/feature-closure.md", "sha256": "06e8d4794e87c266793369763f952a60cead43ba5e1f669b26b58717caf8e26e"}
+      ]
+    },
+    {
+      "id": "L2-FWK",
+      "authority_domain": "layer2_framework",
+      "semantic_version": "0.1",
+      "status": "APPROVED",
+      "approval_ref": "HERM-210; multica-attachment:01a05228-a42d-72fa-b388-558f59430632",
+      "supersedes": null,
+      "compatibility": "L1-SEM@0.2; L2-PROFILE@0.1; L2-MAINT@0.1",
+      "files": [
+        {"path": "normative/layer2/framework/fdi-layer2-product-intelligence-framework-v0.1-approved.md", "sha256": "167b0bbe88112fd7a895c10a64be977f2f7dd4ba7678c81818be79e38de1e165"}
+      ]
+    },
+    {
+      "id": "L2-PROFILE",
+      "authority_domain": "layer2_product_asset_profiles",
+      "semantic_version": "0.1",
+      "status": "APPROVED",
+      "approval_ref": "HERM-210; multica-attachment:01a05228-a42d-72fa-b388-558f59430632",
+      "supersedes": null,
+      "compatibility": "L2-FWK@0.1; scope fully specifies PA-03 and PA-05 only",
+      "scope": {"fully_specified": ["PA-03", "PA-05"]},
+      "files": [
+        {"path": "normative/layer2/profiles/fdi-product-asset-profile-specification-v0.1-approved.md", "sha256": "d43cfc258b36a020c65382a4929c98067599c832b52d63235fd860ff311753ea"}
+      ]
+    },
+    {
+      "id": "L2-MAINT",
+      "authority_domain": "layer2_maintenance_skills",
+      "semantic_version": "0.1",
+      "status": "APPROVED",
+      "approval_ref": "HERM-210; multica-attachment:01a05228-a42d-72fa-b388-558f59430632",
+      "supersedes": null,
+      "compatibility": "L2-FWK@0.1; L2-PROFILE@0.1",
+      "files": [
+        {"path": "normative/layer2/maintenance/fdi-product-asset-maintenance-skill-contracts-v0.1-approved.md", "sha256": "471614685929d17334e3d1faad4373c8a03a934731c2c17d7a8fef875dbd304a"}
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "id": "L1-SEM-v0.3",
+      "status": "NON_GOVERNING_CANDIDATE",
+      "decision": "KEEP_L1_V0_2",
+      "source": "candidates/HERM-219/fdi-layer1-feature-transformation-specification-v0.3.md",
+      "sha256": "d51978c5044751c11b8f4052dae36a3267d2ad1521cba76a351efb0cba4bc705",
+      "supersedes": null
+    },
+    {
+      "id": "PA-01",
+      "status": "APPROVAL_CANDIDATE",
+      "promotion_strategy": "MODULAR",
+      "source": "candidates/PA-01/PA-01-MINIMAL-PRODUCT-SEMANTICS-PROFILE-v0.1-approval-candidate.md",
+      "sha256": "0fdecda16efaa818be3ac3be820a3ab5742a5a7849b5ec8daae2790829a0f713",
+      "supersedes": null,
+      "compatibility": "additive alongside PA-03/PA-05; not selected until explicit Human approval"
+    }
+  ],
+  "compatibility_checks": [
+    {"id": "L1_SEM_TO_L1_IO", "result": "PASS", "evidence_report": "governance/reconciliation/L1-IO-compatibility.md"},
+    {"id": "L1_SEM_TO_FT_T2", "result": "PASS", "evidence_report": "governance/reconciliation/FT-T2-compatibility.md"},
+    {"id": "L2_FRAMEWORK_TO_PROFILES", "result": "PASS", "evidence_report": "governance/reconciliation/L2-v0.1-reconciliation.md"}
+  ],
+  "promotion": {
+    "observed_counts": {
+      "normative_conflicts": 0,
+      "digest_failures": 0,
+      "compatibility_failures": 0,
+      "competing_active_authorities": 0
+    },
+    "required_reviews": ["FDI Validation Steward"],
+    "required_approval": "Herman Wang",
+    "self_promotion_forbidden": true
+  }
+}

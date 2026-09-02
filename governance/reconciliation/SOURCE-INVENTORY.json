@@ -1,0 +1,86 @@
+{
+  "inventory_id": "HERM-219-SOURCE-INVENTORY-2026-09-02",
+  "governance_handoff_sha256": "03b9d62b62e668ca43c9713d02b5ceca959403e3a9bde02c9f8b1530f91c2097",
+  "sources": [
+    {
+      "artifact_id": "L1-SEM",
+      "path_or_source": "fdi-multica-implementation-handoff-v0.1/01-layer1-approved/fdi-layer1-specification-v0.2-approved.md",
+      "semantic_version": "0.2",
+      "document_status": "APPROVED",
+      "approval_reference": "HERM-210; multica-attachment:01a05228-a42d-72fa-b388-558f59430632",
+      "sha256": "9442f7ad788d4ffa59f9b1d5ef77de9b119550846df1e09df77737aa3fc7307d",
+      "classification": "APPROVED"
+    },
+    {
+      "artifact_id": "L1-IO",
+      "path_or_source": "fdi-multica-implementation-handoff-v0.1/01-layer1-approved/fdi-layer1-markdown-io-profile-v0.1-approved.md",
+      "semantic_version": "0.1",
+      "document_status": "APPROVED",
+      "approval_reference": "HERM-210; multica-attachment:01a05228-a42d-72fa-b388-558f59430632",
+      "sha256": "9793619861bf0745914746a2909a195131d318426f74d0eace6caabf34ac4c45",
+      "classification": "APPROVED"
+    },
+    {
+      "artifact_id": "FT-T2",
+      "path_or_source": "https://github.com/hermanwangd/Feature-Delivery-Intelligence.git@44e953c3630e8a0078000c2d00eba28f7fc03220:{contracts,skills,workflows}",
+      "semantic_version": "LOCKED-HERM-211",
+      "document_status": "APPROVED_IMPLEMENTATION_SURFACE",
+      "approval_reference": "HERM-210:01a0532d-e397-793d-b334-05a4fc8d2560; HERM-211:01a05336-448a-746a-8deb-6dd6968a9ad4",
+      "sha256": "9bcbb5bbc97edc46a0a48053891d38cae8e3c2c56e351d568376ab63ceb8a280",
+      "digest_kind": "deterministic_tree_sha256",
+      "classification": "APPROVED"
+    },
+    {
+      "artifact_id": "L2-FWK",
+      "path_or_source": "fdi-multica-implementation-handoff-v0.1/02-layer2-approved/fdi-layer2-product-intelligence-framework-v0.1-approved.md",
+      "semantic_version": "0.1",
+      "document_status": "APPROVED",
+      "approval_reference": "HERM-210; multica-attachment:01a05228-a42d-72fa-b388-558f59430632",
+      "sha256": "167b0bbe88112fd7a895c10a64be977f2f7dd4ba7678c81818be79e38de1e165",
+      "classification": "APPROVED"
+    },
+    {
+      "artifact_id": "L2-PROFILE",
+      "path_or_source": "fdi-multica-implementation-handoff-v0.1/02-layer2-approved/fdi-product-asset-profile-specification-v0.1-approved.md",
+      "semantic_version": "0.1",
+      "document_status": "APPROVED_PA_03_PA_05_ONLY",
+      "approval_reference": "HERM-210; multica-attachment:01a05228-a42d-72fa-b388-558f59430632",
+      "sha256": "d43cfc258b36a020c65382a4929c98067599c832b52d63235fd860ff311753ea",
+      "classification": "APPROVED"
+    },
+    {
+      "artifact_id": "L2-MAINT",
+      "path_or_source": "fdi-multica-implementation-handoff-v0.1/02-layer2-approved/fdi-product-asset-maintenance-skill-contracts-v0.1-approved.md",
+      "semantic_version": "0.1",
+      "document_status": "APPROVED",
+      "approval_reference": "HERM-210; multica-attachment:01a05228-a42d-72fa-b388-558f59430632",
+      "sha256": "471614685929d17334e3d1faad4373c8a03a934731c2c17d7a8fef875dbd304a",
+      "classification": "APPROVED"
+    },
+    {
+      "artifact_id": "L1-SEM-v0.3",
+      "path_or_source": "fdi-complete-project-design-and-implementation-plan-v0.8.0/01-master-design/fdi-layer1-feature-transformation-specification-v0.3.md",
+      "semantic_version": "0.3",
+      "document_status": "CANDIDATE_CONSOLIDATION",
+      "approval_reference": null,
+      "sha256": "d51978c5044751c11b8f4052dae36a3267d2ad1521cba76a351efb0cba4bc705",
+      "classification": "CANDIDATE"
+    },
+    {
+      "artifact_id": "PA-01",
+      "path_or_source": "https://github.com/hermanwangd/Feature-Delivery-Intelligence.git@44e953c3630e8a0078000c2d00eba28f7fc03220:01-layer2/PA-01-MINIMAL-PRODUCT-SEMANTICS-PROFILE-v0.1-approval-candidate.md",
+      "semantic_version": "0.1",
+      "document_status": "APPROVAL_CANDIDATE",
+      "approval_reference": null,
+      "sha256": "0fdecda16efaa818be3ac3be820a3ab5742a5a7849b5ec8daae2790829a0f713",
+      "classification": "CANDIDATE"
+    }
+  ],
+  "supporting_inputs": [
+    {"artifact_id": "HANDOFF-v0.1", "sha256": "32b85c70907dd785a57008a5ee956d05c8631319ea7588faacc980ee268efd8e", "classification": "SOURCE_BUNDLE_NON_SEMANTIC"},
+    {"artifact_id": "DESIGN-BUNDLE-v0.7.1", "sha256": "ab37eb84d909fddcfc0a1fe09fc552179e449dc98e4f6cdd885ac51913d862b1", "classification": "REVIEW_SNAPSHOT_NON_SEMANTIC"},
+    {"artifact_id": "DESIGN-BUNDLE-v0.8.0", "sha256": "af9c520f07c577dbf83c2459a3ed47214edfd4acc866397a38551eafe7b4b349", "classification": "REVIEW_SNAPSHOT_NON_SEMANTIC"},
+    {"artifact_id": "SPEC-GOVERNANCE-HANDOFF-v1.0", "sha256": "03b9d62b62e668ca43c9713d02b5ceca959403e3a9bde02c9f8b1530f91c2097", "classification": "GOVERNANCE_HANDOFF_NON_SEMANTIC"},
+    {"artifact_id": "MERGED-CANONICAL-TREE", "sha256": "44e953c3630e8a0078000c2d00eba28f7fc03220", "digest_kind": "git_commit", "classification": "IMPLEMENTATION_SOURCE"}
+  ]
+}
