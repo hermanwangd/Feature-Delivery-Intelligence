@@ -1,0 +1,18 @@
+{
+  "approval": {
+    "actor": "Herman Wang",
+    "comment_id": "01a0619a-f3aa-748f-94c2-f298c6604994",
+    "decision": "APPROVE LIFECYCLE_IN_DIGEST_NEW_REVISION_V1 AND THE EXACT TUPLE ABOVE",
+    "issue": "HERM-228"
+  },
+  "approved_digest": "96d5f43a3c50ba2697907d4170f01997ab1b21e60f01e67c27ae5ed8f9fdc48e",
+  "base_commit": "44e953c3630e8a0078000c2d00eba28f7fc03220",
+  "baseline_id": "GB-0001",
+  "candidate_commit": "8444d0dbbc0a93dbfe66f95c61ebfd9a2a8aacbc",
+  "digest_algorithm": "sha256(canonical-json-without-baseline_digest)",
+  "independent_evidence_sha256": "55b725c119a733f6dce063fe92e8a30a7f373b83cbbfb462592a6b314982b5ae",
+  "pointer": "GB-0001",
+  "predecessor_candidate_digest": "71a4e5ef5098ac58a2591b67894eeb0d25e4d444670e07a258228b199f49c6a5",
+  "promotion_identity_mechanism": "LIFECYCLE_IN_DIGEST_NEW_REVISION_V1",
+  "target_status": "APPROVED"
+}

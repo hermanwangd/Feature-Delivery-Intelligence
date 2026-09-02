@@ -1,12 +1,12 @@
 {
   "baseline_id": "GB-0001",
-  "status": "CANDIDATE",
+  "status": "APPROVED",
   "created_date": "2026-09-02",
   "immutable_after_approval": true,
   "source_repository": "https://github.com/hermanwangd/Feature-Delivery-Intelligence",
   "source_revision": "44e953c3630e8a0078000c2d00eba28f7fc03220",
   "baseline_digest_algorithm": "sha256(canonical-json-without-baseline_digest)",
-  "baseline_digest": "71a4e5ef5098ac58a2591b67894eeb0d25e4d444670e07a258228b199f49c6a5",
+  "baseline_digest": "96d5f43a3c50ba2697907d4170f01997ab1b21e60f01e67c27ae5ed8f9fdc48e",
   "policy": {
     "generated_governing_spec_editable": false,
     "digest_mismatch": "BASELINE_INVALID",

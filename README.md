@@ -4,12 +4,13 @@ This repository is the dedicated FDI coordination repository. It contains the Ph
 
 ## Governing specification baseline
 
-`governance/baselines/GB-0001.yaml` is the digest-addressed candidate authority
+`governance/baselines/GB-0001.yaml` is the digest-addressed approved authority
 set. `governance/GOVERNING-SPEC.md` is generated from its selected exact modules
-and must not be edited manually. `governance/CURRENT` remains `UNSET` until the
-FDI Validation Steward independently verifies the freeze and Herman Wang
-explicitly approves promotion; runtime or bundle versions are not semantic
-authority.
+and must not be edited manually. `governance/CURRENT` selects `GB-0001` after
+independent validation and explicit Human approval; the predecessor identity
+and approval provenance are preserved in
+`governance/reconciliation/GB-0001-PROMOTION.json`. Runtime or bundle versions
+are not semantic authority.
 
 ```sh
 python3 scripts/governance_baseline.py \
